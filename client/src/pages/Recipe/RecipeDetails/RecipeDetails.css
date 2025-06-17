@@ -1,0 +1,89 @@
+.recipe-details-container {
+    text-align: left;
+}
+
+
+/*//! Recipe Details Hero Section */
+.recipe-hero {
+    display: flex;
+}
+
+.recipe-hero .food-img {
+    position: relative;
+}
+
+.recipe-hero .food-img .badge {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    font-size: 0.35em;
+    color: white;
+    background-color: var(--yellow);
+    border-radius: 25px;
+    padding: 0.3rem 1.5rem;
+}
+
+.recipe-hero .food-img img {
+    width: 450px;
+    border-radius: 20px;
+}
+
+/*//* Hero Section Food Details */
+.recipe-hero .food-details {
+    padding: 1rem 2rem 1rem 5rem;
+}
+
+.recipe-hero .food-details .title {
+    font-size: 0.6em;
+    color: var(--yellow);
+    line-height: 1.5;
+}
+.recipe-hero .food-details .time {
+    font-size: 0.4em;
+    color: var(--purple);
+    line-height: 1.5;
+}
+.recipe-hero .food-details .description {
+    font-size: 0.3em;
+    line-height: 1.6;
+    margin-top: 1.5rem;
+    font-weight: 500;
+}
+.recipe-hero .food-details .ingredients {
+    margin-top: 1.5rem;
+}
+.recipe-hero .food-details .ingredients h5 {
+    font-size: 0.4em;
+    margin-top: 1.5rem;
+    line-height: 2;
+    color: var(--purple);
+}
+.recipe-hero .ingredients th, .recipe-hero .ingredients td {
+    font-size: 0.3em;
+    font-weight: 500;
+    border: 1px solid #d9d9d9;
+    padding: 0.5rem 1rem;
+}
+
+
+
+
+/*//! Recipe Process */
+.recipe-details-container .recipe-process details {
+    padding: 0.7rem 0;
+}
+.recipe-details-container .recipe-process summary {
+    font-size: 0.4em;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+    color: white;
+    background-color: var(--purple);
+}
+.recipe-details-container .recipe-process p {
+    font-size: 0.35em;
+    padding: 1rem;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    background-color: #f2f2f2;
+}

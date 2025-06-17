@@ -1,0 +1,93 @@
+.pagenotfound-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 3rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px var(--yellow);
+}
+
+.pagenotfound-container h1 {
+    font-size: 200px;
+    background: linear-gradient(var(--purple), var(--yellow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.pagenotfound-container h2 {
+    font-size: 35px;
+    color: var(--purple);
+    margin: 0;
+}
+
+.pagenotfound-container p {
+    font-size: 18px;
+}
+
+.pagenotfound-container button {
+    font-size: 17px;
+    color: white;
+    background-color: var(--yellow);
+    border: 2px solid var(--hover-yellow);
+    border-radius: 3px;
+    font-weight: 600;
+    padding: 0.5rem 2rem;
+    margin-top: 1rem;
+}
+
+.pagenotfound-container button:hover {
+    background-color: var(--hover-yellow);
+    border: 2px solid var(--yellow);
+}
+
+@media only screen and (max-width: 500px) {
+    .pagenotfound-container {
+        width: 200px;
+        padding: 2rem;
+    }
+
+    .pagenotfound-container h1 {
+        font-size: 120px;
+    }
+
+    .pagenotfound-container h2 {
+        font-size: 25px;
+    }
+
+    .pagenotfound-container p {
+        font-size: 14px;
+    }
+
+    .pagenotfound-container button {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .pagenotfound-container {
+        padding: 1rem;
+    }
+
+    .pagenotfound-container h1 {
+        font-size: 100px;
+    }
+
+    .pagenotfound-container h2 {
+        font-size: 20px;
+    }
+
+    .pagenotfound-container p {
+        font-size: 12px;
+    }
+
+    .pagenotfound-container button {
+        font-size: 11px;
+    }
+}

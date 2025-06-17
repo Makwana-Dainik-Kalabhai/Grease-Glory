@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 50px;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  --purple: #662249;
+  --hover-purple: #862d5f;
+  --yellow: #e88630;
+  --hover-yellow: #ED9E59;
+}
+
+i,
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+.container {
+  padding: 0;
+  margin: auto;
+}
+
+section {
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 5rem 10rem 10rem 10rem;
+  overflow: hidden;
+}
+
+section h1 {
+  margin-bottom: 3rem;
+  font-size: 0.65em;
+  color: var(--purple);
+  padding: 0.5rem 0;
+  border-bottom: none;
+  text-align: center;
+}
+
+section h1 span {
+  padding: 0.5rem 0;
+  color: var(--yellow);
+  border-bottom: 7px solid var(--yellow);
+}
+
+.fake-header {
+  height: 130px;
+}
+
+section .decoration-box {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 30px;
+  transform: rotate(45deg);
+  box-shadow: 0px 0px 10px 2px #d9d9d9;
+  z-index: -1;
+}
+
+section:nth-of-type(odd) .decoration-box {
+  background-color: var(--yellow);
+}
+
+section:nth-of-type(even) .decoration-box {
+  background-color: var(--purple);
+}
+
+.decoration-box.left-top {
+  top: -190px;
+  left: -50px;
+}
+
+.decoration-box.left-bottom {
+  top: 150px;
+  left: -370px;
+}
+
+.decoration-box.right-bottom {
+  bottom: -170px;
+  right: -15%;
+}
+
+.loader {
+  width: fit-content;
+  margin: auto;
+}
+
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+  body {
+    font-size: 40px;
+  }
+
+  section {
+    padding: 5rem 5rem 9rem 5rem;
+  }
+
+  section h1 span {
+    border-bottom: 5px solid var(--yellow);
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+  body {
+    font-size: 35px;
+  }
+
+  section {
+    padding: 0 3rem;
+    padding: 5rem 3rem 10rem 3rem;
+  }
+
+  section h1 span {
+    border-bottom: 3px solid var(--yellow);
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 30px;
+  }
+
+  section {
+    padding: 0 2rem;
+  }
+
+  section h1 {
+    margin: 2rem 0;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 420px) {}
+
+
+@media only screen and (max-width: 360px) {}
