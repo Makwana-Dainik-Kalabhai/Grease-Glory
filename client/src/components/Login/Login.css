@@ -7,14 +7,12 @@
     display: grid;
     place-items: center;
     background-color: rgba(0, 0, 0, 0.5);
-    font-size: 18px;
     z-index: 2;
 }
 
 .login-modal {
     position: relative;
     width: 30%;
-    height: fit-content;
     padding: 4rem 3rem;
     color: white;
     background-color: var(--purple);
@@ -23,7 +21,7 @@
 }
 
 .login-modal .fa-xmark {
-    font-size: 1em;
+    font-size: 0.5em;
     position: absolute;
     top: 7%;
     right: 5.5%;
@@ -37,13 +35,14 @@
 
 
 .login-modal h1 {
+    font-size: 0.55em;
     text-align: center;
-    margin-top: 0;
-    margin-bottom: 2.5rem;
     line-height: 1;
+    margin-bottom: 2.5rem;
 }
 
 .login-modal h1 span {
+    padding: 0.5rem 0;
     border-bottom: 5px solid var(--yellow);
 }
 
@@ -53,25 +52,25 @@
 
 .login-modal .form-group {
     width: 100%;
+    font-size: 0.33em;
     position: relative;
-    margin-bottom: 1rem;
-    z-index: 1;
+    margin-bottom: 0.7rem;
 }
 
 .login-modal .form-group i {
+    cursor: auto;
     color: var(--yellow);
-    font-size: 0.9em;
     position: absolute;
     top: 50%;
-    right: 1%;
+    right: 2.5%;
     transform: translate(0, -50%);
 }
 
 .login-modal input {
-    width: 99%;
-    font-size: 0.8em;
-    padding: 0.6rem 0 0.6rem 0.7rem;
-    border-radius: 5px;
+    width: 97.5%;
+    font-size: 0.9em;
+    padding: 0.7rem 0 0.7rem 0.9rem;
+    border-radius: 25px;
     outline: none;
     border: 2px solid grey;
 }
@@ -88,14 +87,15 @@
     display: grid;
     place-items: center;
     width: 100%;
-    padding: 0.8rem 0 0.8rem 0;
-    font-size: 0.9em;
+    padding: 0.65rem 0 0.65rem 0.9rem;
+    font-size: 0.33em;
     font-weight: 600;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
     color: white;
-    border-radius: 5px;
     background-color: var(--yellow);
-    border: none;
+    border: 2px solid var(--yellow);
+    border-radius: 25px;
     cursor: pointer;
 }
 
@@ -104,7 +104,7 @@
 }
 
 .login-modal p {
-    font-size: 0.9em;
+    font-size: 0.33em;
     text-align: center;
 }
 

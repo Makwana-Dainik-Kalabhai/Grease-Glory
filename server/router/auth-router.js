@@ -12,20 +12,21 @@ router.route("/auth/signup").post(validate(signupSchema), async (req, res) => {
 
     const userExist = await User.findOne({ email });
 
-    if (userExist) return res.status(400).json({ msg: "User Already Exist" });
+    if (userExist)
+      return res.status(400).json({ message: "User Already Exist" });
 
     const user = await User.create({ username, email, password, phone });
 
     console.log(user);
 
     return res.status(201).json({
-      msg: user,
+      message: user,
       token: await user.generateToken(),
       userId: user._id.toString(),
     });
     //
   } catch (err) {
-    return res.json({ error: err.message });
+    return res.json({ message: err.message });
   }
 });
 
@@ -41,20 +42,20 @@ router.route("/auth/login").post(validate(loginSchema), async (req, res) => {
 
       if (validPassword) {
         return res.status(200).send({
-          msg: "Login Successfully",
+          message: "Login Successfully",
           token: await userExist.generateToken(),
           userId: userExist._id.toString(),
         });
       } else {
-        return res.status(401).json({ error: "Invalid Password" });
+        return res.status(401).json({ message: "Invalid Password" });
       }
     }
     //
-    else return res.status(400).json({ error: "Credential not Found" });
+    else return res.status(400).json({ message: "Credential not Found" });
     //
   } catch (err) {
     console.log(err);
-    return res.status(400).json({ error: err.message });
+    return res.status(400).json({ message: err.message });
   }
 });
 

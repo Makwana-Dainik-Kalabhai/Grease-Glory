@@ -4,7 +4,7 @@ import { useStore } from "../../ContextApi/Store";
 
 export const Contact = () => {
 
-    const { userData } = useStore();
+    const { userData, isLoading, setIsLoading, showLoader, showToast } = useStore();
     const { username, email, phone } = userData;
 
     const [contactData, setContactData] = useState({
@@ -29,26 +29,46 @@ export const Contact = () => {
     }
 
     const handleForm = async (e) => {
-        const res = await fetch("http://localhost:3001/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(contactData)
-        });
+        setIsLoading(true);
 
-        if (res.ok) setContactData({
-            username: username,
-            email: email,
-            phone: phone,
-            message: ""
-        });
+        try {
+            const req = await fetch("http://localhost:3001/user/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(contactData)
+            });
+            const res = await req.json();
+
+            if (req.ok) {
+                setContactData({
+                    username: username,
+                    email: email,
+                    phone: phone,
+                    message: ""
+                });
+                showToast(res.message, "success");
+            }
+            else {
+                showToast(res.message, "error");
+            }
+            setIsLoading(false);
+            //
+        }
+        catch (err) {
+            showToast(err.message, "error");
+        }
     }
 
     return (
         <div className="container">
             <div className="fake-header"></div>
             <section>
+                <div className="decoration-box left-top"></div>
+                <div className="decoration-box left-bottom"></div>
+                <div className="decoration-box right-bottom"></div>
+
                 <div className="contact-container">
                     <div className="contact-left">
                         <div className="location">
@@ -95,7 +115,7 @@ export const Contact = () => {
                                 <textarea name="message" placeholder="Message" rows="3" value={contactData.message || ""} onChange={handleInput}>{contactData.message}</textarea>
                                 <i className="fa-solid fa-message"></i>
                             </div>
-                            <input type="submit" name="submit" value="Send" />
+                            <button type="submit">{isLoading ? showLoader(20, 20, "white") : "Send"}</button>
                         </form>
                     </div>
                 </div>

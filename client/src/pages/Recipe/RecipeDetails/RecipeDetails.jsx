@@ -8,7 +8,7 @@ export const RecipeDetails = () => {
     const { id } = useParams();
     const [recipeDetails, setRecipeDetails] = useState("");
 
-    const { isLoading, setIsLoading, showLoader } = useStore();
+    const { isLoading, setIsLoading, showLoader, showToast } = useStore();
 
     const fetchDetails = async () => {
         setIsLoading(true);
@@ -21,9 +21,12 @@ export const RecipeDetails = () => {
                 setRecipeDetails(data);
                 setIsLoading(false);
             }
+            else {
+                showToast(data.message, "error");
+            }
         }
         catch (err) {
-            console.log(err.message);
+            showToast(err.message, "error");
         }
     }
 
@@ -34,50 +37,52 @@ export const RecipeDetails = () => {
     return (
         <>
             <div className="fake-header"></div>
-            {isLoading && showLoader(70, 70, "#e88630")}
 
-            {recipeDetails && <section className="recipe-details-container">
-                <div className="decoration-box left-top"></div>
-                <div className="decoration-box left-bottom"></div>
-                <div className="decoration-box right-bottom"></div>
+            <section>
+                {recipeDetails && <div className="recipe-details-container">
+                    <div className="decoration-box left-top"></div>
+                    <div className="decoration-box left-bottom"></div>
+                    <div className="decoration-box right-bottom"></div>
 
-                <div className="recipe-hero">
-                    <div className="food-img">
-                        <img src={recipeDetails.image} alt="" />
-                        <h5 className="badge">{recipeDetails.difficulty}</h5>
-                    </div>
-                    <div className="food-details">
-                        <h2 className="title">{recipeDetails.title}</h2>
-                        <h5 className="time">{recipeDetails.time}</h5>
-                        <p className="description">{recipeDetails.description}</p>
+                    <div className="recipe-hero">
+                        <div className="food-img">
+                            <img src={recipeDetails.image} alt="" />
+                            <h5 className="badge">{recipeDetails.difficulty}</h5>
+                        </div>
+                        <div className="food-details">
+                            <h2 className="title">{recipeDetails.title}</h2>
+                            <h5 className="time">{recipeDetails.time}</h5>
+                            <p className="description">{recipeDetails.description}</p>
 
-                        <div className="ingredients">
-                            <h5>Ingredients:</h5>
-                            <table>
-                                <tbody>
-                                    {recipeDetails.ingredients.map((ele, i) => {
-                                        return <tr key={i}>
-                                            <th>{i + 1}</th>
-                                            <td>{ele}</td>
-                                        </tr>
-                                    })}
-                                </tbody>
-                            </table>
+                            <div className="ingredients">
+                                <h5>Ingredients:</h5>
+                                <table>
+                                    <tbody>
+                                        {recipeDetails.ingredients.map((ele, i) => {
+                                            return <tr key={i}>
+                                                <th>{i + 1}</th>
+                                                <td>{ele}</td>
+                                            </tr>
+                                        })}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="recipe-process">
-                    <h1>Step by step <span>Process</span></h1>
+                    <div className="recipe-process">
+                        <h1>Step by step <span>Process</span></h1>
 
-                    {recipeDetails.method.map((ele, i) => {
-                        return <details key={i}>
-                            <summary>Step - {i + 1}</summary>
-                            <p>{ele[`Step ${i + 1}`]}</p>
-                        </details>
-                    })}
-                </div>
-            </section>}
+                        {recipeDetails.method.map((ele, i) => {
+                            return <details key={i}>
+                                <summary>Step - {i + 1}</summary>
+                                <p>{ele[`Step ${i + 1}`]}</p>
+                            </details>
+                        })}
+                    </div>
+                </div>}
+                {isLoading && showLoader(70, 70, "#e88630")}
+            </section>
         </>
     );
 }

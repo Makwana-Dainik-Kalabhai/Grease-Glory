@@ -9,7 +9,14 @@
 }
 
 .recipe-container::-webkit-scrollbar {
-    display: none;
+    width: 5px;
+}
+.recipe-container::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+}
+.recipe-container::-webkit-scrollbar-thumb {
+    background-color: var(--purple);
+    border-radius: 25px;
 }
 
 .recipe-grid {

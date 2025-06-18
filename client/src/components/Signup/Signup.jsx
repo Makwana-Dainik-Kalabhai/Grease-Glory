@@ -75,7 +75,8 @@ export const Signup = ({ setDisSignup, setDisLogin }) => {
                         <i className="fa-solid fa-phone"></i>
                     </div>
 
-                    <button type="submit">{isLoading ? showLoader(20, 20, "white") : "Login"}</button>
+                    <button type="submit">{isLoading ? showLoader(20, 20, "white") : "signUp"}</button>
+
                     <p>Are You Registered? <span className="login-link" onClick={() => { setDisSignup(false); setDisLogin(true); }}>Login</span></p>
                 </form>
             </div>

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Contact = require("../models/contact");
 
-router.route("/contact").post(async (req, res) => {
+router.route("/user/contact").post(async (req, res) => {
   try {
     const { username, email, phone, message } = req.body;
 
@@ -14,11 +14,13 @@ router.route("/contact").post(async (req, res) => {
     });
 
     if (ContactData)
-      return res.status(201).json({ msg: "Contact message sent successfully" });
-    else return res.status(400).json({ error: "Something went wrong" });
+      return res
+        .status(201)
+        .json({ message: "Contact message sent successfully" });
+    else return res.status(400).json({ message: "Something went wrong" });
     //
   } catch (err) {
-    return res.status(400).json({ error: err.message });
+    return res.status(400).json({ message: err.message });
   }
 });
 

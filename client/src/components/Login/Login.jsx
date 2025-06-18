@@ -4,7 +4,7 @@ import { useStore } from "../../ContextApi/Store";
 
 export const Login = ({ setDisSignup, setDisLogin }) => {
 
-    const { isLoading, setIsLoading, showLoader, storeTokenInLs } = useStore();
+    const { isLoading, setIsLoading, showLoader, showToast, storeTokenInLs } = useStore();
 
     const [user, setUser] = useState({
         email: "",
@@ -29,12 +29,18 @@ export const Login = ({ setDisSignup, setDisLogin }) => {
                 },
                 body: JSON.stringify(user)
             });
-
             let myRes = await res.json();
-            storeTokenInLs(myRes.token);
-            setUser({ email: "", password: "" });
+
+            if (res.ok) {
+                storeTokenInLs(myRes.token);
+                setUser({ email: "", password: "" });
+                showToast(myRes.message, "success");
+                setDisLogin(false);
+            }
+            else {
+                showToast(myRes.message, "error");
+            }
             setIsLoading(false);
-            setDisLogin(false);
             //
         }
         catch (err) {
