@@ -10,7 +10,7 @@ const Header = () => {
 
     const navigate = useNavigate();
 
-    const { isLogin, isLoading, showLoader } = useStore();
+    const { isLogin, cartItems } = useStore();
 
     const [disSignup, setDisSignup] = useState(false);
     const [disLogin, setDisLogin] = useState(false);
@@ -31,7 +31,11 @@ const Header = () => {
                     <NavLink to="/food">Foods</NavLink>
                     <NavLink to="/recipe">Recipes</NavLink>
                     <NavLink to="/contact">Contact Us</NavLink>
-                    {isLogin && <NavLink to="/orders">Orders</NavLink>}
+                    {isLogin && <>
+                        <NavLink to="/orders">Orders</NavLink>
+                        <NavLink to="/logout">Logout</NavLink>
+                        <i className="fa-solid fa-shopping-cart" onClick={() => navigate("/cart")}>{cartItems.length !== 0 && <span>{cartItems.length}</span>}</i>
+                    </>}
                     <div className="login-btns">
                         {!isLogin &&
                             <>
@@ -39,10 +43,6 @@ const Header = () => {
                                 <button onClick={() => { setDisLogin(true); }}>Login</button>
                             </>
                         }
-                        {isLogin && <>
-                            <NavLink to="/logout">Logout</NavLink>
-                            <i className="fa-solid fa-shopping-cart" onClick={() => navigate("/cart")}><span>1</span></i>
-                        </>}
                     </div>
                 </div>
             </nav>

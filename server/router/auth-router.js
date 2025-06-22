@@ -17,10 +17,8 @@ router.route("/auth/signup").post(validate(signupSchema), async (req, res) => {
 
     const user = await User.create({ username, email, password, phone });
 
-    console.log(user);
-
     return res.status(201).json({
-      message: user,
+      message: "signUp Successfully",
       token: await user.generateToken(),
       userId: user._id.toString(),
     });
@@ -29,6 +27,8 @@ router.route("/auth/signup").post(validate(signupSchema), async (req, res) => {
     return res.json({ message: err.message });
   }
 });
+
+
 
 //! Login Now
 router.route("/auth/login").post(validate(loginSchema), async (req, res) => {

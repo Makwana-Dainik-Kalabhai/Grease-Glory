@@ -18,13 +18,46 @@ export const ContextProvider = ({ children }) => {
 
     //! Get Token
     const getTokenFrLs = () => {
-        return localStorage.getItem("token");
+        return JSON.parse(localStorage.getItem("token")).value;
     }
 
     const [token, setToken] = useState(() => getTokenFrLs());
     const [isLogin, setIsLogin] = useState(!!token);
     const [isLoading, setIsLoading] = useState(false);
     const [userData, setUserData] = useState("");
+    const [cartItems, setCartItems] = useState([]);
+    const [cartTotSave, setCartTotSave] = useState(0);
+
+
+
+    //! Get Cart Items
+    const getCartItems = async (email) => {
+        try {
+            const res = await fetch("http://localhost:3001/cart", {
+                method: "GET",
+                headers: {
+                    "Email": email
+                }
+            });
+            const myRes = await res.json();
+
+            if (res.ok) {
+                setCartItems(myRes);
+                let total = 0;
+                myRes.map((ele) => {
+                    total += (ele.productId.price - ele.productId.offer_price) * ele.quantity;
+                });
+                setCartTotSave(total);
+            }
+            else showToast(myRes.message, "error");
+            //
+        }
+        catch (err) {
+            console.log(err.message);
+        }
+    }
+
+
 
     //! Get User Data
     const getUserData = async () => {
@@ -35,25 +68,24 @@ export const ContextProvider = ({ children }) => {
                     "Authorization": token
                 },
             });
+            const user = await res.json();
 
             if (res.ok) {
-                const user = await res.json();
                 setUserData(user);
-                if (!!userData) {
-                    console.log(userData);
-                }
+                getCartItems(user.email);
+            }
+            else {
+                showToast(user.message, "error");
             }
             //
         }
         catch (err) {
             console.log(err.message);
-            return "";
         }
     }
 
-
     useEffect(() => {
-        token && getUserData();
+        !!token && getUserData();
     }, [token]);
 
 
@@ -69,7 +101,6 @@ export const ContextProvider = ({ children }) => {
         setIsLogin(false);
         localStorage.removeItem("token");
         setToken("");
-        return;
     }
 
     //! Show Loader
@@ -91,7 +122,7 @@ export const ContextProvider = ({ children }) => {
     }
 
     return (
-        <Store.Provider value={{ isLoading, setIsLoading, showLoader, showToast, token, isLogin, storeTokenInLs, getTokenFrLs, removeTokenFrLs, userData }}>
+        <Store.Provider value={{ isLoading, setIsLoading, showLoader, showToast, token, isLogin, storeTokenInLs, getTokenFrLs, removeTokenFrLs, userData, cartItems, getCartItems, cartTotSave }}>
             {children}
         </Store.Provider>
     );

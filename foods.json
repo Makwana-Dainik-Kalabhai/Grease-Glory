@@ -1,0 +1,101 @@
+[
+    {
+        "category": "Pizza",
+        "veg": false,
+        "img": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/5/20/399da617-b80e-4455-97a2-0fb21c6d0e21_b7b84096-860d-41f0-a4bd-98f9d44422c8.jpeg",
+        "name": "Signature Korean Chicken Pizza",
+        "description": "K-Pop your tastebuds with hot buldak sauce, flavourful chicken chunks, onion, capsicum, tomato, mozzarella and liquid cheese!",
+        "price": 319,
+        "offer_price": 319
+    },
+    {
+        "category": "Pizza",
+        "veg": true,
+        "img": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/5/20/09014109-4edd-4e84-816e-5a40911f879c_bf53fe88-b312-4e7e-9350-e4dfbf87ba1a.jpeg",
+        "name": "Signature Korean Paneer Pizza",
+        "description": "Transport yourself to K-Town with this thrilling combination of buldak sauce, spicy paneer chunks, onion, capsicum, tomato, mozzarella and liquid cheese!",
+        "price": 299,
+        "offer_price": 299
+    },
+    {
+        "category": "Pizza",
+        "veg": true,
+        "img": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/5/16/1c6c1c8c-99db-4baf-93a5-494e70ea8c95_2cca87a1-3a69-4bdc-9c00-dfa128aa4f21.jpeg",
+        "name": "2 Medium Veg Pizza",
+        "description": "If pizza equals happiness, then don not just stop at 1. Double your happiness with this combo of 2 medium veg pizzas loaded with cheese and your fave toppings.",
+        "price": 799,
+        "offer_price": 499
+    },
+    {
+        "category": "Pizza",
+        "veg": false,
+        "img": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/5/16/876001ab-dda0-4322-b58e-2f30f1dd75aa_cc0e2937-ec28-4dd2-8d1f-10d17427f12a.jpeg",
+        "name": "1 Medium Veg & 1 Non Veg Pizza",
+        "description": "We got you the best of both worlds in this one combo. 1 loaded veg pizza for the veggie lovers and another chicken loaded for the chicken lovers that is what you call a perfect ceasefire!",
+        "price": 799,
+        "offer_price": 499
+    },
+    {
+        "category": "Pizza",
+        "veg": true,
+        "img": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/5/16/a2de394c-e0e1-40f8-a83d-cfcd9e0a2fd1_9c6be237-9ca4-42af-83d0-e3f1040a459a.jpeg",
+        "name": "3 Medium Veg Pizza",
+        "description": "How many pizzas are too many Not three, certainly, because we got you this mouth-watering combo of 3 medium veg pizzas, just in case you feel like partying with your troop.",
+        "price": 999,
+        "offer_price": 799
+    },
+    {
+        "category": "Pizza",
+        "veg": true,
+        "img": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/5/16/eea9972e-f419-4339-a53e-cbb5de6d3599_819673b4-78d1-4b55-99e3-5cf4d1cb3721.jpeg",
+        "name": "4 Regular Veg or non veg Pizza at 649",
+        "description": "How many pizzas are too many Not three, certainly, because we got you this mouth-watering combo of 3 medium veg pizzas, just in case you feel like partying with your troop.",
+        "price": 649,
+        "offer_price": 649
+    },
+    {
+        "category": "Pizza",
+        "veg": false,
+        "img": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/5/16/12c7eb2c-6687-45f2-be5c-a9345a650d26_c339775f-794c-4a5b-b5de-49d14f216828.jpeg",
+        "name": "Tandoori Paneer Tikka Pizza + Cheesy Garlic Bread",
+        "description": "A delicious, flavour packed combo of Tandoori Paneer Tikka Medium Pizza and Cheesy Garlic Bread. (Energy: 1543KCal, Carbohydrates: 162gm, Proteins: 62gm, Fats: 68gm, Sodium: 3523mg)",
+        "price": 639,
+        "offer_price": 399
+    },
+    {
+        "category": "Momos",
+        "veg": true,
+        "img": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/6/14/d35bbb29-3d9d-4517-ae31-73f56f5043d1_6f8caea6-5a08-4392-9bdb-596cbaae9365.png",
+        "name": "Gluten Free Corn Cheese Steam Momo",
+        "description": "Serves 1 | Sweet corn and creamy cheese blended with colorful peppers and spices, wrapped in gluten-free dough made with quinoa and chickpeas. Lower in calories, higher in protein. Served with spicy red sauce. [5 pcs] Calories: 226.98 | Protein: 9.40g per 100g. (Serves 1).",
+        "price": 355,
+        "offer_price": 355
+    },
+    {
+        "category": "Momos",
+        "veg": true,
+        "img": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/6/14/42bad911-aa86-4e2e-9f93-c817edc71278_f4e5275d-59d5-4abd-a0ff-7d6995e05753.png",
+        "name": "Gluten Free Corn Cheese Chilli Momo",
+        "description": "Serves 1 | Sweet corn and cheese wrapped in gluten-free dough made with quinoa and chickpeas. Lower in calories, higher in protein. Stir-fried in a hot and spicy chili sauce. [5 pcs] Calories: 226.98 | Protein: 9.40g per 100g. (Serves 1).",
+        "price": 445,
+        "offer_price": 445
+    },
+    {
+        "category": "Momos",
+        "veg": false,
+        "img": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/6/14/b3b4593c-52a1-4695-9e24-1bb65e1a434c_9c31dbde-f7f2-4555-84c1-61c6535e6f23.png",
+        "name": "Gluten Free Chicken Darjeeling Steam Momo",
+        "description": "Serves 1 | Soft, juicy boneless chicken mixed with onion, coriander, and spices, wrapped in gluten-free dough made with quinoa and chickpeas. Lower in calories, higher in protein. Served with spicy Darjeeling sauce. [5 pcs] Calories: 273.22 | Protein: 11.13g per 100g. (Serves 1).",
+        "price": 295,
+        "offer_price": 295
+    },
+    {
+        "category": "Momos",
+        "veg": false,
+        "img": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/6/14/5f2e0024-11d0-4a73-bb8c-122c61ee2d9a_a2f5bf87-895b-41bf-bf4e-c6db374bdb6d.png",
+        "name": "Gluten Free Chicken Cheese Steam Momo",
+        "description": "Serves 1 | Shredded chicken infused with spices and wrapped in gluten-free dough made with quinoa and chickpeas. Lower in calories, higher in protein. Served with a spicy red sauce. [5 pcs] Calories: 246.85 | Protein: 10.96g per 100g. (Serves 1).",
+        "price": 365,
+        "offer_price": 365
+    }
+]

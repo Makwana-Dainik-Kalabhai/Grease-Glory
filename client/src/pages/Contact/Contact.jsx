@@ -8,9 +8,9 @@ export const Contact = () => {
     const { username, email, phone } = userData;
 
     const [contactData, setContactData] = useState({
-        username: "",
-        email: "",
-        phone: "",
+        username: username,
+        email: email,
+        phone: phone,
         message: ""
     });
 
@@ -21,7 +21,7 @@ export const Contact = () => {
             phone: phone,
             message: ""
         });
-    }, [userData]);
+    }, [username, email, phone]);
 
     const handleInput = (e) => {
         const { name, value } = e.target;
@@ -29,10 +29,11 @@ export const Contact = () => {
     }
 
     const handleForm = async (e) => {
+        e.preventDefault();
         setIsLoading(true);
 
         try {
-            const req = await fetch("http://localhost:3001/user/contact", {
+            const req = await fetch("http://localhost:3001/contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -53,11 +54,13 @@ export const Contact = () => {
             else {
                 showToast(res.message, "error");
             }
-            setIsLoading(false);
             //
         }
         catch (err) {
             showToast(err.message, "error");
+        }
+        finally {
+            setIsLoading(false);
         }
     }
 

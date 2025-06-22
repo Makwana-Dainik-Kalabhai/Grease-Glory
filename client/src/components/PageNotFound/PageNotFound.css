@@ -11,7 +11,7 @@
 }
 
 .pagenotfound-container h1 {
-    font-size: 200px;
+    font-size: 4em;
     background: linear-gradient(var(--purple), var(--yellow));
     -webkit-background-clip: text;
     background-clip: text;
@@ -22,17 +22,17 @@
 }
 
 .pagenotfound-container h2 {
-    font-size: 35px;
+    font-size: 0.8em;
     color: var(--purple);
     margin: 0;
 }
 
 .pagenotfound-container p {
-    font-size: 18px;
+    font-size: 0.35em;
 }
 
 .pagenotfound-container button {
-    font-size: 17px;
+    font-size: 0.35em;
     color: white;
     background-color: var(--yellow);
     border: 2px solid var(--hover-yellow);
@@ -49,45 +49,13 @@
 
 @media only screen and (max-width: 500px) {
     .pagenotfound-container {
-        width: 200px;
+        width: 150px;
         padding: 2rem;
-    }
-
-    .pagenotfound-container h1 {
-        font-size: 120px;
-    }
-
-    .pagenotfound-container h2 {
-        font-size: 25px;
-    }
-
-    .pagenotfound-container p {
-        font-size: 14px;
-    }
-
-    .pagenotfound-container button {
-        font-size: 13px;
     }
 }
 
 @media only screen and (max-width: 300px) {
     .pagenotfound-container {
-        padding: 1rem;
-    }
-
-    .pagenotfound-container h1 {
-        font-size: 100px;
-    }
-
-    .pagenotfound-container h2 {
-        font-size: 20px;
-    }
-
-    .pagenotfound-container p {
-        font-size: 12px;
-    }
-
-    .pagenotfound-container button {
-        font-size: 11px;
+        padding: 9rem;
     }
 }

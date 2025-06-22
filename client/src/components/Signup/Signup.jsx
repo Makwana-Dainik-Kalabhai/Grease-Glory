@@ -4,7 +4,7 @@ import { useStore } from "../../ContextApi/Store";
 
 export const Signup = ({ setDisSignup, setDisLogin }) => {
 
-    const { isLoading, setIsLoading, showLoader } = useStore();
+    const { isLoading, setIsLoading, showLoader, showToast, storeTokenInLs } = useStore();
 
     const [user, setUser] = useState({
         username: "",
@@ -22,6 +22,7 @@ export const Signup = ({ setDisSignup, setDisLogin }) => {
         }));
     }
 
+
     const handleForm = async (e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -34,18 +35,31 @@ export const Signup = ({ setDisSignup, setDisLogin }) => {
                 },
                 body: JSON.stringify(user),
             });
-            setUser({
-                username: "",
-                email: "",
-                password: "",
-                phone: ""
-            });
-            setIsLoading(true);
-            setDisSignup(false);
+            const myRes = await res.json();
+
+            if (res.ok) {
+                storeTokenInLs(myRes.token);
+
+                setUser({
+                    username: "",
+                    email: "",
+                    password: "",
+                    phone: ""
+                });
+                setDisSignup(false);
+
+                showToast(myRes.message, "success");
+            }
+            else {
+                showToast(myRes.message, "error");
+            }
             //
         }
         catch (err) {
-            console.error(err);
+            showToast(err.message, "error");
+        }
+        finally {
+            setIsLoading(false);
         }
     }
 

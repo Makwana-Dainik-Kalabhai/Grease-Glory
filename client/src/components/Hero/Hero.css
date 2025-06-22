@@ -4,7 +4,6 @@ header {
     height: 46vw;
 }
 
-
 .wave {
     position: absolute;
     top: -8%;
@@ -100,11 +99,11 @@ header .search-input input[type="submit"]:hover {
 
 header .hero-container button {
     margin-top: 3rem;
+    padding: 0.8rem 2.5em;
     font-size: 0.35em;
     font-weight: 500;
     border: none;
     border-radius: 25px;
-    padding: 0.8rem 2.5em;
     transition: all 0.3s ease;
     color: white;
     background-color: var(--yellow);
@@ -117,8 +116,6 @@ header .hero-container button:hover {
 
 
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (max-width: 1200px) {}
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) {
@@ -156,6 +153,10 @@ header .hero-container button:hover {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) {
+    header {
+        height: 60vw;
+    }
+
     header .hero-container .search-input {
         margin-top: 1.5rem;
     }
@@ -174,14 +175,35 @@ header .hero-container button:hover {
     }
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 500px) {
+    header {
+        height: 65vw;
+    }
+.wave {
+    top: -5.5%;
+    width: 90%;
+}
 
-@media only screen and (max-width: 420px) {}
+.wave .circle {
+    top: -7%;
+    left: -33%;
+    width: 55vw;
+    height: 55vw;
+}
 
+.wave img {
+    top: 53%;
+    left: -2%;
+    width: 41vw;
+    height: 41vw;
+}
+    header .hero-container {
+        width: 50%;
+        right: 0;
+    }
 
-@media only screen and (max-width: 360px) {
-    body {
-        font-size: 10px;
+    header .hero-container button {
+        margin-top: 1rem;
+        padding: 0.6rem 2em;
     }
 }

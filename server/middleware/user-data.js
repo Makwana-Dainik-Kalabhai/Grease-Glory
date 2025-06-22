@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
 const getUserData = async (req, res, next) => {
-  const token = JSON.parse(req.header("Authorization")).value;
+  const token = req.header("Authorization"); //JSON.parse(req.header("Authorization")).value;
 
   if (!token)
     return res

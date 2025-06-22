@@ -6,6 +6,7 @@ export const Login = ({ setDisSignup, setDisLogin }) => {
 
     const { isLoading, setIsLoading, showLoader, showToast, storeTokenInLs } = useStore();
 
+
     const [user, setUser] = useState({
         email: "",
         password: ""
@@ -16,6 +17,7 @@ export const Login = ({ setDisSignup, setDisLogin }) => {
 
         setUser((prev) => ({ ...prev, [name]: value }));
     }
+
 
     const handleForm = async (e) => {
         e.preventDefault();
@@ -33,6 +35,7 @@ export const Login = ({ setDisSignup, setDisLogin }) => {
 
             if (res.ok) {
                 storeTokenInLs(myRes.token);
+
                 setUser({ email: "", password: "" });
                 showToast(myRes.message, "success");
                 setDisLogin(false);
@@ -40,11 +43,13 @@ export const Login = ({ setDisSignup, setDisLogin }) => {
             else {
                 showToast(myRes.message, "error");
             }
-            setIsLoading(false);
             //
         }
         catch (err) {
-            console.error(err);
+            showToast(err.message, "error");
+        }
+        finally {
+            setIsLoading(false);
         }
     }
 

@@ -1,0 +1,74 @@
+.food-modal-container {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 8;
+}
+.food-modal-container .food-modal {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    border: 2px solid #d9d9d9;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 5px 1px grey;
+    overflow: hidden;
+}
+
+.food-modal-container .food-modal img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.food-modal .food-details {
+    padding: 2rem;
+}
+
+.food-modal .food-details .name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--purple);
+    font-size: 0.37em;
+}
+.food-modal .food-details .name span {
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: 0.3rem 2rem;
+    border-radius: 7px;
+    color: var(--yellow);
+    background-color: white;
+    border: 2px solid var(--yellow);
+}
+
+.food-modal .food-details .category {
+    color: var(--yellow);
+    font-size: 0.32em;
+}
+
+.food-modal .food-details div {
+    display: flex;
+    padding-top: 0.5rem;
+}
+
+.food-modal .food-details span {
+    width: fit-content;
+    font-size: 0.32em;
+    font-weight: 700;
+}
+
+.price {
+    color: grey;
+    text-decoration: line-through;
+}
+
+.food-modal .food-details p {
+    color: grey;
+    font-size: 0.3em;
+    font-weight: 600;
+    padding-top: 0.5rem;
+}

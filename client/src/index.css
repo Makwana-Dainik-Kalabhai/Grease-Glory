@@ -25,10 +25,6 @@ code {
   --hover-yellow: #ED9E59;
 }
 
-/* .toast-font-size {
-  font-size: 0.37em !important;
-} */
-
 i,
 button,
 input[type="submit"] {
@@ -137,6 +133,26 @@ section.Toastify {
   section h1 span {
     border-bottom: 3px solid var(--yellow);
   }
+
+  section .decoration-box {
+    width: 350px;
+    height: 350px;
+  }
+
+  .decoration-box.left-top {
+    top: -220px;
+    left: -10px;
+  }
+
+  .decoration-box.left-bottom {
+    top: 120px;
+    left: -300px;
+  }
+
+  .decoration-box.right-bottom {
+    bottom: -140px;
+    right: -15%;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -145,8 +161,31 @@ section.Toastify {
     font-size: 30px;
   }
 
+  section {
+    padding: 3rem 3rem 8rem 3rem;
+  }
+
   section h1 {
     margin: 2rem 0;
+  }
+
+  section .decoration-box {
+    width: 300px;
+    height: 300px;
+  }
+
+  .decoration-box.left-top {
+    top: -150px;
+    left: 20px;
+  }
+
+  .decoration-box.left-bottom {
+    top: 170px;
+    left: -235px;
+  }
+
+  .decoration-box.right-bottom {
+    bottom: -120px;
   }
 }
 
@@ -155,9 +194,49 @@ section.Toastify {
   body {
     font-size: 25px;
   }
+
+  section {
+    padding: 2rem 1.5rem 6rem 1.5rem;
+  }
+
+  .decoration-box.left-top {
+    top: -190px;
+    left: -30px;
+  }
+
+  .decoration-box.left-bottom {
+    top: 80px;
+    left: -250px;
+  }
+
+  .decoration-box.right-bottom {
+    bottom: -140px;
+    right: -25%;
+  }
 }
 
-@media only screen and (max-width: 420px) {}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 420px) {
+  body {
+    font-size: 20px;
+  }
+  section {
+    padding: 1rem 1.5rem 4rem 1.5rem;
+  }
 
+  section:nth-of-type(odd) {
+    background-color: #f9ecf3;
+  }
 
-@media only screen and (max-width: 360px) {}
+  section:nth-of-type(even) {
+    background-color: #fcf2e8;
+  }
+
+  section h1 {
+    margin: 1rem 0;
+  }
+
+  section .decoration-box {
+    display: none;
+  }
+}
