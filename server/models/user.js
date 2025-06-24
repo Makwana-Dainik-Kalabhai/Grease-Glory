@@ -19,6 +19,10 @@ const userSchema = Schema({
     type: String,
     required: true,
   },
+  address: {
+    type: String,
+    required: true,
+  },
 });
 
 //* bcrypt Password

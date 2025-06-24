@@ -1,0 +1,324 @@
+/*! General Styling */
+.cart-container {
+    width: 60%;
+    margin: auto;
+    margin-top: 7rem;
+    padding: 2rem;
+    padding-bottom: 0;
+    background-color: #f2f2f2;
+}
+
+.cart-container .container {
+    padding: 1.5rem 0;
+}
+
+.cart-container .container h5 {
+    font-size: 0.33em;
+}
+
+.cart-container .sections {
+    padding: 1rem;
+    margin-top: 0.7rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 2px #f2f2f2;
+}
+.cart-container .sections p {
+    font-size: 0.28em;
+    font-weight: 600;
+}
+
+.cart-container .total-save {
+    font-size: 0.32em;
+    font-weight: 700;
+    border: 2px solid #d9d9d9;
+    color: green;
+    background: linear-gradient(93.24deg, #ecfff7 26.13%, #b0ebd3 95.94%);
+}
+
+
+
+.cart-container .item>div:last-child {
+    width: 15%;
+    display: flex;
+    align-items: center;
+}
+
+/*! Sold Out Products */
+.sold-products h5 {
+    color: red;
+    font-size: 0.3em;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed grey;
+}
+
+.sold-products .item {
+    opacity: 0.5;
+}
+
+.sold-products .item>div:last-child {
+    justify-content: space-evenly;
+}
+
+.sold-products .item span {
+    padding: 0.1rem 0.3rem;
+    border-radius: 5px;
+    font-size: 0.25em;
+    font-weight: 600;
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
+/*! Products Container */
+.products-container .products .heading {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed grey;
+}
+
+.products-container .products .heading p:last-child {
+    color: grey;
+}
+
+
+/** All Products */
+.cart-container .items .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+}
+
+.cart-container .items .item img {
+    width: 8%;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+}
+
+/** Item Details */
+.cart-container .item .details {
+    width: 70%;
+}
+
+.cart-container .item .details .name {
+    font-size: 0.3em;
+    font-weight: 600;
+    color: var(--purple);
+}
+
+.cart-container .item .details .category {
+    font-size: 0.27em;
+    font-weight: 600;
+    color: var(--yellow);
+}
+
+.cart-container .item .details .veg {
+    font-size: 0.85em;
+    padding: 0.05rem 0.6rem;
+    border-radius: 3px;
+}
+
+/** Item Quantity & Price */
+.products-container .item .quantity-price {
+    justify-content: space-between;
+}
+
+.products-container .item .quantity-price .quantity {
+    display: flex;
+    align-items: center;
+}
+
+.item .quantity-price button {
+    width: fit-content;
+    height: fit-content;
+    color: var(--purple);
+    font-size: 0.27em;
+    padding: 0.2rem 0.3rem;
+    background-color: white;
+    border: 1px solid var(--yellow);
+}
+
+.item .quantity-price .decrement-btn {
+    border-right: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.item .quantity-price .increment-btn {
+    border-left: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.item .quantity-price input {
+    width: 20%;
+    height: fit-content;
+    padding: 0.2rem 0.3rem;
+    color: var(--purple);
+    font-size: 0.27em;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-top: 1px solid var(--yellow);
+    border-bottom: 1px solid var(--yellow);
+}
+
+.item .quantity-price input::-webkit-outer-spin-button,
+.item .quantity-price input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/* Firefox */
+.item .quantity-price input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.item .quantity-price .price {
+    font-size: 0.27em;
+    font-weight: 600;
+}
+
+.item .quantity-price .offer-price {
+    font-size: 0.29em;
+    font-weight: 600;
+}
+
+
+/*! Missed Something Section */
+.products-container .missed-something {
+    display: grid;
+    place-items: center;
+}
+
+.products-container .missed-something button {
+    font-weight: 600;
+    color: red;
+    border: none;
+    background-color: transparent;
+}
+
+
+/*//! Bill Details Section  */
+.cart-container .bill-section>div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+}
+
+.cart-container .bill-section p:first-child {
+    color: #595959;
+}
+
+.cart-container .bill-section .gst-charge {
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed grey;
+}
+
+.cart-container .bill-section .to-pay {
+    padding: 0.7rem 0;
+}
+
+
+
+
+
+
+
+/*//! User Details Section  */
+.cart-container .user-section>div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+}
+
+.cart-container .user-section p {
+    width: 50%;
+}
+.cart-container .user-section p:first-child {
+    color: #595959;
+}
+.cart-container .user-section p:last-child {
+    text-align: end;
+}
+
+
+
+
+
+
+
+/*//! Bottom Payment form */
+.cart-container .bottom-payment-form {
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    box-shadow: 0px -5px 10px 2px #d9d9d9;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cart-container .bottom-payment-form .to-pay-heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 2rem;
+    background-color: #fae4d1;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.bottom-payment-form .to-pay-heading h5 {
+    font-size: 0.3em;
+}
+.bottom-payment-form .to-pay-heading a {
+    font-size: 0.27em;
+    color: var(--purple);
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+}
+.cart-container .bottom-payment-form form {
+    padding: 1rem 2rem;
+}
+.cart-container .bottom-payment-form .form-group {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--purple);
+}
+
+.bottom-payment-form .form-group i {
+    font-size: 0.5em;
+    color: var(--purple);
+    cursor: default;
+}
+
+.bottom-payment-form .form-group textarea {
+    width: 100%;
+    font-size: 0.35em;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+.bottom-payment-form .form-group textarea::placeholder {
+    font-weight: 600;
+}
+
+.cart-container .bottom-payment-form form button {
+    width: 100%;
+    color: white;
+    font-size: 0.35em;
+    font-weight: 600;
+    background-color: var(--yellow);
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 10px;
+}
+.cart-container .bottom-payment-form form button:hover {
+    background-color: var(--hover-yellow);
+}

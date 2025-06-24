@@ -2,10 +2,12 @@ import "./Food.css";
 import { useState, useEffect } from "react";
 import { useStore } from "../../ContextApi/Store";
 import { FoodModal } from "./FoodModal/FoodModal";
+import { useNavigate } from "react-router-dom";
 
 export const Food = () => {
+    const navigate = useNavigate();
 
-    const { isLoading, setIsLoading, showLoader, showToast, userData, cartItems, getCartItems, cartTotSave } = useStore();
+    const { setDisSignup, disLogin, setDisLogin, isLogin, isLoading, setIsLoading, showLoader, showToast, userData, cartItems, getCartItems, cartTotSave } = useStore();
     const [foods, setFoods] = useState([]);
     const [categories, setCategories] = useState("");
     const [filterCategory, setFilterCategory] = useState("all");
@@ -50,27 +52,34 @@ export const Food = () => {
 
     //! Add Item to Cart
     const addToCart = async (productId) => {
-        setIsLoading(true);
-        try {
-            const res = await fetch("http://localhost:3001/add-cart", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ productId, email: userData.email, quantity: 1 })
-            });
-            const myRes = await res.json();
+        if (isLogin) {
+            setIsLoading(true);
+            try {
+                const res = await fetch("http://localhost:3001/add-cart", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ productId, email: userData.email, quantity: 1 })
+                });
+                const myRes = await res.json();
 
-            if (res.ok) {
-                getCartItems(userData.email);
+                if (res.ok) {
+                    getCartItems(userData.email);
+                }
+                else showToast(myRes.message, "error");
             }
-            else showToast(myRes.message, "error");
+            //
+            catch (err) {
+                showToast(err.message, "error");
+            }
+            setIsLoading(false);
         }
-        //
-        catch (err) {
-            showToast(err.message, "error");
+        else {
+            setDisSignup(false);
+            setDisLogin(true);
+            showToast("Please! Login First", "warn");
         }
-        setIsLoading(false);
     }
 
 
@@ -120,20 +129,20 @@ export const Food = () => {
                     const filteredCart = cartItems && cartItems.filter(cartEle => cartEle.productId._id === ele._id);
                     filteredCart && JSON.stringify(filteredCart);
 
-                    return <div className={`food-card ${(filterCategory && filterCategory === ele.category || filterCategory === "all") ? "show-food" : ""}`} key={ele._id} onClick={() => setFoodModal(ele._id)}>
+                    return <div className={`food-card ${(filterCategory && filterCategory === ele.category || filterCategory === "all") ? "show-food" : ""}`} key={ele._id} style={{ opacity: ele.quantity <= 0 && 0.7 }}>
                         <div className="food-img">
-                            <img src={ele.img} alt={ele.name} />
+                            <img src={ele.img} alt={ele.name} onClick={() => setFoodModal(ele._id)} />
                             <div className="add-cart-btn">
-                                {filteredCart && filteredCart.length > 0 ? <>
+                                {(ele.quantity > 0 && filteredCart && filteredCart.length > 0) ? <>
                                     <button className="decrement-btn" onClick={() => updateCart(filteredCart[0]._id, filteredCart[0].quantity - 1)}><i className="fa-solid fa-minus"></i></button>
                                     <input type="number" value={filteredCart[0].quantity} readOnly />
                                     <button className="increment-btn" onClick={() => updateCart(filteredCart[0]._id, filteredCart[0].quantity + 1)}><i className="fa-solid fa-plus"></i></button>
 
-                                </> : <button className="add-btn" onClick={() => addToCart(ele._id)}>ADD</button>}
+                                </> : <button className="add-btn" onClick={() => ele.quantity>0 && addToCart(ele._id)}>{ele.quantity<=0?"Sold Out":"ADD"}</button>}
                             </div>
                         </div>
 
-                        <div className="food-details">
+                        <div className="food-details" onClick={() => setFoodModal(ele._id)}>
                             <img className="veg-icon" src={ele.veg ? "https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png" : "https://www.pngkey.com/png/full/245-2459071_non-veg-icon-non-veg-symbol-png.png"} alt="" />
 
                             <h2 className="name">{ele.name}</h2>
@@ -147,7 +156,7 @@ export const Food = () => {
                     </div>
                 })}
 
-                {cartItems.length !== 0 && <div className="view-cart-container">
+                {cartItems && cartItems.length !== 0 && <div className="view-cart-container">
                     <div className="product-imgs">
                         {!!cartItems && cartItems.map((ele, ind) => {
                             return ind < 5 && <img src={ele.productId.img} alt={ele.productId.name} key={ind} />
@@ -157,7 +166,7 @@ export const Food = () => {
                         <p className="total-items">{cartItems.length} Items <i className="fa-solid fa-angle-up"></i></p>
                         <p className="total-save">₹{cartTotSave} Save</p>
                     </div>
-                    <button className="view-cart-btn">View Cart</button>
+                    <button className="view-cart-btn" onClick={() => navigate("/cart")}>View Cart</button>
                 </div>}
             </div>
             }

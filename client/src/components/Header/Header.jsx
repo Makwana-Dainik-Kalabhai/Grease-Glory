@@ -10,10 +10,7 @@ const Header = () => {
 
     const navigate = useNavigate();
 
-    const { isLogin, cartItems } = useStore();
-
-    const [disSignup, setDisSignup] = useState(false);
-    const [disLogin, setDisLogin] = useState(false);
+    const { disSignup, setDisSignup, disLogin, setDisLogin, isLogin, cartItems } = useStore();
     const [disMenus, setDisMenus] = useState(false);
 
     useEffect(() => {
@@ -76,8 +73,8 @@ const Header = () => {
                 </div>
             </nav>
 
-            {disSignup && <Signup setDisLogin={setDisLogin} setDisSignup={setDisSignup} />}
-            {disLogin && <Login setDisLogin={setDisLogin} setDisSignup={setDisSignup} />}
+            {disSignup && <Signup />}
+            {disLogin && <Login />}
         </>
     );
 }

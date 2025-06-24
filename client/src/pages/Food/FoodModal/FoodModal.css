@@ -7,7 +7,7 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.55);
-    z-index: 8;
+    z-index: 5;
 }
 .food-modal-container .food-modal {
     display: flex;
@@ -36,6 +36,7 @@
     font-size: 0.37em;
 }
 .food-modal .food-details .name span {
+    min-width: fit-content;
     font-size: 0.75em;
     font-weight: 600;
     padding: 0.3rem 2rem;

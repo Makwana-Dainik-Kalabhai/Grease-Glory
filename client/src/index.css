@@ -31,11 +31,6 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-.container {
-  padding: 0;
-  margin: auto;
-}
-
 section {
   display: grid;
   place-items: center;

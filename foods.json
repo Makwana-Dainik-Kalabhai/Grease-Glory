@@ -6,7 +6,8 @@
         "name": "Signature Korean Chicken Pizza",
         "description": "K-Pop your tastebuds with hot buldak sauce, flavourful chicken chunks, onion, capsicum, tomato, mozzarella and liquid cheese!",
         "price": 319,
-        "offer_price": 319
+        "offer_price": 319,
+        "quantity": 10
     },
     {
         "category": "Pizza",
@@ -15,7 +16,8 @@
         "name": "Signature Korean Paneer Pizza",
         "description": "Transport yourself to K-Town with this thrilling combination of buldak sauce, spicy paneer chunks, onion, capsicum, tomato, mozzarella and liquid cheese!",
         "price": 299,
-        "offer_price": 299
+        "offer_price": 299,
+        "quantity": 10
     },
     {
         "category": "Pizza",
@@ -24,7 +26,8 @@
         "name": "2 Medium Veg Pizza",
         "description": "If pizza equals happiness, then don not just stop at 1. Double your happiness with this combo of 2 medium veg pizzas loaded with cheese and your fave toppings.",
         "price": 799,
-        "offer_price": 499
+        "offer_price": 499,
+        "quantity": 10
     },
     {
         "category": "Pizza",
@@ -33,7 +36,8 @@
         "name": "1 Medium Veg & 1 Non Veg Pizza",
         "description": "We got you the best of both worlds in this one combo. 1 loaded veg pizza for the veggie lovers and another chicken loaded for the chicken lovers that is what you call a perfect ceasefire!",
         "price": 799,
-        "offer_price": 499
+        "offer_price": 499,
+        "quantity": 10
     },
     {
         "category": "Pizza",
@@ -42,7 +46,8 @@
         "name": "3 Medium Veg Pizza",
         "description": "How many pizzas are too many Not three, certainly, because we got you this mouth-watering combo of 3 medium veg pizzas, just in case you feel like partying with your troop.",
         "price": 999,
-        "offer_price": 799
+        "offer_price": 799,
+        "quantity": 10
     },
     {
         "category": "Pizza",
@@ -51,7 +56,8 @@
         "name": "4 Regular Veg or non veg Pizza at 649",
         "description": "How many pizzas are too many Not three, certainly, because we got you this mouth-watering combo of 3 medium veg pizzas, just in case you feel like partying with your troop.",
         "price": 649,
-        "offer_price": 649
+        "offer_price": 649,
+        "quantity": 10
     },
     {
         "category": "Pizza",
@@ -60,7 +66,8 @@
         "name": "Tandoori Paneer Tikka Pizza + Cheesy Garlic Bread",
         "description": "A delicious, flavour packed combo of Tandoori Paneer Tikka Medium Pizza and Cheesy Garlic Bread. (Energy: 1543KCal, Carbohydrates: 162gm, Proteins: 62gm, Fats: 68gm, Sodium: 3523mg)",
         "price": 639,
-        "offer_price": 399
+        "offer_price": 399,
+        "quantity": 10
     },
     {
         "category": "Momos",
@@ -69,7 +76,8 @@
         "name": "Gluten Free Corn Cheese Steam Momo",
         "description": "Serves 1 | Sweet corn and creamy cheese blended with colorful peppers and spices, wrapped in gluten-free dough made with quinoa and chickpeas. Lower in calories, higher in protein. Served with spicy red sauce. [5 pcs] Calories: 226.98 | Protein: 9.40g per 100g. (Serves 1).",
         "price": 355,
-        "offer_price": 355
+        "offer_price": 355,
+        "quantity": 10
     },
     {
         "category": "Momos",
@@ -78,7 +86,8 @@
         "name": "Gluten Free Corn Cheese Chilli Momo",
         "description": "Serves 1 | Sweet corn and cheese wrapped in gluten-free dough made with quinoa and chickpeas. Lower in calories, higher in protein. Stir-fried in a hot and spicy chili sauce. [5 pcs] Calories: 226.98 | Protein: 9.40g per 100g. (Serves 1).",
         "price": 445,
-        "offer_price": 445
+        "offer_price": 445,
+        "quantity": 10
     },
     {
         "category": "Momos",
@@ -87,7 +96,8 @@
         "name": "Gluten Free Chicken Darjeeling Steam Momo",
         "description": "Serves 1 | Soft, juicy boneless chicken mixed with onion, coriander, and spices, wrapped in gluten-free dough made with quinoa and chickpeas. Lower in calories, higher in protein. Served with spicy Darjeeling sauce. [5 pcs] Calories: 273.22 | Protein: 11.13g per 100g. (Serves 1).",
         "price": 295,
-        "offer_price": 295
+        "offer_price": 295,
+        "quantity": 10
     },
     {
         "category": "Momos",

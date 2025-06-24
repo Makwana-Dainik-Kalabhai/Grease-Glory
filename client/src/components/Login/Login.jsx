@@ -2,10 +2,9 @@ import { useState } from "react";
 import "./Login.css";
 import { useStore } from "../../ContextApi/Store";
 
-export const Login = ({ setDisSignup, setDisLogin }) => {
+export const Login = () => {
 
-    const { isLoading, setIsLoading, showLoader, showToast, storeTokenInLs } = useStore();
-
+    const { setDisSignup, setDisLogin, isLoading, setIsLoading, showLoader, showToast, storeTokenInLs } = useStore();
 
     const [user, setUser] = useState({
         email: "",

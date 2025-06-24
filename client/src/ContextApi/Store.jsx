@@ -18,8 +18,11 @@ export const ContextProvider = ({ children }) => {
 
     //! Get Token
     const getTokenFrLs = () => {
-        return JSON.parse(localStorage.getItem("token")).value;
+        return (!!localStorage.getItem("token")) && JSON.parse(localStorage.getItem("token")).value;
     }
+
+    const [disSignup, setDisSignup] = useState(false);
+    const [disLogin, setDisLogin] = useState(false);
 
     const [token, setToken] = useState(() => getTokenFrLs());
     const [isLogin, setIsLogin] = useState(!!token);
@@ -45,7 +48,7 @@ export const ContextProvider = ({ children }) => {
                 setCartItems(myRes);
                 let total = 0;
                 myRes.map((ele) => {
-                    total += (ele.productId.price - ele.productId.offer_price) * ele.quantity;
+                    total += ele.productId.quantity > 0 && ((ele.productId.price - ele.productId.offer_price) * ele.quantity);
                 });
                 setCartTotSave(total);
             }
@@ -122,7 +125,7 @@ export const ContextProvider = ({ children }) => {
     }
 
     return (
-        <Store.Provider value={{ isLoading, setIsLoading, showLoader, showToast, token, isLogin, storeTokenInLs, getTokenFrLs, removeTokenFrLs, userData, cartItems, getCartItems, cartTotSave }}>
+        <Store.Provider value={{ disSignup, setDisSignup, disLogin, setDisLogin, isLoading, setIsLoading, showLoader, showToast, token, isLogin, storeTokenInLs, getTokenFrLs, removeTokenFrLs, userData, getUserData, cartItems, getCartItems, cartTotSave }}>
             {children}
         </Store.Provider>
     );
