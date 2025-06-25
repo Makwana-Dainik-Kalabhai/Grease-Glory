@@ -9,7 +9,8 @@ const authRoute = require("./router/auth-router");
 const contactRoute = require("./router/contact-route");
 const userData = require("./router/user-data");
 const foods = require("./router/foods");
-const addCart = require("./router/cart");
+const cart = require("./router/cart");
+const order = require("./router/order");
 
 const connectDb = require("./utils/db");
 
@@ -27,7 +28,8 @@ app.use("/", authRoute);
 app.use("/", contactRoute);
 app.use("/", userData);
 app.use("/", foods);
-app.use("/", addCart);
+app.use("/", cart);
+app.use("/", order);
 
 connectDb();
 

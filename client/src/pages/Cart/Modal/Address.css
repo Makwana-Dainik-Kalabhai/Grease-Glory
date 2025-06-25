@@ -1,0 +1,67 @@
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+    z-index: 10;
+}
+
+.address-form {
+    width: 400px;
+    margin: auto;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background-color: white;
+}
+
+
+/*! Heading */
+.address-form .heading {
+    color: var(--purple);
+    font-size: 0.6em;
+    text-align: center;
+}
+.address-form .heading span {
+    color: var(--yellow);
+}
+
+
+
+
+
+/*! Address Form */
+.address-form form {
+    padding: 1rem 0;
+}
+.address-form form .form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 0.7rem 0;
+}
+.address-form form .form-group label {
+    color: var(--purple);
+    font-size: 0.3em;
+    font-weight: 600;
+    line-height: 3;
+}
+.address-form form .form-group input {
+    line-height: 1.5;
+    color: var(--yellow);
+    font-size: 0.28em;
+    border: none;
+    outline: none;
+    border-bottom: 1.5px solid var(--purple);
+}
+.address-form form .form-btns {
+    display: flex;
+    justify-content: space-between;
+}
+.address-form form .form-btns button {
+    width: 47%;
+    padding: 0.5rem 1rem;
+}

@@ -36,7 +36,7 @@ export const ContextProvider = ({ children }) => {
     //! Get Cart Items
     const getCartItems = async (email) => {
         try {
-            const res = await fetch("http://localhost:3001/cart", {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}cart`, {
                 method: "GET",
                 headers: {
                     "Email": email
@@ -65,7 +65,7 @@ export const ContextProvider = ({ children }) => {
     //! Get User Data
     const getUserData = async () => {
         try {
-            const res = await fetch("http://localhost:3001/user/user-data", {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}user/user-data`, {
                 method: "GET",
                 headers: {
                     "Authorization": token

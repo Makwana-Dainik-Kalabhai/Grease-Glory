@@ -30,7 +30,7 @@ export const Food = () => {
     const fetchFoods = async () => {
         setIsLoading(true);
         try {
-            const api = await fetch("http://localhost:3001/foods");
+            const api = await fetch(`${process.env.REACT_APP_BACKEND_URL}foods`);
             const data = await api.json();
 
             if (!!data) {
@@ -55,7 +55,7 @@ export const Food = () => {
         if (isLogin) {
             setIsLoading(true);
             try {
-                const res = await fetch("http://localhost:3001/add-cart", {
+                const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}add-cart`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -85,7 +85,7 @@ export const Food = () => {
 
     const updateCart = async (id, quantity) => {
         try {
-            const res = await fetch("http://localhost:3001/update-cart", {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}update-cart`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -115,6 +115,10 @@ export const Food = () => {
 
     return (
         <section>
+            <div className="decoration-box left-top"></div>
+            <div className="decoration-box left-bottom"></div>
+            <div className="decoration-box right-bottom"></div>
+
             <div className="category-filter">
                 <span>Filter By:</span>&nbsp;
                 {categories && categories.map((ele) => {
@@ -135,10 +139,22 @@ export const Food = () => {
                             <div className="add-cart-btn">
                                 {(ele.quantity > 0 && filteredCart && filteredCart.length > 0) ? <>
                                     <button className="decrement-btn" onClick={() => updateCart(filteredCart[0]._id, filteredCart[0].quantity - 1)}><i className="fa-solid fa-minus"></i></button>
-                                    <input type="number" value={filteredCart[0].quantity} readOnly />
-                                    <button className="increment-btn" onClick={() => updateCart(filteredCart[0]._id, filteredCart[0].quantity + 1)}><i className="fa-solid fa-plus"></i></button>
 
-                                </> : <button className="add-btn" onClick={() => ele.quantity>0 && addToCart(ele._id)}>{ele.quantity<=0?"Sold Out":"ADD"}</button>}
+                                    <input type="number" value={filteredCart[0].quantity} readOnly />
+
+                                    <button className="increment-btn" onClick={() => {
+                                        if (filteredCart[0].quantity == 10 && ele.quantity > 10) {
+                                            showToast("You can order maximum 10 quantities", "error");
+                                        }
+                                        else if (filteredCart[0].quantity == ele.quantity) {
+                                            showToast(`Only ${ele.quantity} quantity is available`, "error");
+                                        }
+                                        else {
+                                            updateCart(filteredCart[0]._id, filteredCart[0].quantity + 1)
+                                        }
+                                    }}><i className="fa-solid fa-plus"></i></button>
+
+                                </> : <button className="add-btn" onClick={() => ele.quantity > 0 && addToCart(ele._id)}>{ele.quantity <= 0 ? "Sold Out" : "ADD"}</button>}
                             </div>
                         </div>
 
@@ -164,7 +180,7 @@ export const Food = () => {
                     </div>
                     <div className="details">
                         <p className="total-items">{cartItems.length} Items <i className="fa-solid fa-angle-up"></i></p>
-                        <p className="total-save">₹{cartTotSave} Save</p>
+                        <p className="total-save">{cartTotSave > 0 && "₹" + cartTotSave + " Save"}</p>
                     </div>
                     <button className="view-cart-btn" onClick={() => navigate("/cart")}>View Cart</button>
                 </div>}
