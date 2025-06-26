@@ -10,6 +10,7 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
+//
 //! Create Order for Razorpay Payment
 router.route("/order/create-order").post(async (req, res) => {
   const options = {
@@ -27,6 +28,7 @@ router.route("/order/create-order").post(async (req, res) => {
   }
 });
 
+//
 //! Verify Payment then Place Order
 router.route("/order/place-order").post(async (req, res) => {
   try {
@@ -46,6 +48,8 @@ router.route("/order/place-order").post(async (req, res) => {
           items,
           bill,
           payment,
+          date: new Date(),
+          status: "Processing",
         });
 
         if (!!orderStatus) {
@@ -64,7 +68,15 @@ router.route("/order/place-order").post(async (req, res) => {
 
     //* If Payment is via Cash on Delivery method
     else {
-      const orderStatus = await Order.insertOne(req.body);
+      const { user, items, bill, payment } = req.body;
+      const orderStatus = await Order.insertOne({
+        user,
+        items,
+        bill,
+        payment,
+        date: new Date(),
+        status: "Processing",
+      });
 
       if (!!orderStatus) {
         items.map(async (ele) => {
@@ -78,6 +90,24 @@ router.route("/order/place-order").post(async (req, res) => {
     return res
       .status(500)
       .json({ message: "Internal server error: " + err.message });
+  }
+});
+
+//
+//! Get All Orders of the user
+router.route("/user/orders").get(async (req, res) => {
+  try {
+    const email = req.header("Email");
+
+    const myOrders = await Order.find({ ["user.email"]: email });
+
+    if (myOrders !== null || myOrders !== undefined)
+      return res.status(200).json(myOrders);
+    else return res.status(400).json({ message: "Something went wrong." });
+    //
+  } catch (err) {
+    //
+    return res.status(500).json({ message: err.message });
   }
 });
 

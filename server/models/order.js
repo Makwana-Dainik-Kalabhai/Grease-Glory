@@ -15,8 +15,16 @@ const orderSchema = Schema({
   },
   payment: {
     type: Object,
-    require: true
-  }
+    require: true,
+  },
+  date: {
+    type: Object,
+    require: true,
+  },
+  status: {
+    type: String,
+    require: true,
+  },
 });
 
 const Order = new model("Order", orderSchema);

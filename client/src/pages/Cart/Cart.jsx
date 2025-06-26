@@ -11,7 +11,6 @@ export const Cart = () => {
     const { isLogin, showToast, userData, cartItems, getCartItems, cartTotSave } = useStore();
     const [addressModal, setAddressModal] = useState(false);
     const [address, setAddress] = useState("");
-
     const [total, setTotal] = useState({
         price: 0,
         offPrice: 0,
@@ -21,6 +20,8 @@ export const Cart = () => {
         delivery: 0,
         gst: 0
     });
+
+    let unavailable = 0;
 
     if (!isLogin) {
         navigate("/");
@@ -47,6 +48,7 @@ export const Cart = () => {
                 tmpOff += (ele.productId.offer_price * ele.quantity);
                 tmpPrice += (ele.productId.price * ele.quantity);
             }
+            if (ele.productId.quantity <= 0) unavailable += 1;
         });
         setTotal((prev) => ({ ...prev, ["delivery"]: (tmpOff < 400 ? 30 : ((tmpOff > 400 && tmpOff < 700) ? 15 : 0)) }));
         setTotal((prev) => ({ ...prev, ["gst"]: ((tmpOff * 1) / 100) }));
@@ -203,7 +205,7 @@ export const Cart = () => {
                 {cartTotSave > 0 && <h5 className="total-save sections">₹{cartTotSave} saved! on this order</h5>}
 
                 {/*//! Sold Out Products */}
-                <div className="sold-products sections">
+                {unavailable>0 && <div className="sold-products sections">
                     <h5>Currently Unavailable (<span style={{ fontSize: "0.85em" }}>We will not deliver this sold out foods</span>)</h5>
 
                     <div className="items">
@@ -225,7 +227,7 @@ export const Cart = () => {
                             )
                         })}
                     </div>
-                </div>
+                </div>}
 
                 <div className="products-container container">
                     <h5>Review your Order</h5>
