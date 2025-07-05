@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 import { Address } from "./Modal/Address";
 import logo from "../../logo.png";
+import Switch from "react-switch";
 
 export const Cart = () => {
     const navigate = useNavigate();
 
-    const { isLogin, showToast, userData, cartItems, getCartItems, cartTotSave } = useStore();
+    const { token, isLogin, showToast, userData, cartItems, getCartItems, cartTotSave } = useStore();
     const [addressModal, setAddressModal] = useState(false);
     const [address, setAddress] = useState("");
     const [total, setTotal] = useState({
@@ -20,6 +21,10 @@ export const Cart = () => {
         delivery: 0,
         gst: 0
     });
+
+    console.log(userData);
+
+    const [paymentMode, setPaymentMode] = useState(false);
 
     let unavailable = 0;
 
@@ -63,6 +68,8 @@ export const Cart = () => {
 
         //! Set Address for User Details Section
         !!userData && setAddress(userData.address.houseNo + ", " + userData.address.apartment + " " + (!!userData.address.suite && "near " + userData.address.suite) + ", " + userData.address.city + " - " + userData.address.pincode);
+
+        //
     }, [cartItems, userData]);
 
 
@@ -142,7 +149,7 @@ export const Cart = () => {
             image: logo,
             order_id: data.id,
             handler: function (response) {
-                verifyPayment(response);
+                verifyPayment(response, true);
             },
             prefill: {
                 name: userData.username,
@@ -162,22 +169,22 @@ export const Cart = () => {
     }
 
 
-    const verifyPayment = async (paymentResponse) => {
+    const verifyPayment = async (paymentResponse, status) => {
         try {
             const res = await fetch('http://localhost:3001/order/place-order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    "Authorization": token
                 },
                 body: JSON.stringify({
-                    order_id: paymentResponse.razorpay_order_id,
-                    signature: paymentResponse.razorpay_signature,
-                    user: userData,
+                    order_id: !!paymentResponse && paymentResponse.razorpay_order_id,
+                    signature: !!paymentResponse && paymentResponse.razorpay_signature,
                     items: cartItems,
                     bill: total,
                     payment: {
-                        status: true,
-                        payment_id: paymentResponse.razorpay_payment_id,
+                        status,
+                        payment_id: !!paymentResponse && paymentResponse.razorpay_payment_id,
                     }
                 }),
             });
@@ -186,6 +193,7 @@ export const Cart = () => {
             if (res.ok) {
                 showToast(myRes.message, "success");
                 getCartItems(userData.email);
+                navigate("/orders");
             }
             else {
                 showToast(myRes.message, "error");
@@ -200,12 +208,12 @@ export const Cart = () => {
 
     return (
         <>
-            {cartItems.length > 0 && <div className="cart-container" id="cart">
+            {cartItems.length > 0 && <div className="cart-container">
                 {/*//! Total Save Section */}
                 {cartTotSave > 0 && <h5 className="total-save sections">₹{cartTotSave} saved! on this order</h5>}
 
                 {/*//! Sold Out Products */}
-                {unavailable>0 && <div className="sold-products sections">
+                {unavailable > 0 && <div className="sold-products sections">
                     <h5>Currently Unavailable (<span style={{ fontSize: "0.85em" }}>We will not deliver this sold out foods</span>)</h5>
 
                     <div className="items">
@@ -280,7 +288,7 @@ export const Cart = () => {
                     </div>
 
                     {/*//! Missed Something Section */}
-                    <div className="missed-something sections">
+                    <div className="missed-something sections" id="billDetails">
                         <p>Missed Something?&ensp;<button onClick={() => navigate("/food")}>Add more items</button></p>
                     </div>
 
@@ -308,7 +316,7 @@ export const Cart = () => {
                             </div>
                             <div className="to-pay">
                                 <p style={{ color: "black" }}>To Pay</p>
-                                <p>{total.price !== total.offPrice && <span style={{ color: "grey", textDecoration: "line-through" }}>{total.totPrice}</span>}&ensp;
+                                <p>{total.price !== total.offPrice && <span style={{ color: "grey", textDecoration: "line-through" }}>₹{total.totPrice}</span>}&ensp;
                                     ₹{total.totOffPrice}</p>
                             </div>
                         </div>
@@ -347,20 +355,33 @@ export const Cart = () => {
 
                             {total.price !== total.offPrice && <span style={{ color: "grey", fontWeight: "500", textDecoration: "line-through" }}>{total.totPrice}</span>}
                         </h5>
-                        <a href="#cart">View Detailed Bill</a>
+                        <a href="#billDetails">View Detailed Bill</a>
                     </div>
-                    <button onClick={() => { (!address) ? setAddressModal(true) : payNow() }}>{(!!address) ? "Place Order Now" : "Proceed with address"}</button>
+                    <div className="payment-switch">
+                        <span>Payment Mode:</span>
+                        <span><Switch onChange={(next) => setPaymentMode(next)} checked={paymentMode} className="react-switch" />&ensp;Cash On Delivery</span>
+                    </div>
+                    <button onClick={() => { (!address) ? setAddressModal(true) : (paymentMode ? (
+                        (window.confirm("Are you sure to place order?") && verifyPayment("", false))) : payNow()) }}>{(!!address) ? "Place Order Now" : "Proceed with address"}</button>
                 </div>
             </div>}
 
+
+
+            {/*//! Empty Cart */}
             {cartItems.length <= 0 && <section>
                 <div className="decoration-box left-top"></div>
                 <div className="decoration-box left-bottom"></div>
                 <div className="decoration-box right-bottom"></div>
 
-                <div className="empty-cart-container">
-                    <h1>Your cart is empty now.</h1>
-                    <button onClick={() => navigate("/food")}>Add Foods</button>
+                <div className="empty-state">
+                    <div className="empty-icon">
+                        <i className="far fa-clipboard"></i>
+                    </div>
+                    <h3 className="empty-message">No items found</h3>
+                    <button className="btn btn-secondary" onClick={() => navigate("/food")}>
+                        <i className="fas fa-utensils"></i> Browse Menu
+                    </button>
                 </div>
             </section>}
         </>

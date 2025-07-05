@@ -18,7 +18,11 @@ const orderSchema = Schema({
     require: true,
   },
   date: {
-    type: Object,
+    type: String,
+    require: true,
+  },
+  time: {
+    type: String,
     require: true,
   },
   status: {

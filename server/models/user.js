@@ -39,7 +39,7 @@ userSchema.pre("save", async function (next) {
     user.password = hashPass;
     //
   } catch (err) {
-    console.error(err);
+    return res.status(500).json({ message: err.message });
   }
 });
 
@@ -48,8 +48,10 @@ userSchema.methods.generateToken = async function () {
   try {
     return jwt.sign(
       {
-        userId: this._id.toString(),
+        _id: this._id.toString(),
+        username: this.username,
         email: this.email,
+        phone: this.phone,
       },
       process.env.JWT_SECRET_KEY,
       {
@@ -58,7 +60,7 @@ userSchema.methods.generateToken = async function () {
     );
     //
   } catch (err) {
-    return res.status(400).json({ message: err.message });
+    return res.status(500).json({ message: err.message });
   }
 };
 

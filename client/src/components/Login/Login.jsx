@@ -55,7 +55,7 @@ export const Login = () => {
     return (
         <div className="login-modal-back">
             <div className="login-modal">
-                <i className="fa-solid fa-xmark" onClick={() => { setDisLogin(false); }}></i>
+                <i className="fa-solid fa-xmark close-modal" onClick={() => { setDisLogin(false); }}></i>
 
                 <form onSubmit={handleForm}>
                     <h1><span>Login</span> <sub>now</sub></h1>

@@ -4,6 +4,8 @@ const Razorpay = require("razorpay");
 const crypto = require("crypto");
 const Order = require("../models/order");
 const Cart = require("../models/cart");
+const getUserData = require("../middleware/user-data");
+const Foods = require("../models/foods");
 
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
@@ -30,11 +32,23 @@ router.route("/order/create-order").post(async (req, res) => {
 
 //
 //! Verify Payment then Place Order
-router.route("/order/place-order").post(async (req, res) => {
+router.route("/order/place-order").post(getUserData, async (req, res) => {
   try {
+    let date = new Date().toLocaleDateString("en-US");
+    let time = new Date().getTime();
+    let user = req.user;
+    let { items, bill, payment } = req.body;
+
+    items.map(async (ele) => {
+      const upQuantity = await Foods.updateOne(
+        { _id: ele.productId._id },
+        { $inc: { quantity: -ele.quantity } }
+      );
+    });
+
     //* If payment is done via Razorpay
     if (req.body.payment.status) {
-      const { order_id, signature, user, items, bill, payment } = req.body;
+      const { order_id, signature } = req.body;
 
       const generated_signature = crypto
         .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
@@ -48,7 +62,8 @@ router.route("/order/place-order").post(async (req, res) => {
           items,
           bill,
           payment,
-          date: new Date(),
+          date,
+          time,
           status: "Processing",
         });
 
@@ -68,13 +83,13 @@ router.route("/order/place-order").post(async (req, res) => {
 
     //* If Payment is via Cash on Delivery method
     else {
-      const { user, items, bill, payment } = req.body;
       const orderStatus = await Order.insertOne({
         user,
         items,
         bill,
         payment,
-        date: new Date(),
+        date,
+        time,
         status: "Processing",
       });
 
@@ -98,16 +113,85 @@ router.route("/order/place-order").post(async (req, res) => {
 router.route("/user/orders").get(async (req, res) => {
   try {
     const email = req.header("Email");
+    const today = new Date();
+    let time =
+      req.header("time") != "All"
+        ? new Date(
+            today.setDate(today.getDate() - req.header("time"))
+          ).getTime()
+        : 0;
+    const status = req.header("status");
+    const orderId = req.header("orderId");
 
-    const myOrders = await Order.find({ ["user.email"]: email });
+    let myOrders;
+
+    if (!!orderId && orderId.length >= 24) {
+      myOrders = await Order.find({
+        ["user.email"]: email,
+        _id: orderId,
+      }).sort({ time: -1 });
+    }
+    //
+    else if (status != "All") {
+      myOrders = await Order.find({
+        ["user.email"]: email,
+        time: { $gt: time },
+        status,
+      }).sort({ time: -1 });
+    }
+    //
+    else if (status == "All") {
+      myOrders = await Order.find({
+        ["user.email"]: email,
+        time: { $gt: time },
+      }).sort({ time: -1 });
+    }
+    //
+    else if (status != "All") {
+      myOrders = await Order.find({
+        ["user.email"]: email,
+        status,
+      }).sort({ time: -1 });
+    }
+    //
+    else {
+      myOrders = await Order.find({
+        ["user.email"]: email,
+      }).sort({ time: -1 });
+    }
 
     if (myOrders !== null || myOrders !== undefined)
       return res.status(200).json(myOrders);
     else return res.status(400).json({ message: "Something went wrong." });
     //
+    //
   } catch (err) {
     //
     return res.status(500).json({ message: err.message });
+  }
+});
+
+//! Cancel Order
+router.route("/cancel-order").patch(async (req, res) => {
+  try {
+    const { _id, items } = req.body;
+
+    const cancel = await Order.updateOne({ _id }, { status: "Cancelled" });
+
+    if (cancel.modifiedCount) {
+      items.map(async (ele) => {
+        const quantity = await Foods.updateOne(
+          { _id: ele.productId._id },
+          { $inc: { quantity: +ele.quantity } }
+        );
+      });
+
+      res.status(200).json({ message: "Order cancelled successfully" });
+    } else res.status(400).json({ message: "Something went wrong" });
+
+    //
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 });
 

@@ -36,7 +36,7 @@ nav .logo {
     justify-content: space-between;
 }
 
-nav a {
+nav a, nav button {
     position: relative;
     padding: 0.5rem 0;
     font-size: 0.35em;
@@ -45,6 +45,8 @@ nav a {
     text-decoration: none;
     transition: all 0.2s ease-in;
     overflow: hidden;
+    border: none;
+    background-color: transparent;
 }
 
 .laptop-nav a:not(.laptop-nav .login-btns button):before {
@@ -86,8 +88,44 @@ nav .login-btns button:hover {
     background-color: var(--hover-purple);
 }
 
+.more-menu-btn {
+    position: relative;
+    overflow: visible !important;
+}
+.more-menus a::before {
+    display: none;
+}
+.more-menus {
+    position: absolute;
+    top: 70%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 2px #d9d9d9;
+    animation: dropMenu 0.5s forwards linear;
+    background-color: white;
+}
+@keyframes dropMenu {
+    from {
+        top: 70%;
+    }
+    to {
+        top: 100%;
+    }
+}
+.more-menus a {
+    padding: 0.5rem 1.5rem !important;
+    font-size: 0.85em;
+    color: var(--yellow);
+    margin: 0 !important;
+}
+.more-menus a:hover {
+    background-color: bisque;
+}
+
 /*//! Cart Button */
-.laptop-nav i {
+.laptop-nav .fa-shopping-cart {
     position: relative;
     font-size: 0.35em;
     color: white;
@@ -161,7 +199,7 @@ nav .login-btns button:hover {
     box-shadow: 0px 0px 5px 2px #d9d9d9;
 }
 
-.mobile-nav .mobile-menus a {
+.more-menus a, .mobile-nav .mobile-menus a {
     padding: 0.5rem;
     border-bottom: 1px solid var(--purple);
     margin: 0.1rem 0;

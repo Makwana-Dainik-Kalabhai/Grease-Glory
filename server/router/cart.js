@@ -2,11 +2,15 @@ const express = require("express");
 const router = express.Router();
 const FoodSchema = require("../models/foods");
 const CartSchema = require("../models/cart");
+const getUserData = require("../middleware/user-data");
 
 //! Add Food to Cart
-router.route("/add-cart").post(async (req, res) => {
+router.route("/add-cart").post(getUserData, async (req, res) => {
   try {
-    const addCart = await CartSchema.create(req.body);
+    const { productId, quantity } = req.body;
+    const item = { productId, email: req.user.email, quantity };
+
+    const addCart = await CartSchema.create(item);
 
     if (addCart)
       res.status(201).json({ message: "Product successfully added into cart" });
@@ -18,9 +22,9 @@ router.route("/add-cart").post(async (req, res) => {
 });
 
 //! Get Cart Items
-router.route("/cart").get(async (req, res) => {
+router.route("/cart").get(getUserData, async (req, res) => {
   try {
-    const email = req.header("Email");
+    const { email } = req.user;
 
     const cartItems = await CartSchema.find({ email })
       .populate("productId")

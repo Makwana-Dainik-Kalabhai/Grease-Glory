@@ -11,6 +11,7 @@
 }
 
 .address-form {
+    position: relative;
     width: 400px;
     margin: auto;
     padding: 2rem 3rem;
@@ -41,7 +42,6 @@
 .address-form form .form-group {
     display: flex;
     flex-direction: column;
-    padding: 0.7rem 0;
 }
 .address-form form .form-group label {
     color: var(--purple);

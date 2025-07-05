@@ -62,6 +62,8 @@ export const Address = ({ oldAddress, setAddressModal }) => {
     return (
         <div className="modal-container">
             <div className="address-form">
+                <i className="fa-solid fa-xmark close-modal" onClick={() => { setAddressModal(false); }}></i>
+
                 <h1 className="heading">GreaseGlory <span>Delivery</span></h1>
 
                 <form onSubmit={handleForm}>

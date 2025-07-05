@@ -75,7 +75,7 @@
 .choose-category a {
     position: relative;
     border-radius: 8px;
-    filter: brightness(120%);
+    filter: brightness(110%) contrast(105%);
     overflow: hidden;
 }
 
@@ -91,6 +91,7 @@
     left: 0;
     bottom: -88%;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .choose-category a img {

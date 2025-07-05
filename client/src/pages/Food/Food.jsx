@@ -2,16 +2,21 @@ import "./Food.css";
 import { useState, useEffect } from "react";
 import { useStore } from "../../ContextApi/Store";
 import { FoodModal } from "./FoodModal/FoodModal";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { FoodCard } from "./FoodCard/FoodCard";
 
 export const Food = () => {
     const navigate = useNavigate();
+    const params = useParams();
 
-    const { setDisSignup, disLogin, setDisLogin, isLogin, isLoading, setIsLoading, showLoader, showToast, userData, cartItems, getCartItems, cartTotSave } = useStore();
+    const { token, setDisSignup, setDisLogin, isLogin, isLoading, setIsLoading, showLoader, showToast, userData, cartItems, getCartItems, cartTotSave } = useStore();
     const [foods, setFoods] = useState([]);
     const [categories, setCategories] = useState("");
-    const [filterCategory, setFilterCategory] = useState("all");
+    const [filterCategory, setFilterCategory] = useState(params.category ? params.category : "all");
     const [foodModal, setFoodModal] = useState("");
+    const [pageSize, setPageSize] = useState(10);
+
+    let prCount = 0;
 
 
     //! Set Filter
@@ -58,9 +63,10 @@ export const Food = () => {
                 const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}add-cart`, {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": token
                     },
-                    body: JSON.stringify({ productId, email: userData.email, quantity: 1 })
+                    body: JSON.stringify({ productId, quantity: 1 })
                 });
                 const myRes = await res.json();
 
@@ -108,13 +114,24 @@ export const Food = () => {
         }
     }
 
+
+    const loadMoreData = () => {
+        setIsLoading(true);
+
+        setTimeout(() => {
+            setPageSize((prev) => (prev + 10));
+            setIsLoading(false);
+        }, 100);
+    }
+
     useEffect(() => {
+        window.scrollTo(0, 0);
         fetchFoods();
     }, [cartItems]);
 
 
     return (
-        <section>
+        <section className="foods-container">
             <div className="decoration-box left-top"></div>
             <div className="decoration-box left-bottom"></div>
             <div className="decoration-box right-bottom"></div>
@@ -128,50 +145,30 @@ export const Food = () => {
                 })}
             </div>
 
+
+            {/*//! Foods Grid */}
             {foods && <div className="food-grid">
                 {foods.map((ele, i) => {
                     const filteredCart = cartItems && cartItems.filter(cartEle => cartEle.productId._id === ele._id);
                     filteredCart && JSON.stringify(filteredCart);
 
-                    return <div className={`food-card ${(filterCategory && filterCategory === ele.category || filterCategory === "all") ? "show-food" : ""}`} key={ele._id} style={{ opacity: ele.quantity <= 0 && 0.7 }}>
-                        <div className="food-img">
-                            <img src={ele.img} alt={ele.name} onClick={() => setFoodModal(ele._id)} />
-                            <div className="add-cart-btn">
-                                {(ele.quantity > 0 && filteredCart && filteredCart.length > 0) ? <>
-                                    <button className="decrement-btn" onClick={() => updateCart(filteredCart[0]._id, filteredCart[0].quantity - 1)}><i className="fa-solid fa-minus"></i></button>
-
-                                    <input type="number" value={filteredCart[0].quantity} readOnly />
-
-                                    <button className="increment-btn" onClick={() => {
-                                        if (filteredCart[0].quantity == 10 && ele.quantity > 10) {
-                                            showToast("You can order maximum 10 quantities", "error");
-                                        }
-                                        else if (filteredCart[0].quantity == ele.quantity) {
-                                            showToast(`Only ${ele.quantity} quantity is available`, "error");
-                                        }
-                                        else {
-                                            updateCart(filteredCart[0]._id, filteredCart[0].quantity + 1)
-                                        }
-                                    }}><i className="fa-solid fa-plus"></i></button>
-
-                                </> : <button className="add-btn" onClick={() => ele.quantity > 0 && addToCart(ele._id)}>{ele.quantity <= 0 ? "Sold Out" : "ADD"}</button>}
-                            </div>
-                        </div>
-
-                        <div className="food-details" onClick={() => setFoodModal(ele._id)}>
-                            <img className="veg-icon" src={ele.veg ? "https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png" : "https://www.pngkey.com/png/full/245-2459071_non-veg-icon-non-veg-symbol-png.png"} alt="" />
-
-                            <h2 className="name">{ele.name}</h2>
-                            <h5 className="category">{ele.category}</h5>
-                            <div>
-                                {ele.price !== ele.offer_price && <><span className="price">₹{ele.price}</span><span>&ensp;</span></>}
-                                <span className="offer-price">₹{ele.offer_price}</span>
-                            </div>
-                            <p>{ele.description}</p>
-                        </div>
-                    </div>
+                    if (filterCategory !== "all" && filterCategory.toLowerCase() === ele.category.toLowerCase() && prCount < pageSize) {
+                        prCount++;
+                        return <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
+                    }
+                    else if (filterCategory === "all") {
+                        return i < pageSize &&
+                            <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
+                    }
                 })}
+                {isLoading ? showLoader(70, 70, "#e88630") : ((filterCategory !== "all" && pageSize - 1 < prCount) ? <button className="btn btn-primary" onClick={loadMoreData}>Load More</button> : (filterCategory === "all" && (pageSize < foods.length) ? <button className="btn btn-primary" onClick={loadMoreData}>Load More</button> : ""))}
 
+
+
+
+
+
+                {/* //! Bottom button to view cart */}
                 {cartItems && cartItems.length !== 0 && <div className="view-cart-container">
                     <div className="product-imgs">
                         {!!cartItems && cartItems.map((ele, ind) => {
@@ -186,7 +183,6 @@ export const Food = () => {
                 </div>}
             </div>
             }
-            {isLoading && showLoader(70, 70, "#e88630")}
 
             {foodModal !== null && <FoodModal productId={foodModal} foods={foods} setFoodModal={setFoodModal} />}
         </section >

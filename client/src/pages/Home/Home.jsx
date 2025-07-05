@@ -1,11 +1,38 @@
 import "./Home.css";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import about from "./about.jpg";
 import { FOODS } from "./Foods";
 import { GALLERY } from "./Gallery";
-import { Hero } from "../Hero/Hero";
+import { Hero } from "../../components/Hero/Hero";
+import { useStore } from "../../ContextApi/Store";
 
 const Home = () => {
+    const { showToast } = useStore();
+    const [categories, setCategories] = useState("");
+
+    //! Fetch All Foods
+    const fetchCategories = async () => {
+        try {
+            const api = await fetch(`${process.env.REACT_APP_BACKEND_URL}foods`);
+            const data = await api.json();
+
+            if (!!data)
+                setCategories([...new Map(data.map(item => [item.category, item])).values()]);
+            else
+                showToast(data.message, "error");
+        }
+        catch (err) {
+            showToast(err.message, "error");
+        }
+    }
+
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
+
+
     return (
         <>
             <header>
@@ -46,12 +73,12 @@ const Home = () => {
                     <h1>Choose by <span>Category</span></h1>
                     <div className="choose-category">
                         {
-                            FOODS.map((e, i) => {
+                            categories && categories.map((e, i) => {
                                 return (
-                                    <a href="/" key={i}>
-                                        <img src={e.link} alt="Img not Found" />
-                                        <span>{e.name}</span>
-                                    </a>
+                                    i < 12 && <NavLink to={`/food/${e.category}`} key={i}>
+                                        <img src={e.img} alt="Img not Found" />
+                                        <span>{e.category}</span>
+                                    </NavLink>
                                 );
                             })
                         }

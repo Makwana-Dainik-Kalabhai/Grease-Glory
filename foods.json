@@ -107,5 +107,2232 @@
         "description": "Serves 1 | Shredded chicken infused with spices and wrapped in gluten-free dough made with quinoa and chickpeas. Lower in calories, higher in protein. Served with a spicy red sauce. [5 pcs] Calories: 246.85 | Protein: 10.96g per 100g. (Serves 1).",
         "price": 365,
         "offer_price": 365
+    },
+    {
+        "category": "Burger",
+        "type": "Veg",
+        "name": "Classic Veggie Burger",
+        "description": "A delicious veggie patty made with fresh vegetables, herbs, and spices, served in a soft bun with lettuce, tomato, and mayo.",
+        "price": 120,
+        "offer_price": 99,
+        "image_url": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9",
+        "ingredients": [
+            "Veggie patty",
+            "Lettuce",
+            "Tomato",
+            "Onion",
+            "Mayonnaise",
+            "Burger bun"
+        ],
+        "region": "Punjabi",
+        "spice_level": "Medium",
+        "serving_suggestion": "Serve with french fries and a cold drink.",
+        "popularity": "High",
+        "quantity": 10
+    },
+    {
+        "category": "Burger",
+        "type": "Non-Veg",
+        "name": "Chicken Cheese Burger",
+        "description": "Juicy grilled chicken patty topped with melted cheese, crispy lettuce, and tangy sauce in a toasted bun.",
+        "price": 180,
+        "offer_price": 150,
+        "image_url": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+        "ingredients": [
+            "Chicken patty",
+            "Cheddar cheese",
+            "Lettuce",
+            "Tomato",
+            "Mayonnaise",
+            "Burger bun"
+        ],
+        "region": "American",
+        "spice_level": "Medium",
+        "serving_suggestion": "Best enjoyed with onion rings and a milkshake.",
+        "popularity": "Very High",
+        "quantity": 10
+    },
+    {
+        "category": "Burger",
+        "type": "Non-Veg",
+        "name": "Spicy Beef Burger",
+        "description": "A flame-grilled beef patty with jalapeños, spicy sauce, and cheese for a fiery kick.",
+        "price": 220,
+        "offer_price": 190,
+        "image_url": "https://images.unsplash.com/photo-1551615593-ef5fe247e8f7",
+        "ingredients": [
+            "Beef patty",
+            "Jalapeños",
+            "Cheese",
+            "Spicy sauce",
+            "Lettuce",
+            "Burger bun"
+        ],
+        "region": "American",
+        "spice_level": "Very Spicy",
+        "serving_suggestion": "Best with coleslaw and a chilled beer.",
+        "popularity": "Medium",
+        "quantity": 10
+    },
+    {
+        "category": "Burger",
+        "type": "Non-Veg",
+        "name": "Fish Burger",
+        "description": "Crispy fried fish fillet with tartar sauce, lettuce, and pickles in a sesame bun.",
+        "price": 200,
+        "offer_price": 170,
+        "image_url": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b",
+        "ingredients": [
+            "Fish fillet",
+            "Tartar sauce",
+            "Lettuce",
+            "Pickles",
+            "Burger bun"
+        ],
+        "region": "Coastal",
+        "spice_level": "Mild",
+        "serving_suggestion": "Serve with lemon wedges and fries.",
+        "popularity": "Low",
+        "quantity": 10
+    },
+    {
+        "category": "Burger",
+        "type": "Non-Veg",
+        "name": "Double Chicken Burger",
+        "description": "Two juicy chicken patties with double cheese, bacon, and special sauce.",
+        "price": 280,
+        "offer_price": 240,
+        "image_url": "https://images.unsplash.com/photo-1565299507177-b0ac66763828",
+        "ingredients": [
+            "Chicken patty (x2)",
+            "Cheese slices (x2)",
+            "Bacon",
+            "Special sauce",
+            "Burger bun"
+        ],
+        "region": "American",
+        "spice_level": "Medium",
+        "serving_suggestion": "Best with loaded fries and a soft drink.",
+        "popularity": "High",
+        "quantity": 10
+    },
+    {
+        "french_fries_varieties": [
+            {
+                "category": "French fries",
+                "type": "veg",
+                "name": "Classic French Fries",
+                "description": "Crispy golden fries made from fresh potatoes, lightly salted for the perfect taste.",
+                "price": 120,
+                "offer_price": 99,
+                "img": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                "ingredients": [
+                    "potatoes",
+                    "salt",
+                    "vegetable oil"
+                ],
+                "region": "American",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve hot with ketchup or mayonnaise.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "French fries",
+                "type": "non-veg",
+                "name": "Bacon & Cheese Fries",
+                "description": "Loaded fries with crispy bacon bits, melted cheese, and a drizzle of ranch.",
+                "price": 250,
+                "offer_price": 220,
+                "img": "https://images.unsplash.com/photo-1561758033-7e924f619b47?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                "ingredients": [
+                    "potatoes",
+                    "bacon",
+                    "mozzarella cheese",
+                    "ranch dressing"
+                ],
+                "region": "American",
+                "spice_level": "mild",
+                "serving_suggestion": "Great as a party snack.",
+                "popularity": "very high",
+                "quantity": 10
+            },
+            {
+                "category": "French fries",
+                "type": "veg",
+                "name": "Truffle Fries",
+                "description": "Gourmet fries tossed in truffle oil and garnished with parmesan and herbs.",
+                "price": 280,
+                "offer_price": 240,
+                "img": "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                "ingredients": [
+                    "potatoes",
+                    "truffle oil",
+                    "parmesan cheese",
+                    "rosemary"
+                ],
+                "region": "European",
+                "spice_level": "mild",
+                "serving_suggestion": "Best served with aioli.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "French fries",
+                "type": "non-veg",
+                "name": "Egg & Sausage Fries",
+                "description": "Loaded fries topped with scrambled eggs, sausage, and a dash of hot sauce.",
+                "price": 200,
+                "offer_price": 170,
+                "img": "https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                "ingredients": [
+                    "potatoes",
+                    "eggs",
+                    "sausage",
+                    "hot sauce"
+                ],
+                "region": "American",
+                "spice_level": "spicy",
+                "serving_suggestion": "Perfect for breakfast or brunch.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "French fries",
+                "type": "non-veg",
+                "name": "BBQ Pulled Pork Fries",
+                "description": "Fries loaded with tender BBQ pulled pork and coleslaw.",
+                "price": 270,
+                "offer_price": 230,
+                "img": "https://images.unsplash.com/photo-1561758033-7e924f619b47?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                "ingredients": [
+                    "potatoes",
+                    "pulled pork",
+                    "BBQ sauce",
+                    "coleslaw"
+                ],
+                "region": "American",
+                "spice_level": "medium",
+                "serving_suggestion": "Great with a cold beer.",
+                "popularity": "very high",
+                "quantity": 10
+            }
+        ]
+    },
+    {
+        "noodles": [
+            {
+                "category": "noodle",
+                "type": "veg",
+                "name": "Schezwan Noodles",
+                "description": "Spicy and tangy noodles cooked with Schezwan sauce, bell peppers, and carrots for a fiery flavor.",
+                "price": 130,
+                "offer_price": 110,
+                "img": "https://media.istockphoto.com/id/1144501138/photo/manchurian-hakka-schezwan-noodles-popular-indochinese-food-served-in-a-bowl-selective-focus.jpg?s=612x612&w=0&k=20&c=jFpKPWghvwUoBN88QtLMtcVybrHlUBnQOpePcew5K_g=",
+                "ingredients": [
+                    "noodles",
+                    "Schezwan sauce",
+                    "bell peppers",
+                    "carrots",
+                    "cabbage",
+                    "ginger",
+                    "garlic"
+                ],
+                "region": "Indo-Chinese",
+                "spice_level": "high",
+                "serving_suggestion": "Pair with a cooling cucumber salad.",
+                "popularity": "high",
+                "quantity": 1
+            },
+            {
+                "category": "noodle",
+                "type": "non-veg",
+                "name": "Prawn Noodles",
+                "description": "Delicious stir-fried noodles with succulent prawns, garlic, and vegetables in a light soy-based sauce.",
+                "price": 220,
+                "offer_price": 190,
+                "img": "https://media.istockphoto.com/id/1263094032/photo/spaghetti-with-prawns-and-vegetables-on-wooden-background.jpg?s=612x612&w=0&k=20&c=H5Yu2wozM_AfHJmTIXBbfPFEu0659rJ3PqyNHM_O-_8=",
+                "ingredients": [
+                    "noodles",
+                    "prawns",
+                    "garlic",
+                    "bean sprouts",
+                    "spring onions",
+                    "soy sauce",
+                    "chili oil"
+                ],
+                "region": "Chinese",
+                "spice_level": "medium",
+                "serving_suggestion": "Garnish with fresh cilantro and lime.",
+                "popularity": "medium",
+                "quantity": 1
+            },
+            {
+                "category": "noodle",
+                "type": "veg",
+                "name": "Garlic Noodles",
+                "description": "Buttery noodles tossed with garlic, herbs, and a hint of chili for a flavorful experience.",
+                "price": 140,
+                "offer_price": 120,
+                "img": "https://media.istockphoto.com/id/483137365/photo/asian-chow-mein-noodles.jpg?s=612x612&w=0&k=20&c=aVkPKpDkiAM7CxTFinQBax0i-nm-ybzWimrJRyPePcg=",
+                "ingredients": [
+                    "noodles",
+                    "garlic",
+                    "butter",
+                    "parsley",
+                    "red chili flakes",
+                    "soy sauce"
+                ],
+                "region": "Fusion",
+                "spice_level": "low",
+                "serving_suggestion": "Great as a side dish or with grilled vegetables.",
+                "popularity": "medium",
+                "quantity": 1
+            },
+            {
+                "category": "noodle",
+                "type": "non-veg",
+                "name": "Beef Noodles",
+                "description": "Hearty noodles with tender beef strips, mushrooms, and bok choy in a rich broth.",
+                "price": 250,
+                "offer_price": 220,
+                "img": "https://media.istockphoto.com/id/586049882/photo/chinese-noodles-with-beef-muer-and-vegetables-horizontal-top-view.jpg?s=612x612&w=0&k=20&c=8r7azJfUN7LrB2-cNieV-YmO1Wn8wYiXdS96y5ivXxw=",
+                "ingredients": [
+                    "noodles",
+                    "beef strips",
+                    "mushrooms",
+                    "bok choy",
+                    "ginger",
+                    "garlic",
+                    "soy sauce",
+                    "beef broth"
+                ],
+                "region": "Chinese",
+                "spice_level": "medium",
+                "serving_suggestion": "Serve hot with a side of chili paste.",
+                "popularity": "high",
+                "quantity": 1
+            },
+            {
+                "category": "noodle",
+                "type": "veg",
+                "name": "Thai Green Curry Noodles",
+                "description": "Rice noodles in a creamy green curry sauce with coconut milk, tofu, and vegetables.",
+                "price": 160,
+                "offer_price": 140,
+                "img": "https://media.istockphoto.com/id/1223647762/photo/green-curry-chicken-with-rice-noodles.jpg?s=612x612&w=0&k=20&c=Hx6OYXIoB4Huo8t36W7zOfHD_vKRWT-vVs-VAaicyYE=",
+                "ingredients": [
+                    "rice noodles",
+                    "green curry paste",
+                    "coconut milk",
+                    "tofu",
+                    "bell peppers",
+                    "basil leaves"
+                ],
+                "region": "Thai",
+                "spice_level": "medium-high",
+                "serving_suggestion": "Garnish with fresh basil and lime wedges.",
+                "popularity": "medium",
+                "quantity": 1
+            },
+            {
+                "category": "noodle",
+                "type": "non-veg",
+                "name": "Egg Noodles",
+                "description": "Classic egg noodles stir-fried with vegetables and a touch of oyster sauce for a rich taste.",
+                "price": 150,
+                "offer_price": 130,
+                "img": "https://media.istockphoto.com/id/2135788104/photo/chilli-garlic-noodles.jpg?s=612x612&w=0&k=20&c=B1mLxaNQDckPlgm0Gqw-PkKwUkpunYOprO9ecpxEplY=",
+                "ingredients": [
+                    "egg noodles",
+                    "eggs",
+                    "carrots",
+                    "cabbage",
+                    "spring onions",
+                    "oyster sauce"
+                ],
+                "region": "Chinese",
+                "spice_level": "low",
+                "serving_suggestion": "Best served with a fried egg on top.",
+                "popularity": "high",
+                "quantity": 1
+            },
+            {
+                "category": "noodle",
+                "type": "non-veg",
+                "name": "Miso Ramen",
+                "description": "Japanese ramen noodles in a savory miso broth with tofu, corn, and seaweed.",
+                "price": 200,
+                "offer_price": 170,
+                "img": "https://media.istockphoto.com/id/2064514151/photo/miso-ramen.jpg?s=612x612&w=0&k=20&c=H-u6nDaYlJMttyO0FNWO_pTGFSBsBbkXQy_ufoQix9k=",
+                "ingredients": [
+                    "ramen noodles",
+                    "miso paste",
+                    "tofu",
+                    "corn",
+                    "seaweed",
+                    "spring onions",
+                    "soy sauce"
+                ],
+                "region": "Japanese",
+                "spice_level": "low",
+                "serving_suggestion": "Top with sesame seeds and chili oil.",
+                "popularity": "very high",
+                "quantity": 1
+            },
+            {
+                "category": "noodle",
+                "type": "non-veg",
+                "name": "Spicy Pork Noodles",
+                "description": "Chewy noodles with spicy minced pork, garlic, and chili oil for a bold flavor.",
+                "price": 230,
+                "offer_price": 200,
+                "img": "https://media.istockphoto.com/id/1038108608/photo/bowls-with-chow-mein.jpg?s=612x612&w=0&k=20&c=BioejbjglNwOp6yeRnOAcPCHuK5Ixr8cQJCNFQDX5oI=",
+                "ingredients": [
+                    "noodles",
+                    "minced pork",
+                    "garlic",
+                    "chili oil",
+                    "soy sauce",
+                    "peanuts",
+                    "spring onions"
+                ],
+                "region": "Sichuan",
+                "spice_level": "very high",
+                "serving_suggestion": "Sprinkle crushed peanuts for extra crunch.",
+                "popularity": "high",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "dosas": [
+            {
+                "category": "Dosa",
+                "type": "veg",
+                "name": "Masala Dosa",
+                "description": "A crispy rice crepe stuffed with spiced potato filling, served with coconut chutney and sambar.",
+                "price": 120,
+                "offer_price": 100,
+                "img": "https://media.istockphoto.com/id/1210229526/photo/masala-sin.jpg?s=612x612&w=0&k=20&c=-PdocgECS_KKIB2ARoqcJJZx5wZcWCb-0vlK7KrRVyY=",
+                "ingredients": [
+                    "rice batter",
+                    "potatoes",
+                    "onions",
+                    "green chilies",
+                    "mustard seeds",
+                    "turmeric",
+                    "curry leaves",
+                    "oil"
+                ],
+                "region": "South Indian",
+                "spice_level": "medium",
+                "serving_suggestion": "Serve hot with coconut chutney and sambar.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Dosa",
+                "type": "veg",
+                "name": "Onion Uttapam",
+                "description": "A thick, fluffy pancake made from fermented rice and lentil batter, topped with onions, tomatoes, and green chilies.",
+                "price": 90,
+                "offer_price": 75,
+                "img": "https://media.istockphoto.com/id/1433396659/photo/uttapam.jpg?s=612x612&w=0&k=20&c=kKZ2R8G7R1mNuWkcrnu4aJ_-MckIuFJ4GbcuEGCiMXI=",
+                "ingredients": [
+                    "rice batter",
+                    "onions",
+                    "tomatoes",
+                    "green chilies",
+                    "coriander leaves",
+                    "oil"
+                ],
+                "region": "South Indian",
+                "spice_level": "mild",
+                "serving_suggestion": "Best enjoyed with coconut chutney or tomato chutney.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Dosa",
+                "type": "non-veg",
+                "name": "Chicken Dosa",
+                "description": "A crispy dosa filled with spicy shredded chicken, served with mint chutney and sambar.",
+                "price": 180,
+                "offer_price": 150,
+                "img": "https://media.istockphoto.com/id/665707910/photo/kerala-breakfast-appam.jpg?s=612x612&w=0&k=20&c=Ru5UA-eeVYWRzq8iWsFAavIIdrH2NZkTTiPZ20zst8o=",
+                "ingredients": [
+                    "rice batter",
+                    "chicken",
+                    "onions",
+                    "ginger-garlic paste",
+                    "turmeric",
+                    "red chili powder",
+                    "garam masala",
+                    "oil"
+                ],
+                "region": "South Indian",
+                "spice_level": "high",
+                "serving_suggestion": "Serve hot with mint chutney and sambar.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Dosa",
+                "type": "veg",
+                "name": "Rava Dosa",
+                "description": "A crispy, lacy dosa made with semolina, rice flour, and spices, cooked to perfection.",
+                "price": 110,
+                "offer_price": 90,
+                "img": "https://media.istockphoto.com/id/2204900989/photo/image-of-indian-breakfast-with-crispy-rava-dosa-sambar-masala-potatoes-and-coconut-chutney.jpg?s=612x612&w=0&k=20&c=FigxEFJ6BA3uU4PtTfx91VtrUrYNrG8y4LqXsgTT9XA=",
+                "ingredients": [
+                    "semolina",
+                    "rice flour",
+                    "all-purpose flour",
+                    "cumin seeds",
+                    "pepper",
+                    "curry leaves",
+                    "oil"
+                ],
+                "region": "South Indian",
+                "spice_level": "mild",
+                "serving_suggestion": "Best served with coconut chutney and tomato chutney.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Dosa",
+                "type": "non-veg",
+                "name": "Egg Dosa",
+                "description": "A thin, crispy dosa topped with a beaten egg and spices, cooked until golden.",
+                "price": 130,
+                "offer_price": 110,
+                "img": "https://media.istockphoto.com/id/1328118640/photo/kodo-millet-pancakes-served-with-egg-roast-pancake-is-made-with-a-fermented-batter-of-kodo.jpg?s=612x612&w=0&k=20&c=QQY3Pxyuwm9LvhHDPPDIqTVTb28Z8yVQAXJ76Ry8bZA=",
+                "ingredients": [
+                    "rice batter",
+                    "eggs",
+                    "onions",
+                    "green chilies",
+                    "coriander leaves",
+                    "oil"
+                ],
+                "region": "South Indian",
+                "spice_level": "medium",
+                "serving_suggestion": "Serve hot with tomato chutney or garlic chutney.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Dosa",
+                "type": "veg",
+                "name": "Pesarattu (Green Gram Dosa)",
+                "description": "A nutritious dosa made from green gram (moong dal) batter, flavored with ginger and green chilies.",
+                "price": 100,
+                "offer_price": 85,
+                "img": "https://media.istockphoto.com/id/1336521391/photo/protein-rich-moong-bean-crepe-locally-known-as-pesarattu-it-looks-like-dosa-but-not-made-with.jpg?s=612x612&w=0&k=20&c=PlWmOJ9CpCmOnRSZ-iQLEvvnjDN5GuvLvsRXvJ6tTqk=",
+                "ingredients": [
+                    "green gram (moong dal)",
+                    "rice",
+                    "ginger",
+                    "green chilies",
+                    "cumin seeds",
+                    "oil"
+                ],
+                "region": "Andhra",
+                "spice_level": "medium",
+                "serving_suggestion": "Traditionally served with upma and ginger chutney.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Dosa",
+                "type": "non-veg",
+                "name": "Mutton Keema Dosa",
+                "description": "A flavorful dosa stuffed with spicy minced mutton, served with onion chutney.",
+                "price": 220,
+                "offer_price": 190,
+                "img": "https://media.istockphoto.com/id/665707956/photo/kerala-breakfast-appam.jpg?s=612x612&w=0&k=20&c=TmpY9oLK_8WKYA7r3KjQurda6aIMhD9GiaGML4hF34Y=",
+                "ingredients": [
+                    "rice batter",
+                    "mutton keema",
+                    "onions",
+                    "ginger-garlic paste",
+                    "turmeric",
+                    "red chili powder",
+                    "garam masala",
+                    "oil"
+                ],
+                "region": "South Indian",
+                "spice_level": "high",
+                "serving_suggestion": "Best enjoyed with coconut chutney or onion chutney.",
+                "popularity": "low",
+                "quantity": 10
+            },
+            {
+                "category": "Dosa",
+                "type": "veg",
+                "name": "Paper Dosa",
+                "description": "An extra-thin and crispy dosa, served plain or with a side of potato masala.",
+                "price": 80,
+                "offer_price": 70,
+                "img": "https://media.istockphoto.com/id/1156896083/photo/cheese-masala-dosa-recipe-with-sambar-and-chutney-selective-focus.jpg?s=612x612&w=0&k=20&c=Wyy0uUGXfQn7JstC8w0DsxWJVGnqWUJUCG53a42UH9s=",
+                "ingredients": [
+                    "rice batter",
+                    "urad dal",
+                    "fenugreek seeds",
+                    "salt",
+                    "oil"
+                ],
+                "region": "South Indian",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve with coconut chutney and sambar.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Dosa",
+                "type": "veg",
+                "name": "Cheese Dosa",
+                "description": "A dosa stuffed with grated cheese and optionally mixed with vegetables or spices.",
+                "price": 140,
+                "offer_price": 120,
+                "img": "https://media.istockphoto.com/id/1156887817/photo/cheese-masala-dosa-recipe-with-sambar-and-chutney-selective-focus.jpg?s=612x612&w=0&k=20&c=8LD3qRjJVLQPx3eUOsPKc395A3WarkBoDapGlRiyjqo=",
+                "ingredients": [
+                    "rice batter",
+                    "cheese",
+                    "butter",
+                    "green chilies",
+                    "coriander leaves"
+                ],
+                "region": "South Indian (Fusion)",
+                "spice_level": "mild",
+                "serving_suggestion": "Best served with tomato ketchup or mint chutney.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Dosa",
+                "type": "non-veg",
+                "name": "Prawn Dosa",
+                "description": "A coastal-style dosa stuffed with spicy prawn masala, served with coconut chutney.",
+                "price": 250,
+                "offer_price": 220,
+                "img": "https://media.istockphoto.com/id/1152229240/photo/egg-dosa-anda-dosa.jpg?s=612x612&w=0&k=20&c=sQ-KbSIJXxU5015XQITvDec7eMajZiD374-YudIxYvs=",
+                "ingredients": [
+                    "rice batter",
+                    "prawns",
+                    "onions",
+                    "ginger-garlic paste",
+                    "turmeric",
+                    "red chili powder",
+                    "coconut milk",
+                    "oil"
+                ],
+                "region": "Kerala",
+                "spice_level": "high",
+                "serving_suggestion": "Best enjoyed with coconut chutney and lime pickle.",
+                "popularity": "low",
+                "quantity": 10
+            }
+        ]
+    },
+    {
+        "indian_desserts": [
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Gulab Jamun",
+                "description": "Soft, deep-fried dough balls soaked in sugar syrup, flavored with cardamom and rose water.",
+                "price": 250,
+                "offer_price": 200,
+                "img": "https://media.istockphoto.com/id/163064596/photo/gulab-jamun.jpg?s=612x612&w=0&k=20&c=JvJ4AAs-N5pRzzRmVg1lG0talC3QoUt0ZGiO1NKz-kQ=",
+                "ingredients": [
+                    "Khoya",
+                    "Sugar",
+                    "Maida",
+                    "Cardamom",
+                    "Ghee",
+                    "Rose water"
+                ],
+                "region": "North Indian",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve warm with vanilla ice cream.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Rasgulla",
+                "description": "Spongy cottage cheese balls soaked in light sugar syrup, originating from West Bengal.",
+                "price": 220,
+                "offer_price": 180,
+                "img": "https://media.istockphoto.com/id/1044080542/photo/indian-rasgulla-or-rosogulla-dessert-sweet-served-in-a-bowl-selective-focus.jpg?s=612x612&w=0&k=20&c=tdAE1jz-B43HcrqBL7dLSiV9tTchIVuPqFY0nMwrzrs=",
+                "ingredients": [
+                    "Chhena",
+                    "Sugar",
+                    "Water",
+                    "Cardamom"
+                ],
+                "region": "Bengali",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve chilled with a sprinkle of saffron.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Jalebi",
+                "description": "Crispy, coiled sweet made from fermented batter, deep-fried and soaked in sugar syrup.",
+                "price": 150,
+                "offer_price": 120,
+                "img": "https://media.istockphoto.com/id/1430753492/photo/indian-sweet-jalebi.jpg?s=612x612&w=0&k=20&c=NkShJtvnL1Y3jACu6arXGiOQKN5LtLi-DKak3SlX2N4=",
+                "ingredients": [
+                    "Maida",
+                    "Yogurt",
+                    "Sugar",
+                    "Saffron",
+                    "Ghee"
+                ],
+                "region": "North Indian",
+                "spice_level": "mild",
+                "serving_suggestion": "Best served hot with rabri or milk.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Barfi",
+                "description": "A dense, sweet confection made from condensed milk, sugar, and flavors like coconut or pistachio.",
+                "price": 300,
+                "offer_price": 250,
+                "img": "https://media.istockphoto.com/id/2215903703/photo/indian-diwali-sweet-food-kalakand-also-know-as-halwa-or-mawa-kalakand-is-a-creamy-delicacy.jpg?s=612x612&w=0&k=20&c=-0gBGaqjOse566nUQmvVLIGoRUdIRMHyQhFQVPBOOnw=",
+                "ingredients": [
+                    "Khoya",
+                    "Sugar",
+                    "Cardamom",
+                    "Pistachios",
+                    "Ghee"
+                ],
+                "region": "Punjabi",
+                "spice_level": "mild",
+                "serving_suggestion": "Cut into squares and garnish with silver leaf.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Ladoo",
+                "description": "Round sweet balls made from flour, ghee, and sugar, often flavored with nuts.",
+                "price": 180,
+                "offer_price": 150,
+                "img": "https://media.istockphoto.com/id/1463562412/photo/traditional-ball-shaped-indian-mithai-besan-ke-laddu-ladoo-or-laddoo-made-from-bengal-gram.jpg?s=612x612&w=0&k=20&c=sYRSNKtQWFpKcmpbpy9ea7OnYdQS6l_HfTS_aAjYtMs=",
+                "ingredients": [
+                    "Besan",
+                    "Ghee",
+                    "Sugar",
+                    "Cardamom",
+                    "Cashews"
+                ],
+                "region": "Gujarati",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve as prasad in festivals.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Rasmalai",
+                "description": "Soft cottage cheese patties soaked in sweetened, thickened milk flavored with cardamom.",
+                "price": 280,
+                "offer_price": 240,
+                "img": "https://media.istockphoto.com/id/515853026/photo/traditional-rasmalai-or-ras-malai-indian-dessert-bengali-sweet.jpg?s=612x612&w=0&k=20&c=LYftdDAkIa8lVyfmwt8iK-OPSQr2KCcJcYpPhbFtFBk=",
+                "ingredients": [
+                    "Chhena",
+                    "Milk",
+                    "Sugar",
+                    "Cardamom",
+                    "Saffron"
+                ],
+                "region": "Bengali",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve chilled with pistachio garnish.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Kheer",
+                "description": "A creamy rice pudding made with milk, sugar, and flavored with cardamom and nuts.",
+                "price": 200,
+                "offer_price": 170,
+                "img": "https://media.istockphoto.com/id/692446072/photo/most-famous-indian-sweet-pudding-kheer-or-semiya-khir-in-a-bowl-selective-focus.jpg?s=612x612&w=0&k=20&c=EYeuMLOgqpcFRtrDJ8KPGdxPjlUOrBhUwgjzU0Jwt5k=",
+                "ingredients": [
+                    "Rice",
+                    "Milk",
+                    "Sugar",
+                    "Cardamom",
+                    "Cashews",
+                    "Raisins"
+                ],
+                "region": "North Indian",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve chilled with saffron strands.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Halwa",
+                "description": "A dense, sweet pudding made from semolina, carrots, or lentils, cooked in ghee.",
+                "price": 160,
+                "offer_price": 130,
+                "img": "https://media.istockphoto.com/id/1277967294/photo/close-up-image-of-glass-bowls-containing-gajar-ka-halwa-sweet-indian-dessert-pudding-bowl-of.jpg?s=612x612&w=0&k=20&c=fTMGV2qnIuuhAKM0GN2CnRTpMUQ-hoDi5NIdjGbl9lk=",
+                "ingredients": [
+                    "Carrots",
+                    "Ghee",
+                    "Sugar",
+                    "Milk",
+                    "Nuts"
+                ],
+                "region": "Punjabi",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve warm with poori.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Sandesh",
+                "description": "A Bengali sweet made from chhena and sugar, often flavored with cardamom or saffron.",
+                "price": 220,
+                "offer_price": 190,
+                "img": "https://media.istockphoto.com/id/2210972995/photo/colorful-delicious-and-tasty-sandesh-or-sweetmeat-its-a-kind-of-dessert-a-famous-bangladeshi.jpg?s=612x612&w=0&k=20&c=y5iv2ij5DkBit8nhuPmrsW2N_ys2echz9G7a3-jKQcw=",
+                "ingredients": [
+                    "Chhena",
+                    "Sugar",
+                    "Cardamom",
+                    "Pistachios"
+                ],
+                "region": "Bengali",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve chilled with rose petals.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Peda",
+                "description": "Small, round milk-based sweets flavored with cardamom and garnished with pistachios.",
+                "price": 240,
+                "offer_price": 210,
+                "img": "https://media.istockphoto.com/id/985635998/photo/variety-of-peda-pedha-served-in-a-bowl-or-plate-over-white-background-or-with-pile-of-gifts.jpg?s=612x612&w=0&k=20&c=OGltUfST3bunSFpbqS-z9Fp1wp55bxDc8fCi__Z7YaE=",
+                "ingredients": [
+                    "Khoya",
+                    "Sugar",
+                    "Cardamom",
+                    "Pistachios"
+                ],
+                "region": "Gujarati",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve as a festive sweet.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Malpua",
+                "description": "Sweet pancakes soaked in sugar syrup, often served with rabri.",
+                "price": 180,
+                "offer_price": 150,
+                "img": "https://media.istockphoto.com/id/1465667777/photo/malpua-or-pua-are-traditional-indian-sweet-mithai-pancakes-drenched-dunked-soaked-or-coated.jpg?s=612x612&w=0&k=20&c=anuHe_P_z3ettpmHMCQTGcB2aH1XqQCSqiXtnbij8C8=",
+                "ingredients": [
+                    "Maida",
+                    "Milk",
+                    "Sugar",
+                    "Fennel seeds",
+                    "Ghee"
+                ],
+                "region": "Rajasthani",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve hot with rabri.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Ghevar",
+                "description": "A disc-shaped sweet made from flour and soaked in sugar syrup, popular in Rajasthan.",
+                "price": 300,
+                "offer_price": 260,
+                "img": "https://media.istockphoto.com/id/845078516/photo/rajasthani-ghevar-or-ghewar-indian-sweets.jpg?s=612x612&w=0&k=20&c=TWYalHsnZ4P6IeYRc2E80sQW1-NB11_dTcxlpkqCAtw=",
+                "ingredients": [
+                    "Maida",
+                    "Ghee",
+                    "Sugar",
+                    "Milk",
+                    "Saffron"
+                ],
+                "region": "Rajasthani",
+                "spice_level": "mild",
+                "serving_suggestion": "Garnish with rabri and nuts.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Balushahi",
+                "description": "A flaky, glazed doughnut-like sweet made with maida and deep-fried in ghee.",
+                "price": 220,
+                "offer_price": 190,
+                "img": "https://media.istockphoto.com/id/1739215293/photo/indian-traditional-sweet-balushahi.jpg?s=612x612&w=0&k=20&c=ZkbsPdSpR1X5OUX5iZrCVGIoFMQXs_SqmzhAeC2f5aM=",
+                "ingredients": [
+                    "Maida",
+                    "Ghee",
+                    "Sugar",
+                    "Yogurt"
+                ],
+                "region": "North Indian",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve with tea or as a dessert.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Kaju Katli",
+                "description": "Thin, diamond-shaped cashew fudge made with ground cashews and sugar.",
+                "price": 350,
+                "offer_price": 300,
+                "img": "https://media.istockphoto.com/id/2203353581/photo/kaju-katli-is-a-rich-smooth-indian-sweet-made-from-cashew-nuts-sugar-and-ghee-delicately.jpg?s=612x612&w=0&k=20&c=QD740kh27U68acLdIe-XOkwJdTjkh3iRtpMsTx19UN0=",
+                "ingredients": [
+                    "Cashews",
+                    "Sugar",
+                    "Ghee",
+                    "Cardamom"
+                ],
+                "region": "North Indian",
+                "spice_level": "mild",
+                "serving_suggestion": "Garnish with edible silver leaf.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Mysore Pak",
+                "description": "A rich, ghee-laden sweet made from gram flour and sugar, originating from Karnataka.",
+                "price": 280,
+                "offer_price": 240,
+                "img": "https://media.istockphoto.com/id/980046126/photo/mysore-pak-or-mysuru-paaka-is-south-indian-cake-like-sweet.jpg?s=612x612&w=0&k=20&c=PRBZVdmS21VSw_kTBLV72ndTfzppcDW22yXmeyBdfN4=",
+                "ingredients": [
+                    "Besan",
+                    "Ghee",
+                    "Sugar"
+                ],
+                "region": "South Indian",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve as a festive sweet.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Cham Cham",
+                "description": "A Bengali sweet made from chhena, soaked in sugar syrup, and coated with coconut.",
+                "price": 260,
+                "offer_price": 220,
+                "img": "https://media.istockphoto.com/id/1044075424/photo/rajbhog-is-a-traditional-bengali-sweet-dish-made-during-navaratri-festival-using-paneer-or.jpg?s=612x612&w=0&k=20&c=MJCdpYw6lBGKpCbM-Tzw8gCfpJtd3CW5FYNdymSpVO0=",
+                "ingredients": [
+                    "Chhena",
+                    "Sugar",
+                    "Coconut",
+                    "Cardamom"
+                ],
+                "region": "Bengali",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve chilled with saffron milk.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Moong Dal Halwa",
+                "description": "A rich, slow-cooked dessert made from moong dal, ghee, and sugar.",
+                "price": 300,
+                "offer_price": 260,
+                "img": "https://media.istockphoto.com/id/1352483057/photo/moong-dal-halwa.jpg?s=612x612&w=0&k=20&c=Q-PwQK08mZlI3iKy8kcNIuttqLbv8MVTPZhUccDbKx8=",
+                "ingredients": [
+                    "Moong dal",
+                    "Ghee",
+                    "Sugar",
+                    "Milk",
+                    "Nuts"
+                ],
+                "region": "Rajasthani",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve warm with a scoop of ice cream.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Mithai",
+                "type": "veg",
+                "name": "Rabri",
+                "description": "A thickened, sweetened milk dessert flavored with cardamom and garnished with nuts.",
+                "price": 240,
+                "offer_price": 210,
+                "img": "https://media.istockphoto.com/id/2203352739/photo/rasmalai-is-a-soft-spongy-indian-dessert-made-of-chhena-dumplings-soaked-in-sweet-flavored.jpg?s=612x612&w=0&k=20&c=_jpy7GaxP_X8RYSaF83SC4PfVEyq5P5lKKcDvHfwRfs=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Cardamom",
+                    "Saffron",
+                    "Pistachios"
+                ],
+                "region": "North Indian",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve chilled with jalebi or malpua.",
+                "popularity": "high",
+                "quantity": 10
+            }
+        ]
+    },
+    {
+        "coffees": [
+            {
+                "category": "Hot Coffee",
+                "name": "Espresso",
+                "description": "A concentrated coffee beverage brewed by forcing hot water under pressure through finely-ground coffee beans.",
+                "price": 3.50,
+                "offerPrice": 3.00,
+                "img": "https://media.istockphoto.com/id/1126871442/photo/coffee-cup.jpg?s=612x612&w=0&k=20&c=Jp8v8YqgT9ws-lMN6qiMZmpp5rGlsBpaRCeMS_DmzKs=",
+                "ingredients": [
+                    "Finely-ground coffee beans",
+                    "Hot water"
+                ],
+                "region": "Italian",
+                "servingSuggestion": "Best enjoyed in a small cup (demitasse) as a quick shot.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "30g"
+            },
+            {
+                "category": "Hot Coffee",
+                "name": "Cappuccino",
+                "description": "An espresso-based coffee drink topped with steamed milk foam, often dusted with cocoa powder.",
+                "price": 4.50,
+                "offerPrice": 4.00,
+                "img": "https://media.istockphoto.com/id/505168330/photo/cup-of-cafe-latte-with-coffee-beans-and-cinnamon-sticks.jpg?s=612x612&w=0&k=20&c=h7v8kAfWOpRapv6hrDwmmB54DqrGQWxlhP_mTeqTQPA=",
+                "ingredients": [
+                    "Espresso",
+                    "Steamed milk",
+                    "Milk foam",
+                    "Cocoa powder (optional)"
+                ],
+                "region": "Italian",
+                "servingSuggestion": "Best served in a pre-warmed cup, ideally in the morning.",
+                "popularity": "Very High",
+                "quantity": 10,
+                "weight": "150g"
+            },
+            {
+                "category": "Iced Coffee",
+                "name": "Iced Latte",
+                "description": "A chilled coffee drink made with espresso and cold milk, served over ice.",
+                "price": 4.00,
+                "offerPrice": 3.50,
+                "img": "https://media.istockphoto.com/id/1199994922/photo/milk-being-poured-into-iced-coffee-on-a-dark-table.jpg?s=612x612&w=0&k=20&c=yZfca4xT0PaWveSQvaZ0mlaHpaurh-8hPYcnbrOe30o=",
+                "ingredients": [
+                    "Espresso",
+                    "Cold milk",
+                    "Ice cubes"
+                ],
+                "region": "American",
+                "servingSuggestion": "Great for hot days, optionally sweetened with syrup.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "200g"
+            },
+            {
+                "category": "Cold Coffee",
+                "name": "Frappuccino",
+                "description": "A blended iced coffee drink with milk, ice, and flavored syrups, often topped with whipped cream.",
+                "price": 5.50,
+                "offerPrice": 5.00,
+                "img": "https://media.istockphoto.com/id/97647048/photo/frappuccino.jpg?s=612x612&w=0&k=20&c=hPCtj6UMOQKzvpIDGX8FUpEKwkTRTOOOVYIKHgPe1qU=",
+                "ingredients": [
+                    "Espresso",
+                    "Milk",
+                    "Ice",
+                    "Flavored syrup",
+                    "Whipped cream (optional)"
+                ],
+                "region": "American",
+                "servingSuggestion": "Perfect as a dessert-like beverage, best enjoyed with a straw.",
+                "popularity": "Very High",
+                "quantity": 10,
+                "weight": "250g"
+            },
+            {
+                "category": "Hot Coffee",
+                "name": "Americano",
+                "description": "A diluted espresso with hot water, resembling drip coffee but with a different flavor profile.",
+                "price": 3.00,
+                "offerPrice": 2.75,
+                "img": "https://media.istockphoto.com/id/1030018926/photo/coffee-americano-it-made-from-espresso-and-hot-water-uk.jpg?s=612x612&w=0&k=20&c=trsNtjalA6r9eGka845eO1nYOP0yogvLWqBAg-jsBlM=",
+                "ingredients": [
+                    "Espresso",
+                    "Hot water"
+                ],
+                "region": "American/Italian",
+                "servingSuggestion": "Good for those who prefer a milder coffee, can be taken black or with milk.",
+                "popularity": "Medium",
+                "quantity": 10,
+                "weight": "180g"
+            },
+            {
+                "category": "Hot Coffee",
+                "name": "Turkish Coffee",
+                "description": "A traditional method of preparing unfiltered coffee, finely ground and boiled in a special pot (cezve).",
+                "price": 4.00,
+                "offerPrice": 3.75,
+                "img": "https://media.istockphoto.com/id/1493224606/photo/turkish-black-coffee-in-a-caf%C3%A9-in-istanbul.jpg?s=612x612&w=0&k=20&c=p6WbAmrXWONB9OcmcIUczmT8j6fUg0llMFzYUOwdCrk=",
+                "ingredients": [
+                    "Finely-ground coffee beans",
+                    "Water",
+                    "Sugar (optional)",
+                    "Cardamom (optional)"
+                ],
+                "region": "Middle Eastern",
+                "servingSuggestion": "Served in small cups with grounds settled at the bottom, often with a sweet.",
+                "popularity": "Medium",
+                "quantity": 10,
+                "weight": "100g"
+            },
+            {
+                "category": "Cold Coffee",
+                "name": "Cold Brew",
+                "description": "Coffee steeped in cold water for 12-24 hours, resulting in a smooth, less acidic flavor.",
+                "price": 4.50,
+                "offerPrice": 4.25,
+                "img": "https://media.istockphoto.com/id/1483663560/photo/cold-refreshing-iced-cold-brew-coffee.jpg?s=612x612&w=0&k=20&c=L2BmMApC9ehDZD3MjIoif629v6yX-D_pUnFqdT3_Wrs=",
+                "ingredients": [
+                    "Coarsely-ground coffee beans",
+                    "Cold water"
+                ],
+                "region": "American",
+                "servingSuggestion": "Best served over ice, optionally with milk or sweetener.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "300g"
+            },
+            {
+                "category": "Hot Coffee",
+                "name": "Flat White",
+                "description": "An espresso-based drink with microfoam (steamed milk with fine bubbles), stronger than a latte.",
+                "price": 4.75,
+                "offerPrice": 4.50,
+                "img": "https://media.istockphoto.com/id/183138035/photo/cup-of-latte-coffee-and-spoon-on-gray-counter.jpg?s=612x612&w=0&k=20&c=Iht-hG2bzxiZgpjao6RELKAbw4oG7ujS2wQNkiM2rqU=",
+                "ingredients": [
+                    "Espresso",
+                    "Steamed milk (microfoam)"
+                ],
+                "region": "Australian/New Zealand",
+                "servingSuggestion": "Best enjoyed in a small cup, ideal for coffee lovers who prefer a creamy texture.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "160g"
+            },
+            {
+                "category": "Hot Coffee",
+                "name": "Mocha",
+                "description": "A chocolate-flavored variant of a latte, combining espresso, steamed milk, and chocolate syrup.",
+                "price": 5.00,
+                "offerPrice": 4.75,
+                "img": "https://media.istockphoto.com/id/1442009345/photo/mocha-with-latte-art-served-in-a-cup-isolated-on-dark-grey-background-top-view-of-hot-coffee.jpg?s=612x612&w=0&k=20&c=XG-HPKKWqarVjOslQZVE8767BTrMNVNwNXqbMQ80k5I=",
+                "ingredients": [
+                    "Espresso",
+                    "Steamed milk",
+                    "Chocolate syrup",
+                    "Whipped cream (optional)"
+                ],
+                "region": "International",
+                "servingSuggestion": "Great as a dessert coffee, often topped with whipped cream and cocoa powder.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "200g"
+            },
+            {
+                "category": "Specialty Coffee",
+                "name": "Affogato",
+                "description": "A dessert coffee made by pouring a shot of hot espresso over a scoop of vanilla ice cream.",
+                "price": 5.50,
+                "offerPrice": 5.25,
+                "img": "https://media.istockphoto.com/id/476824782/photo/coffee-latte.jpg?s=612x612&w=0&k=20&c=VPJGWG-hQGwf3648HvtXPMLO_Pp5rN_7ndZUkF0n3l0=",
+                "ingredients": [
+                    "Espresso",
+                    "Vanilla ice cream"
+                ],
+                "region": "Italian",
+                "servingSuggestion": "Best served immediately after pouring espresso to enjoy the contrast of hot and cold.",
+                "popularity": "Medium",
+                "quantity": 10,
+                "weight": "120g"
+            }
+        ]
+    },
+    {
+        "drinks": [
+            {
+                "category": "Drinks",
+                "name": "Mango Lassi",
+                "description": "A creamy and refreshing yogurt-based drink blended with ripe mangoes.",
+                "price": 80,
+                "offerPrice": 70,
+                "img": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/shaheen_ali/Mango_Lassi.jpg",
+                "ingredients": [
+                    "yogurt",
+                    "mango pulp",
+                    "sugar",
+                    "cardamom",
+                    "ice"
+                ],
+                "region": "Punjabi",
+                "servingSuggestion": "Serve chilled in a tall glass, garnished with a mint leaf.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "250ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Masala Chai",
+                "description": "Aromatic Indian tea brewed with spices and milk.",
+                "price": 30,
+                "offerPrice": 25,
+                "img": "https://www.vegrecipesofindia.com/wp-content/uploads/2013/10/masala-chai-recipe-1.jpg",
+                "ingredients": [
+                    "tea leaves",
+                    "milk",
+                    "sugar",
+                    "ginger",
+                    "cardamom",
+                    "cloves",
+                    "cinnamon"
+                ],
+                "region": "Gujarati",
+                "servingSuggestion": "Serve hot in small cups with snacks.",
+                "popularity": "Very High",
+                "quantity": 10,
+                "weight": "150ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Nimbu Pani",
+                "description": "Refreshing lemonade with a hint of salt and spices.",
+                "price": 40,
+                "offerPrice": 35,
+                "img": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/04/nimbu-pani.jpg",
+                "ingredients": [
+                    "lemon juice",
+                    "water",
+                    "sugar",
+                    "black salt",
+                    "cumin powder",
+                    "mint leaves"
+                ],
+                "region": "Gujarati",
+                "servingSuggestion": "Serve chilled with ice cubes and mint garnish.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Thandai",
+                "description": "Traditional cold drink made with milk, nuts and spices, often served during festivals.",
+                "price": 90,
+                "offerPrice": 80,
+                "img": "https://www.whiskaffair.com/wp-content/uploads/2020/03/Thandai-2-3.jpg",
+                "ingredients": [
+                    "milk",
+                    "almonds",
+                    "cashews",
+                    "pistachios",
+                    "poppy seeds",
+                    "pepper",
+                    "cardamom",
+                    "saffron",
+                    "sugar"
+                ],
+                "region": "Punjabi",
+                "servingSuggestion": "Serve chilled in earthen cups garnished with rose petals.",
+                "popularity": "Medium",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Jaljeera",
+                "description": "Tangy and spicy cumin-flavored drink that aids digestion.",
+                "price": 50,
+                "offerPrice": 45,
+                "img": "https://www.whiskaffair.com/wp-content/uploads/2020/05/Jaljeera-3.jpg",
+                "ingredients": [
+                    "cumin",
+                    "mint",
+                    "black salt",
+                    "tamarind",
+                    "ginger",
+                    "lemon juice",
+                    "water"
+                ],
+                "region": "Punjabi",
+                "servingSuggestion": "Serve chilled with boondi (fried gram flour balls) on top.",
+                "popularity": "Medium",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Kokum Sherbet",
+                "description": "Sweet and tangy drink made from kokum fruit, popular in western India.",
+                "price": 60,
+                "offerPrice": 50,
+                "img": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/shaheen_ali/Kokum_Sherbet_Recipe.jpg",
+                "ingredients": [
+                    "kokum",
+                    "sugar",
+                    "cumin powder",
+                    "black salt",
+                    "water"
+                ],
+                "region": "Gujarati",
+                "servingSuggestion": "Serve chilled with mint leaves as garnish.",
+                "popularity": "Medium",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Rose Milk",
+                "description": "Sweetened milk flavored with rose syrup.",
+                "price": 50,
+                "offerPrice": 45,
+                "img": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/04/rose-milk.jpg",
+                "ingredients": [
+                    "milk",
+                    "rose syrup",
+                    "sugar",
+                    "cardamom powder"
+                ],
+                "region": "Gujarati",
+                "servingSuggestion": "Serve chilled with ice cubes.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Badam Milk",
+                "description": "Nutritious milk drink with almond flavor.",
+                "price": 90,
+                "offerPrice": 80,
+                "img": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/04/badam-milk.jpg",
+                "ingredients": [
+                    "milk",
+                    "almonds",
+                    "saffron",
+                    "sugar",
+                    "cardamom"
+                ],
+                "region": "Punjabi",
+                "servingSuggestion": "Serve warm or chilled garnished with almond slivers.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Sugarcane Juice",
+                "description": "Freshly extracted sweet juice from sugarcane, often served with lime and ginger.",
+                "price": 40,
+                "offerPrice": 35,
+                "img": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/04/sugarcane-juice.jpg",
+                "ingredients": [
+                    "sugarcane",
+                    "lime juice",
+                    "ginger",
+                    "ice"
+                ],
+                "region": "Gujarati",
+                "servingSuggestion": "Serve immediately after extraction with ice.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "250ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Aam Panna",
+                "description": "Cooling raw mango drink that helps prevent heat stroke.",
+                "price": 60,
+                "offerPrice": 50,
+                "img": "https://www.whiskaffair.com/wp-content/uploads/2020/04/Aam-Panna-3.jpg",
+                "ingredients": [
+                    "raw mango",
+                    "cumin",
+                    "mint",
+                    "black salt",
+                    "sugar",
+                    "water"
+                ],
+                "region": "Gujarati",
+                "servingSuggestion": "Serve chilled with mint leaves as garnish.",
+                "popularity": "Medium",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Bael Sherbet",
+                "description": "Healthy drink made from wood apple, good for digestion.",
+                "price": 70,
+                "offerPrice": 60,
+                "img": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/shaheen_ali/Bael_Ka_Sherbet_Recipe.jpg",
+                "ingredients": [
+                    "bael pulp",
+                    "water",
+                    "sugar",
+                    "black salt",
+                    "cumin powder"
+                ],
+                "region": "Punjabi",
+                "servingSuggestion": "Serve chilled with ice cubes.",
+                "popularity": "Low",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Kesar Milk",
+                "description": "Saffron flavored milk that's rich and aromatic.",
+                "price": 100,
+                "offerPrice": 90,
+                "img": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/04/kesar-milk.jpg",
+                "ingredients": [
+                    "milk",
+                    "saffron",
+                    "sugar",
+                    "cardamom",
+                    "almonds"
+                ],
+                "region": "Punjabi",
+                "servingSuggestion": "Serve warm garnished with saffron strands.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Paan Sharbat",
+                "description": "Refreshing drink inspired by the flavors of paan (betel leaves).",
+                "price": 80,
+                "offerPrice": 70,
+                "img": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/shaheen_ali/Paan_Sharbat_Recipe.jpg",
+                "ingredients": [
+                    "betel leaves",
+                    "fennel seeds",
+                    "rose syrup",
+                    "honey",
+                    "mint",
+                    "lime juice",
+                    "water"
+                ],
+                "region": "Gujarati",
+                "servingSuggestion": "Serve chilled with gulkand (rose petal jam) swirl.",
+                "popularity": "Medium",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Sattu Sharbat",
+                "description": "Nutritious drink made from roasted gram flour, popular in Bihar and UP.",
+                "price": 50,
+                "offerPrice": 45,
+                "img": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/shaheen_ali/Sattu_Sharbat_Recipe.jpg",
+                "ingredients": [
+                    "sattu flour",
+                    "water",
+                    "lemon juice",
+                    "cumin",
+                    "black salt",
+                    "mint"
+                ],
+                "region": "Punjabi",
+                "servingSuggestion": "Serve chilled with mint garnish.",
+                "popularity": "Medium",
+                "quantity": 10,
+                "weight": "250ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Chandan Sharbat",
+                "description": "Cooling drink made with sandalwood powder, perfect for summers.",
+                "price": 90,
+                "offerPrice": 80,
+                "img": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/shaheen_ali/Chandan_Sharbat_Recipe.jpg",
+                "ingredients": [
+                    "sandalwood powder",
+                    "sugar",
+                    "milk",
+                    "rose water",
+                    "cardamom"
+                ],
+                "region": "Gujarati",
+                "servingSuggestion": "Serve chilled in a decorated glass.",
+                "popularity": "Low",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Gud ki Chai",
+                "description": "Herbal tea sweetened with jaggery instead of sugar.",
+                "price": 40,
+                "offerPrice": 35,
+                "img": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/04/gud-ki-chai.jpg",
+                "ingredients": [
+                    "tea leaves",
+                    "jaggery",
+                    "ginger",
+                    "cardamom",
+                    "water",
+                    "milk"
+                ],
+                "region": "Punjabi",
+                "servingSuggestion": "Serve hot in kulhad (earthen cup).",
+                "popularity": "Medium",
+                "quantity": 10,
+                "weight": "150ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Khus Sharbat",
+                "description": "Refreshing drink made from vetiver roots with a distinctive earthy flavor.",
+                "price": 60,
+                "offerPrice": 50,
+                "img": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/shaheen_ali/Khus_Sharbat_Recipe.jpg",
+                "ingredients": [
+                    "khus syrup",
+                    "water",
+                    "lemon juice",
+                    "ice"
+                ],
+                "region": "Gujarati",
+                "servingSuggestion": "Serve chilled with mint leaves.",
+                "popularity": "Medium",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Pudina Sharbat",
+                "description": "Cooling mint drink that helps beat the heat.",
+                "price": 50,
+                "offerPrice": 45,
+                "img": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/04/pudina-sharbat.jpg",
+                "ingredients": [
+                    "mint leaves",
+                    "sugar",
+                    "lemon juice",
+                    "black salt",
+                    "water"
+                ],
+                "region": "Punjabi",
+                "servingSuggestion": "Serve chilled with crushed ice.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "200ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Rabri Falooda",
+                "description": "Rich and creamy dessert drink with vermicelli, basil seeds and rabri.",
+                "price": 120,
+                "offerPrice": 110,
+                "img": "https://www.whiskaffair.com/wp-content/uploads/2020/04/Rabdi-Falooda-3.jpg",
+                "ingredients": [
+                    "rabri",
+                    "falooda sev",
+                    "basil seeds",
+                    "rose syrup",
+                    "milk",
+                    "dry fruits"
+                ],
+                "region": "Punjabi",
+                "servingSuggestion": "Serve chilled in tall glasses with a scoop of ice cream.",
+                "popularity": "High",
+                "quantity": 10,
+                "weight": "300ml"
+            },
+            {
+                "category": "Drinks",
+                "name": "Solkadhi",
+                "description": "Goan digestive drink made from kokum and coconut milk.",
+                "price": 80,
+                "offerPrice": 70,
+                "img": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/shaheen_ali/Solkadhi_Recipe.jpg",
+                "ingredients": [
+                    "kokum",
+                    "coconut milk",
+                    "green chilies",
+                    "garlic",
+                    "coriander leaves",
+                    "salt"
+                ],
+                "region": "Gujarati",
+                "servingSuggestion": "Serve chilled as an appetizer or with meals.",
+                "popularity": "Low",
+                "quantity": 10,
+                "weight": "200ml"
+            }
+        ]
+    },
+    {
+        "ice_creams": [
+            {
+                "category": "Desserts",
+                "name": "Strawberry",
+                "description": "Refreshing strawberry ice cream made with real fruit.",
+                "price": 105,
+                "offer_price": 85,
+                "img": "https://media.istockphoto.com/id/508832706/photo/dessert-with-fresh-strawberry-cream-cheese-and-strawberry-jam.jpg?s=612x612&w=0&k=20&c=OWm1pK2FNiwwUH-FC7TV-_vw4X6JhjYuRsGugXcd78I=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Strawberry Pulp",
+                    "Cream"
+                ],
+                "region": "Punjabi",
+                "serving_suggestion": "Garnish with fresh strawberries and mint leaves.",
+                "popularity": 8,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Kesar Pista",
+                "description": "A rich saffron and pistachio flavored ice cream with a creamy texture.",
+                "price": 120,
+                "offer_price": 100,
+                "img": "https://media.istockphoto.com/id/657073780/photo/rajwari-or-rajwadi-sweet-kesar-badam-pista-kulfi-or-ice-cream-candy.jpg?s=612x612&w=0&k=20&c=cXhI8hVEhYc5inbPXt-YWbUYjlJlGC2TdRd_Xkn56Ig=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Saffron",
+                    "Pistachios",
+                    "Cream"
+                ],
+                "region": "Gujarati",
+                "serving_suggestion": "Serve chilled, garnished with chopped pistachios.",
+                "popularity": 9,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Mango",
+                "description": "Delicious mango flavored ice cream made with real mango pulp.",
+                "price": 100,
+                "offer_price": 80,
+                "img": "https://media.istockphoto.com/id/507210718/photo/yellow-ice-cream.jpg?s=612x612&w=0&k=20&c=DSkuqLrThcNHpMxUzYBTR3PrlRLFG806JdjDVSlduss=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Mango Pulp",
+                    "Cream"
+                ],
+                "region": "Punjabi",
+                "serving_suggestion": "Best enjoyed during summer months, garnish with fresh mango slices.",
+                "popularity": 8,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Chocolate",
+                "description": "Rich and creamy chocolate ice cream made with premium cocoa.",
+                "price": 110,
+                "offer_price": 90,
+                "img": "https://media.istockphoto.com/id/1491655936/photo/chocolate-ice-cream-scoop.jpg?s=612x612&w=0&k=20&c=m_NDyHXn048dbKDuAfcnRwP54AM74xQMCWsUlOL-JJI=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Cocoa Powder",
+                    "Chocolate Chips",
+                    "Cream"
+                ],
+                "region": "Punjabi",
+                "serving_suggestion": "Serve with chocolate syrup and whipped cream.",
+                "popularity": 10,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Vanilla",
+                "description": "Classic vanilla ice cream with a smooth and creamy texture.",
+                "price": 90,
+                "offer_price": 75,
+                "img": "https://media.istockphoto.com/id/1148278084/photo/tasty-vanilla-ice-cream-with-bee-pollen-and-honey-in-bowl-on-table.jpg?s=612x612&w=0&k=20&c=8M4EnlG5PgvaSLBJnRucc-aU0eyR3P5Z6mjyApgKKAY=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Vanilla Extract",
+                    "Cream"
+                ],
+                "region": "Gujarati",
+                "serving_suggestion": "Pairs well with pies, cakes or as a standalone dessert.",
+                "popularity": 7,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Butterscotch",
+                "description": "Creamy ice cream with rich butterscotch flavor and caramel swirls.",
+                "price": 115,
+                "offer_price": 95,
+                "img": "https://media.istockphoto.com/id/1793070094/photo/banana-split-ice-cream-with-syrup-and-strawberry-on-blue-plate-top-view.jpg?s=612x612&w=0&k=20&c=Z4Pi20GtPQYjaa0ddHEfq4ytzvyo3wUdyIDHgGhGyzk=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Butterscotch Essence",
+                    "Caramel",
+                    "Cream"
+                ],
+                "region": "Gujarati",
+                "serving_suggestion": "Top with butterscotch chips and caramel sauce.",
+                "popularity": 8,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Tutti Frutti",
+                "description": "Vanilla ice cream with colorful candied fruit pieces.",
+                "price": 95,
+                "offer_price": 80,
+                "img": "https://media.istockphoto.com/id/470431975/photo/ice-cream-with-candied-fruit.jpg?s=612x612&w=0&k=20&c=g2G_anIxTPiyA0lberz4oOZfcZqrAAI9B-wDthFI_XQ=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Vanilla",
+                    "Candied Fruits",
+                    "Cream"
+                ],
+                "region": "Punjabi",
+                "serving_suggestion": "Perfect for kids' parties, serve in colorful bowls.",
+                "popularity": 7,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Black Currant",
+                "description": "Tangy and sweet black currant flavored ice cream.",
+                "price": 110,
+                "offer_price": 90,
+                "img": "https://media.istockphoto.com/id/1156245148/photo/homemade-mulberry-ice-cream-sorbet-in-bowl-close-up.jpg?s=612x612&w=0&k=20&c=O3yUbsXNy0UZ9_f-q3amswuiVq-kTFlbdp04Yc-adhA=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Black Currant Pulp",
+                    "Cream"
+                ],
+                "region": "Gujarati",
+                "serving_suggestion": "Serve with fresh berries for enhanced flavor.",
+                "popularity": 7,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Choco Chips",
+                "description": "Vanilla ice cream loaded with chocolate chips.",
+                "price": 105,
+                "offer_price": 85,
+                "img": "https://media.istockphoto.com/id/2185204734/photo/close-up-of-chocolate-chip-stick-bar-peanut-ice-stick-ice-cream-dessert-on-a-white-plate-that.jpg?s=612x612&w=0&k=20&c=ATRIqw4rYnrVP-3lYOrI0L9tBq5EZQ2x54b3rsbphV0=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Vanilla",
+                    "Chocolate Chips",
+                    "Cream"
+                ],
+                "region": "Punjabi",
+                "serving_suggestion": "Great for making ice cream sandwiches.",
+                "popularity": 8,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Rajbhog",
+                "description": "Traditional Indian ice cream with saffron, cardamom and dry fruits.",
+                "price": 130,
+                "offer_price": 110,
+                "img": "https://media.istockphoto.com/id/1314468132/photo/vanilla-ice-cream-in-wooden-cup-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=5QRJgOPXjFDSZh8L81LPsfGdfLK8PJYaYmqGpYkMCe0=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Saffron",
+                    "Cardamom",
+                    "Pistachios",
+                    "Almonds",
+                    "Cream"
+                ],
+                "region": "Gujarati",
+                "serving_suggestion": "Garnish with silver leaf for a royal presentation.",
+                "popularity": 9,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Roasted Almond",
+                "description": "Creamy ice cream with crunchy roasted almond pieces.",
+                "price": 120,
+                "offer_price": 100,
+                "img": "https://media.istockphoto.com/id/91086483/photo/tarte-tatin.jpg?s=612x612&w=0&k=20&c=F_m811gCE2CDW1aNZmqDn36HW6-RnITNUUIe1DnINog=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Roasted Almonds",
+                    "Cream"
+                ],
+                "region": "Punjabi",
+                "serving_suggestion": "Drizzle with honey for extra sweetness.",
+                "popularity": 8,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Paan",
+                "description": "Unique paan flavored ice cream with gulkand and fennel seeds.",
+                "price": 140,
+                "offer_price": 120,
+                "img": "https://media.istockphoto.com/id/1353974746/photo/chocolate-paan.jpg?s=612x612&w=0&k=20&c=Evg1Z2AOedK3QMRjYiNDXvxbO_9Eksk8rcLMsqxiojw=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Paan Leaves",
+                    "Gulkand",
+                    "Fennel Seeds",
+                    "Cream"
+                ],
+                "region": "Gujarati",
+                "serving_suggestion": "Garnish with edible silver leaf and cherry.",
+                "popularity": 9,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Anjeer",
+                "description": "Fig flavored ice cream with pieces of dried figs.",
+                "price": 125,
+                "offer_price": 105,
+                "img": "https://media.istockphoto.com/id/1405413437/photo/ice-cream-cup-background.jpg?s=612x612&w=0&k=20&c=sEYl4Spttj_YEoEouK31hPvvnoDXxlutkkFKZpuU8f4=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Dried Figs",
+                    "Cream"
+                ],
+                "region": "Punjabi",
+                "serving_suggestion": "Serve with fig compote for extra flavor.",
+                "popularity": 7,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Kaju Draksh",
+                "description": "Cashew and raisin flavored ice cream with rich texture.",
+                "price": 135,
+                "offer_price": 115,
+                "img": "https://media.istockphoto.com/id/157421453/photo/three-balls-of-vanilla-ice-cream-with-almonds.jpg?s=612x612&w=0&k=20&c=p6FBDedb5kegvg_O7jetrIw81_WzBKn4jcZmveK0Euw=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Cashews",
+                    "Raisins",
+                    "Cream"
+                ],
+                "region": "Gujarati",
+                "serving_suggestion": "Garnish with chopped cashews and raisins.",
+                "popularity": 8,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Cassata",
+                "description": "Traditional Italian ice cream with three layers of different flavors.",
+                "price": 150,
+                "offer_price": 130,
+                "img": "https://media.istockphoto.com/id/1292626078/photo/colorful-cassata-ice-cream-is-served-in-a-white-plate-over-a-rustic-wooden-table-thumbnail.jpg?s=612x612&w=0&k=20&c=Qj1gQxCjQJebcspB7Ixev4a9JrS4skJTSjwtBg4ZyKc=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Vanilla",
+                    "Strawberry",
+                    "Chocolate",
+                    "Cream"
+                ],
+                "region": "Gujarati",
+                "serving_suggestion": "Slice and serve with fresh fruits.",
+                "popularity": 8,
+                "quantity": 10,
+                "weight": "150ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Sitaphal",
+                "description": "Custard apple flavored ice cream with natural sweetness.",
+                "price": 140,
+                "offer_price": 120,
+                "img": "https://media.istockphoto.com/id/479562735/photo/ice-cream.jpg?s=612x612&w=0&k=20&c=tChXTIYSlR6MgrU6jH3M1LNO8bYgOjAoo3nUJzSCP5c=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Custard Apple Pulp",
+                    "Cream"
+                ],
+                "region": "Punjabi",
+                "serving_suggestion": "Garnish with custard apple pieces.",
+                "popularity": 7,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Badam Pista",
+                "description": "Rich almond and pistachio flavored ice cream.",
+                "price": 130,
+                "offer_price": 110,
+                "img": "https://media.istockphoto.com/id/2192147850/photo/plate-of-pistachio-ice-cream-scoops-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=bLbxMZ8A4_Qugkcciw7WpSG4FyDTVZmwvr-Vr9YUH64=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Almonds",
+                    "Pistachios",
+                    "Cream"
+                ],
+                "region": "Gujarati",
+                "serving_suggestion": "Serve garnished with slivered almonds and pistachios.",
+                "popularity": 9,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Litchi",
+                "description": "Refreshing litchi flavored ice cream with fruity notes.",
+                "price": 110,
+                "offer_price": 90,
+                "img": "https://media.istockphoto.com/id/1223250266/photo/ice-cream-with-fresh-tropical-fruits.jpg?s=612x612&w=0&k=20&c=_5MjNow4NPG5eBTD7i6mS4gxazQA3nwy2V-ING1wPe8=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Litchi Pulp",
+                    "Cream"
+                ],
+                "region": "Punjabi",
+                "serving_suggestion": "Garnish with fresh litchi pieces.",
+                "popularity": 7,
+                "quantity": 10,
+                "weight": "100ml"
+            },
+            {
+                "category": "Desserts",
+                "name": "Choco Fudge",
+                "description": "Chocolate ice cream with rich fudge swirls.",
+                "price": 120,
+                "offer_price": 100,
+                "img": "https://media.istockphoto.com/id/1165579122/photo/ice-cream-covered-with-chocolate-vanilla-and-almonds-on-a-wood-surface.jpg?s=612x612&w=0&k=20&c=F8PLgB9wnb3s8gvWMz9vehD3zGDLIIE7f8mOMSw9QpY=",
+                "ingredients": [
+                    "Milk",
+                    "Sugar",
+                    "Cocoa",
+                    "Chocolate Fudge",
+                    "Cream"
+                ],
+                "region": "Gujarati",
+                "serving_suggestion": "Top with hot fudge sauce and whipped cream.",
+                "popularity": 9,
+                "quantity": 10,
+                "weight": "100ml"
+            }
+        ]
+    },
+    {
+        "dhokla_varieties": [
+            {
+                "category": "Dhokla",
+                "type": "veg",
+                "name": "Rava Dhokla",
+                "description": "A quick and easy version of dhokla made with semolina (sooji), steamed to perfection and tempered with mustard seeds and curry leaves.",
+                "price": 100,
+                "offer_price": 85,
+                "img": "https://media.istockphoto.com/id/1413986694/photo/indian-popular-gujrati-breakfast-dish-white-dhokla-khatta-dhokla-rice-and-urad-dal-khaman.jpg?s=612x612&w=0&k=20&c=zcknRUpB2LuLRBt2d0tTgxPs6YccCHaa413hzHJ4qpg=",
+                "ingredients": [
+                    "Semolina (sooji)",
+                    "Yogurt",
+                    "Eno fruit salt",
+                    "Mustard seeds",
+                    "Curry leaves",
+                    "Green chilies",
+                    "Sugar",
+                    "Lemon juice",
+                    "Coconut"
+                ],
+                "region": "Gujarati",
+                "spice_level": "mild",
+                "serving_suggestion": "Best enjoyed with mint chutney.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Dhokla",
+                "type": "veg",
+                "name": "Khaman Dhokla",
+                "description": "A soft and fluffy steamed snack made from gram flour (besan), tempered with mustard seeds, curry leaves, and garnished with fresh coriander and grated coconut.",
+                "price": 120,
+                "offer_price": 100,
+                "img": "https://media.istockphoto.com/id/2154971490/photo/famous-gujrati-snack-dhokla-made-with-gram-flour-and-sugar-syrup-decorated-with-mint-and.jpg?s=612x612&w=0&k=20&c=bIK0xQNch94ZoJc9JAvlkMgrBnxVAD1gJAS5fc2jnS0=",
+                "ingredients": [
+                    "Gram flour (besan)",
+                    "Yogurt",
+                    "Turmeric",
+                    "Eno fruit salt",
+                    "Mustard seeds",
+                    "Curry leaves",
+                    "Green chilies",
+                    "Sugar",
+                    "Lemon juice",
+                    "Coriander leaves"
+                ],
+                "region": "Gujarati",
+                "spice_level": "medium",
+                "serving_suggestion": "Serve with green chutney and tamarind chutney.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Dhokla",
+                "type": "veg",
+                "name": "Khatta Dhokla",
+                "description": "A tangy and slightly sour dhokla made with rice and urad dal batter, fermented overnight for a distinct flavor.",
+                "price": 110,
+                "offer_price": 95,
+                "img": "https://media.istockphoto.com/id/1799945224/photo/gujarati-khaman-white-dhokla-or-khatta-dhokla.jpg?s=612x612&w=0&k=20&c=gKsukE5Uec76GoiSEQse6aHQ_mmqWCOowKpsJQi2ERI=",
+                "ingredients": [
+                    "Rice",
+                    "Urad dal",
+                    "Yogurt",
+                    "Mustard seeds",
+                    "Curry leaves",
+                    "Green chilies",
+                    "Asafoetida (hing)",
+                    "Coriander leaves"
+                ],
+                "region": "Gujarati",
+                "spice_level": "medium",
+                "serving_suggestion": "Serve with spicy garlic chutney.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Dhokla",
+                "type": "veg",
+                "name": "Mixed Dal Dhokla",
+                "description": "A nutritious dhokla made with a blend of different lentils, steamed and tempered with spices.",
+                "price": 130,
+                "offer_price": 115,
+                "img": "https://media.istockphoto.com/id/1226693739/photo/indian-spicy-snack-food-item-dhokla-served-in-a-bowl.jpg?s=612x612&w=0&k=20&c=evxqUcCxjo6boA53SJMbZhJJTryPCFO_ZgB6n4tbwWE=",
+                "ingredients": [
+                    "Chana dal",
+                    "Moong dal",
+                    "Urad dal",
+                    "Rice",
+                    "Yogurt",
+                    "Mustard seeds",
+                    "Curry leaves",
+                    "Green chilies"
+                ],
+                "region": "Gujarati",
+                "spice_level": "medium",
+                "serving_suggestion": "Enjoy with sweet and spicy chutney.",
+                "popularity": "low",
+                "quantity": 10
+            },
+            {
+                "category": "Dhokla",
+                "type": "veg",
+                "name": "Besan Dhokla",
+                "description": "A simple yet delicious dhokla made purely from gram flour, steamed and topped with tempering.",
+                "price": 90,
+                "offer_price": 75,
+                "img": "https://media.istockphoto.com/id/1195003945/photo/dhokhla.jpg?s=612x612&w=0&k=20&c=Tf4svRlFGFa-3YOJmDqjwG2bCfem-z4mmHiyAt2f01Q=",
+                "ingredients": [
+                    "Gram flour (besan)",
+                    "Yogurt",
+                    "Turmeric",
+                    "Eno fruit salt",
+                    "Mustard seeds",
+                    "Curry leaves",
+                    "Green chilies"
+                ],
+                "region": "Gujarati",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve with green chutney.",
+                "popularity": "high",
+                "quantity": 10
+            },
+            {
+                "category": "Dhokla",
+                "type": "non-veg",
+                "name": "Chicken Dhokla",
+                "description": "A unique non-vegetarian twist to traditional dhokla, made with minced chicken and gram flour, steamed and spiced.",
+                "price": 180,
+                "offer_price": 160,
+                "img": "https://media.istockphoto.com/id/2208966030/photo/indian-snacks-dish-with-decoration-on-wooden-background-creative-image.jpg?s=612x612&w=0&k=20&c=iP0GscnDx06AYnCU01s1iNPDb0LNxeqEUeHZUyiWgZA=",
+                "ingredients": [
+                    "Minced chicken",
+                    "Gram flour (besan)",
+                    "Yogurt",
+                    "Turmeric",
+                    "Ginger-garlic paste",
+                    "Green chilies",
+                    "Mustard seeds",
+                    "Curry leaves"
+                ],
+                "region": "Fusion",
+                "spice_level": "high",
+                "serving_suggestion": "Best enjoyed with mint yogurt dip.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Dhokla",
+                "type": "non-veg",
+                "name": "Prawn Dhokla",
+                "description": "A coastal-inspired dhokla made with prawns, gram flour, and coconut, steamed and tempered with curry leaves.",
+                "price": 200,
+                "offer_price": 175,
+                "img": "https://media.istockphoto.com/id/695003634/photo/dhokla-or-sandwich-dhokla-indian-savory-snacks-made-of-chick-pea-flour-or-rice-flour-selective.jpg?s=612x612&w=0&k=20&c=NdkVzmPvJWgoA2Ul77l14UEuhACQHyWjecxhjadwYEY=",
+                "ingredients": [
+                    "Prawns",
+                    "Gram flour (besan)",
+                    "Coconut",
+                    "Turmeric",
+                    "Mustard seeds",
+                    "Curry leaves",
+                    "Green chilies"
+                ],
+                "region": "Coastal Gujarati",
+                "spice_level": "medium",
+                "serving_suggestion": "Serve with coconut chutney.",
+                "popularity": "low",
+                "quantity": 10
+            },
+            {
+                "category": "Dhokla",
+                "type": "veg",
+                "name": "Methi Dhokla",
+                "description": "A healthy and flavorful dhokla made with fenugreek leaves (methi) and gram flour, steamed and lightly spiced.",
+                "price": 110,
+                "offer_price": 95,
+                "img": "https://media.istockphoto.com/id/2126527903/photo/sandwich-dhokla-or-sandwich-khaman-is-an-indian-popular-snack.jpg?s=612x612&w=0&k=20&c=U3hCMJpWl081VBK0ckSKZf7lNqKpGIkLbHNMABv8za8=",
+                "ingredients": [
+                    "Fenugreek leaves (methi)",
+                    "Gram flour (besan)",
+                    "Yogurt",
+                    "Turmeric",
+                    "Eno fruit salt",
+                    "Mustard seeds",
+                    "Green chilies"
+                ],
+                "region": "Gujarati",
+                "spice_level": "medium",
+                "serving_suggestion": "Enjoy with tamarind chutney.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Dhokla",
+                "type": "veg",
+                "name": "Oats Dhokla",
+                "description": "A healthy and modern take on dhokla made with oats and gram flour, steamed and served with chutney.",
+                "price": 120,
+                "offer_price": 105,
+                "img": "https://media.istockphoto.com/id/1157560805/photo/handvo-handwa-is-a-vegetable-cake-originating-from-the-gujarat-india-selective-focus.jpg?s=612x612&w=0&k=20&c=EnYxdpdKLLR3aY2micNKGc-0dSTXG77NAvJtpDuIpfo=",
+                "ingredients": [
+                    "Oats",
+                    "Gram flour (besan)",
+                    "Yogurt",
+                    "Turmeric",
+                    "Eno fruit salt",
+                    "Mustard seeds",
+                    "Curry leaves"
+                ],
+                "region": "Modern Gujarati",
+                "spice_level": "mild",
+                "serving_suggestion": "Serve with coriander chutney.",
+                "popularity": "medium",
+                "quantity": 10
+            },
+            {
+                "category": "Dhokla",
+                "type": "non-veg",
+                "name": "Egg Dhokla",
+                "description": "A protein-rich dhokla made with eggs and gram flour, steamed and tempered with spices.",
+                "price": 150,
+                "offer_price": 130,
+                "img": "https://media.istockphoto.com/id/1366529650/photo/a-plate-of-instant-live-dhokla.jpg?s=612x612&w=0&k=20&c=2tyNkBB_mEQCLmk8WUnyrtryTXst_z8uW_TWIvnohKg=",
+                "ingredients": [
+                    "Eggs",
+                    "Gram flour (besan)",
+                    "Yogurt",
+                    "Turmeric",
+                    "Mustard seeds",
+                    "Curry leaves",
+                    "Green chilies"
+                ],
+                "region": "Fusion",
+                "spice_level": "high",
+                "serving_suggestion": "Best enjoyed with spicy garlic chutney.",
+                "popularity": "medium",
+                "quantity": 10
+            }
+        ]
     }
 ]

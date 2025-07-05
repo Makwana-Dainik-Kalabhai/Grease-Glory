@@ -21,6 +21,8 @@
 }
 
 .food-modal-container .food-modal img {
+    max-height: 370px;
+    object-fit: cover;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -72,4 +74,19 @@
     font-size: 0.3em;
     font-weight: 600;
     padding-top: 0.5rem;
+}
+
+.food-modal .food-details .ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+}
+.food-details .ingredients span {
+    font-size: 0.28em;
+    color: white;
+    background-color: var(--purple);
+    border-radius: 25px;
+    padding: 0.4rem 0.7rem;
+    line-height: 1;
 }

@@ -12,6 +12,7 @@ const Header = () => {
 
     const { disSignup, setDisSignup, disLogin, setDisLogin, isLogin, cartItems } = useStore();
     const [disMenus, setDisMenus] = useState(false);
+    const [moreMenus, setMoreMenus] = useState(false);
 
     useEffect(() => {
         setDisMenus(false);
@@ -28,9 +29,18 @@ const Header = () => {
                     <NavLink to="/food">Foods</NavLink>
                     <NavLink to="/recipe">Recipes</NavLink>
                     <NavLink to="/contact">Contact Us</NavLink>
+
+                    {isLogin &&
+                        <button className="more-menu-btn" onMouseEnter={() => setMoreMenus(true)} onMouseLeave={() => setMoreMenus(false)}>More&nbsp;
+                            <i className="fa-solid fa-angle-down" style={{ transition: "all 0.3s linear", transform: moreMenus ? "rotate(180deg)" : "rotate(0deg)" }}></i>
+                            <div className="more-menus" style={{ display: moreMenus ? "flex" : "none" }}>
+                                <NavLink to="/orders">Orders</NavLink>
+                                <NavLink to="/profile">Account</NavLink>
+                                <NavLink to="/logout">Logout</NavLink>
+                            </div>
+                        </button>}
                     {isLogin && <>
-                        <NavLink to="/orders">Orders</NavLink>
-                        <NavLink to="/logout">Logout</NavLink>
+
                         <i className="fa-solid fa-shopping-cart" onClick={() => navigate("/cart")}>{cartItems.length !== 0 && <span>{cartItems.length}</span>}</i>
                     </>}
                     <div className="login-btns">
@@ -42,7 +52,7 @@ const Header = () => {
                         }
                     </div>
                 </div>
-            </nav>
+            </nav >
 
             <nav className="mobile-nav">
                 <div>

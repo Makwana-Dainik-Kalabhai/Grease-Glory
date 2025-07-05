@@ -27,6 +27,10 @@ const FoodSchema = Schema({
   offer_price: {
     type: Number,
   },
+  quantity: {
+    type: Number,
+    require: true,
+  },
 });
 
 const Foods = new model("foods", FoodSchema);

@@ -20,10 +20,10 @@ export const ContextProvider = ({ children }) => {
     const getTokenFrLs = () => {
         return (!!localStorage.getItem("token")) && JSON.parse(localStorage.getItem("token")).value;
     }
-
+    
     const [disSignup, setDisSignup] = useState(false);
     const [disLogin, setDisLogin] = useState(false);
-
+    
     const [token, setToken] = useState(() => getTokenFrLs());
     const [isLogin, setIsLogin] = useState(!!token);
     const [isLoading, setIsLoading] = useState(false);
@@ -32,14 +32,13 @@ export const ContextProvider = ({ children }) => {
     const [cartTotSave, setCartTotSave] = useState(0);
 
 
-
     //! Get Cart Items
     const getCartItems = async (email) => {
         try {
             const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}cart`, {
                 method: "GET",
                 headers: {
-                    "Email": email
+                    "Authorization": token
                 }
             });
             const myRes = await res.json();
@@ -83,7 +82,7 @@ export const ContextProvider = ({ children }) => {
             //
         }
         catch (err) {
-            console.log(err.message);
+            showToast(err.message, "error");
         }
     }
 
