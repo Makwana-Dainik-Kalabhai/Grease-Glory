@@ -109,7 +109,7 @@ router.route("/order/place-order").post(getUserData, async (req, res) => {
 });
 
 //
-//! Get All Orders of the user
+//! Get All Orders of particular user
 router.route("/user/orders").get(async (req, res) => {
   try {
     const email = req.header("Email");

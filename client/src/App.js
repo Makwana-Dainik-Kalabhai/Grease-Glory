@@ -30,6 +30,10 @@ function App() {
           element: <Food />,
         },
         {
+          path: "/searchFood/:food",
+          element: <Food />,
+        },
+        {
           path: "/recipe",
           element: <Recipe />,
         },

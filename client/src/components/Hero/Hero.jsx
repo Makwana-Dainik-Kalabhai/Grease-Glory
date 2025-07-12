@@ -1,9 +1,38 @@
 import "./Hero.css";
 import dish from "./dish.png";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useStore } from "../../ContextApi/Store";
 
 export const Hero = () => {
     const navigate = useNavigate();
+    const [search, setSearch] = useState("");
+    const [searchedFoods, setSearchedFoods] = useState([]);
+    const { isLoading, setIsLoading, showLoader, showToast } = useStore();
+
+    const handleSearch = async () => {
+        setIsLoading(true);
+        try {
+            const res = await fetch("http://localhost:3001/foods/search", {
+                method: "GET",
+                headers: {
+                    "food": search
+                }
+            });
+            const foods = await res.json();
+
+            if (res.ok) setSearchedFoods(foods);
+            else console.log(foods.message);
+            //
+        } catch (err) {
+            console.log(err.message);
+        }
+        setIsLoading(false);
+    }
+
+    useEffect(() => {
+        search && handleSearch();
+    }, [search]);
 
     return (
         <>
@@ -16,10 +45,22 @@ export const Hero = () => {
                 <h1>Grease & Glory</h1>
                 <h2>Discover the Foods What You Loves</h2>
 
-                <form action="" className="search-input">
-                    <input type="text" placeholder="&#128269; Search Here..." />
-                    <input type="submit" value="Search" />
-                </form>
+                <div className="search-box">
+                    <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="&#128269; Search Here..." />
+                    <input type="submit" value="Search" onClick={() => navigate(`/searchFood/${searchedFoods}`)} />
+
+                    {search && <div className="searched-foods">
+                        {isLoading && <div className="loader">{showLoader(30, 30, "var(--purple)")}</div>}
+                        {!isLoading && searchedFoods && searchedFoods.map((ele) => {
+                            return (<li onClick={() => navigate(`/searchFood/${ele.name}`)} key={ele._id}>
+                                <img src={ele.img} alt="" />&ensp;
+                                <span className="name">{ele.name.length < 50 ? ele.name : ((ele.name).substring(0, 50) + " ...")} <span>({ele.category})</span></span>
+                            </li>)
+                        })}
+
+                        {searchedFoods.length <= 0 && <img className="not-found" src="https://img.freepik.com/premium-vector/vector-illustration-about-concept-no-items-found-no-results-found_675567-6604.jpg" />}
+                    </div>}
+                </div>
                 <button onClick={() => navigate("/food")}>Order Now</button>
             </div>
         </>

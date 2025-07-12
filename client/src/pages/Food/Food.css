@@ -1,22 +1,18 @@
 .foods-container {
     padding-bottom: 2rem;
 }
+
 /*! Category Filters */
 .category-filter {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 100%;
+    width: 90%;
     padding-bottom: 2rem;
 }
 
-.category-filter span {
-    font-size: 0.3em;
-    font-weight: 500;
-    color: grey;
-}
-
-.category-filter button {
+.category-filter button,
+.category-filter select {
     font-size: 0.25em;
     font-weight: 600;
     padding: 0.4rem 1rem;
@@ -26,14 +22,39 @@
     border: 2px solid var(--yellow);
     border-radius: 7px;
     transition: all 0.3s linear;
+    text-align: center;
+}
+
+.category-filter select {
+    padding: 0.4rem 0;
+    color: var(--yellow);
+    outline: 2px solid var(--yellow);
+    border: none;
+}
+
+.category-filter option {
+    color: black;
+    background-color: white;
+    font-weight: 600;
+}
+
+.category-filter button:first-of-type {
+    color: var(--purple);
+    border: 2px solid var(--purple);
 }
 
 .category-filter button.active,
-.category-filter button:hover {
+.category-filter button:hover,
+.category-filter select.active {
     color: white;
     background-color: var(--yellow);
 }
 
+.category-filter button:first-of-type.active,
+.category-filter button:first-of-type:hover {
+    color: white;
+    background-color: var(--purple);
+}
 
 
 
@@ -41,7 +62,7 @@
 
 /*! Main Foods Grid */
 .food-grid {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     height: 75vh;
@@ -49,6 +70,7 @@
     overflow-y: auto;
     gap: 1.5rem;
 }
+
 .food-grid::-webkit-scrollbar {
     display: none;
 }

@@ -6,7 +6,7 @@ export const FoodModal = ({ productId, foods, setFoodModal }) => {
     return !!filterFood && filterFood.map((ele) => {
         return <div className="food-modal-container" key={ele._id} onClick={() => setFoodModal("")}>
             <div className="food-modal">
-                <img src={ele.img} alt="" />
+                <a href={ele.img}><img src={ele.img} alt="" /></a>
                 <div className="food-details">
                     <h2 className="name">{ele.name}<span>{ele.veg ? "Veg" : "Non-Veg"}</span></h2>
                     <h5 className="category">{ele.category}</h5>

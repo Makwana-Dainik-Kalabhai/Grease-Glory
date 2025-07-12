@@ -16,6 +16,8 @@ export const Food = () => {
     const [foodModal, setFoodModal] = useState("");
     const [pageSize, setPageSize] = useState(10);
 
+    const [searchedFood, setSearchedFood] = useState(params.food ? (params.food).toLowerCase() : "");
+
     let prCount = 0;
 
 
@@ -23,6 +25,7 @@ export const Food = () => {
     const setFilter = (category) => {
         setIsLoading(true);
         setFilterCategory("");
+        setPageSize(10);
 
         setTimeout(() => {
             setFilterCategory(category);
@@ -129,6 +132,8 @@ export const Food = () => {
         fetchFoods();
     }, [cartItems]);
 
+    console.log(searchedFood);
+
 
     return (
         <section className="foods-container">
@@ -136,52 +141,81 @@ export const Food = () => {
             <div className="decoration-box left-bottom"></div>
             <div className="decoration-box right-bottom"></div>
 
-            <div className="category-filter">
-                <span>Filter By:</span>&nbsp;
-                {categories && categories.map((ele) => {
-                    return (
-                        <button className={(filterCategory && filterCategory === ele.category) ? "active" : ""} key={ele.category} value={ele.category} onClick={() => setFilter(ele.category)}>{ele.category}</button>
-                    )
-                })}
-            </div>
 
+            {/*//! If Food is Searched */}
+            {searchedFood && !Array.isArray(searchedFood) && foods.map((ele, i) => {
+                const filteredCart = cartItems && cartItems.filter(cartEle => cartEle.productId._id === ele._id);
+                filteredCart && JSON.stringify(filteredCart);
 
-            {/*//! Foods Grid */}
-            {foods && <div className="food-grid">
-                {foods.map((ele, i) => {
-                    const filteredCart = cartItems && cartItems.filter(cartEle => cartEle.productId._id === ele._id);
-                    filteredCart && JSON.stringify(filteredCart);
+                return (ele.name).toLowerCase() === searchedFood && <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
+            })}
+            {searchedFood && Array.isArray(searchedFood) && searchedFood.map((ele, i) => {
+                const filteredCart = cartItems && cartItems.filter(cartEle => cartEle.productId._id === ele._id);
+                filteredCart && JSON.stringify(filteredCart);
 
-                    if (filterCategory !== "all" && filterCategory.toLowerCase() === ele.category.toLowerCase() && prCount < pageSize) {
-                        prCount++;
-                        return <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
-                    }
-                    else if (filterCategory === "all") {
-                        return i < pageSize &&
-                            <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
-                    }
-                })}
-                {isLoading ? showLoader(70, 70, "#e88630") : ((filterCategory !== "all" && pageSize - 1 < prCount) ? <button className="btn btn-primary" onClick={loadMoreData}>Load More</button> : (filterCategory === "all" && (pageSize < foods.length) ? <button className="btn btn-primary" onClick={loadMoreData}>Load More</button> : ""))}
+                return <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
+            })}
 
 
 
 
-
-
-                {/* //! Bottom button to view cart */}
-                {cartItems && cartItems.length !== 0 && <div className="view-cart-container">
-                    <div className="product-imgs">
-                        {!!cartItems && cartItems.map((ele, ind) => {
-                            return ind < 5 && <img src={ele.productId.img} alt={ele.productId.name} key={ind} />
+            {/* //! If Food is not searched, then display all foods */}
+            {!searchedFood && <>
+                <div className="category-filter">
+                    <button className={(filterCategory === "all") ? "active" : ""} value="All" onClick={() => setFilter("all")}>All</button>
+                    {categories && categories.map((ele, ind) => {
+                        return (
+                            ind <= 7 && <button className={(filterCategory && filterCategory === ele.category) ? "active" : ""} key={ele.category} value={ele.category} onClick={() => setFilter(ele.category)}>{ele.category}</button>
+                        )
+                    })}
+                    {/* {console.log(categories.findIndex(item => item.category===filterCategory))} */}
+                    {categories && categories.length > 7 && <select className={((categories.findIndex(item => item.category === filterCategory)) > 7) ? "active" : ""} onChange={(e) => setFilter(e.target.value)}>
+                        <option value="all">More</option>
+                        {categories.map((ele, ind) => {
+                            return ind > 7 && <option value={ele.category} key={ele.category} className={(filterCategory && filterCategory === ele.category) ? "active" : ""}>{ele.category}</option>
                         })}
-                    </div>
-                    <div className="details">
-                        <p className="total-items">{cartItems.length} Items <i className="fa-solid fa-angle-up"></i></p>
-                        <p className="total-save">{cartTotSave > 0 && "₹" + cartTotSave + " Save"}</p>
-                    </div>
-                    <button className="view-cart-btn" onClick={() => navigate("/cart")}>View Cart</button>
-                </div>}
-            </div>
+                    </select>}
+                </div>
+
+
+                {/*//! Foods Grid */}
+                {foods && <div className="food-grid">
+                    {foods.map((ele, i) => {
+                        const filteredCart = cartItems && cartItems.filter(cartEle => cartEle.productId._id === ele._id);
+                        filteredCart && JSON.stringify(filteredCart);
+
+                        if (filterCategory !== "all" && filterCategory.toLowerCase() === ele.category.toLowerCase() && prCount < pageSize) {
+                            prCount++;
+                            return <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
+                        }
+                        else if (filterCategory === "all") {
+                            return i < pageSize &&
+                                <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
+                        }
+                    })}
+                    {isLoading ? showLoader(70, 70, "#e88630") : ((filterCategory !== "all" && pageSize - 1 < prCount) ? <button className="btn btn-primary" onClick={loadMoreData}>Load More</button> : (filterCategory === "all" && (pageSize < foods.length) ? <button className="btn btn-primary" onClick={loadMoreData}>Load More</button> : ""))}
+
+
+
+
+
+
+                    {/* //! Bottom button to view cart */}
+                    {cartItems && cartItems.length !== 0 && <div className="view-cart-container">
+                        <div className="product-imgs">
+                            {!!cartItems && cartItems.map((ele, ind) => {
+                                return ind < 5 && <img src={ele.productId.img} alt={ele.productId.name} key={ind} />
+                            })}
+                        </div>
+                        <div className="details">
+                            <p className="total-items">{cartItems.length} Items <i className="fa-solid fa-angle-up"></i></p>
+                            <p className="total-save">{cartTotSave > 0 && "₹" + cartTotSave + " Save"}</p>
+                        </div>
+                        <button className="view-cart-btn" onClick={() => navigate("/cart")}>View Cart</button>
+                    </div>}
+                </div>
+                }
+            </>
             }
 
             {foodModal !== null && <FoodModal productId={foodModal} foods={foods} setFoodModal={setFoodModal} />}

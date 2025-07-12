@@ -15,7 +15,19 @@ router.route("/auth/signup").post(validate(signupSchema), async (req, res) => {
     if (userExist)
       return res.status(400).json({ message: "User Already Exist" });
 
-    const user = await User.create({ username, email, password, phone });
+    const user = await User.create({
+      username,
+      email,
+      password,
+      phone,
+      address: {
+        houseNo: "",
+        apartment: "",
+        suite: "",
+        city: "",
+        pincode: "",
+      },
+    });
 
     return res.status(201).json({
       message: "signUp Successfully",
@@ -24,11 +36,9 @@ router.route("/auth/signup").post(validate(signupSchema), async (req, res) => {
     });
     //
   } catch (err) {
-    return res.json({ message: err.message });
+    return res.status(500).json({ message: err.message });
   }
 });
-
-
 
 //! Login Now
 router.route("/auth/login").post(validate(loginSchema), async (req, res) => {

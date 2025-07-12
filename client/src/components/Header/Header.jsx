@@ -22,7 +22,7 @@ const Header = () => {
         <>
             <nav className="laptop-nav">
                 <div>
-                    <img src={logo} className="logo" alt="Img not Found" />
+                    <img src={logo} className="logo" alt="Img not Found" onClick={()=>navigate("/")} />
                 </div>
                 <div>
                     <NavLink to="/">Home</NavLink>
@@ -56,7 +56,7 @@ const Header = () => {
 
             <nav className="mobile-nav">
                 <div>
-                    <img src={logo} className="logo" alt="Img not Found" />
+                    <img src={logo} className="logo" alt="Img not Found" onClick={()=>navigate("/")} />
                     {disMenus &&
                         <>
                             <i className="fa-solid fa-close mobile-menu" onClick={() => setDisMenus(prev => !prev)}></i>

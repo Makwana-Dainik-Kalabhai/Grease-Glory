@@ -59,14 +59,14 @@ header .hero-container h2 {
     color: var(--yellow);
 }
 
-header .hero-container .search-input {
+header .hero-container .search-box {
     margin-top: 3rem;
     position: relative;
     width: 100%;
     line-height: 0;
 }
 
-header .search-input input[type="text"] {
+header .search-box input[type="text"] {
     font-size: 0.35em;
     width: 98%;
     padding: 2% 0 2% 2%;
@@ -76,7 +76,7 @@ header .search-input input[type="text"] {
     border-radius: 10px;
 }
 
-header .search-input input[type="submit"] {
+header .search-box input[type="submit"] {
     cursor: pointer;
     font-size: 0.35em;
     font-weight: 600;
@@ -92,10 +92,64 @@ header .search-input input[type="submit"] {
     border-bottom-right-radius: 10px;
 }
 
-header .search-input input[type="submit"]:hover {
+header .search-box input[type="submit"]:hover {
     border: 3px solid var(--hover-purple);
     background-color: var(--hover-purple);
 }
+
+
+.hero-container .searched-foods {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    height: fit-content;
+    background-color: #f9ecf3;
+    border-radius: 0.65rem;
+    width: 100%;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.hero-container .searched-foods .loader {
+    padding: 0.5rem;
+}
+.hero-container .searched-foods li {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 1rem;
+    border-bottom: 1px solid var(--purple);
+    line-height: 1.2;
+    font-size: 0.3em;
+    color: black;
+    text-align: left;
+    list-style: none;
+    cursor: pointer;
+    height: 2rem;
+}
+.hero-container .searched-foods li:hover {
+    background-color: #ecc6db;
+}
+.hero-container .searched-foods img {
+    width: 8%;
+    height: 100%;
+    border-radius: 0.3rem;
+    filter: contrast(105%) brightness(105%);
+    box-shadow: 0px 0px 2px 2px #f2f2f2;
+}
+.hero-container .searched-foods .not-found {
+    width: 30%;
+}
+.hero-container .searched-foods .name {
+    font-weight: 500;
+}
+.hero-container .searched-foods .name span {
+    color: var(--yellow);
+    font-weight: 600;
+}
+
 
 header .hero-container button {
     margin-top: 3rem;
@@ -131,7 +185,7 @@ header .hero-container button:hover {
         top: 70%;
     }
 
-    header .hero-container .search-input {
+    header .hero-container .search-box {
         margin-top: 2rem;
     }
 
@@ -139,12 +193,12 @@ header .hero-container button:hover {
         margin-top: 2rem;
     }
 
-    header .search-input input[type="text"] {
+    header .search-box input[type="text"] {
         border-radius: 7px;
         outline: 2px solid #d9d9d9;
     }
 
-    header .search-input input[type="submit"] {
+    header .search-box input[type="submit"] {
         border-top-right-radius: 7px;
         border-bottom-right-radius: 7px;
         border: 2px solid var(--purple);
@@ -157,7 +211,7 @@ header .hero-container button:hover {
         height: 60vw;
     }
 
-    header .hero-container .search-input {
+    header .hero-container .search-box {
         margin-top: 1.5rem;
     }
 
@@ -165,11 +219,11 @@ header .hero-container button:hover {
         margin-top: 1.5rem;
     }
 
-    header .search-input input[type="text"] {
+    header .search-box input[type="text"] {
         border-radius: 5px;
     }
 
-    header .search-input input[type="submit"] {
+    header .search-box input[type="submit"] {
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
     }
@@ -179,24 +233,26 @@ header .hero-container button:hover {
     header {
         height: 65vw;
     }
-.wave {
-    top: -5.5%;
-    width: 90%;
-}
 
-.wave .circle {
-    top: -7%;
-    left: -33%;
-    width: 55vw;
-    height: 55vw;
-}
+    .wave {
+        top: -5.5%;
+        width: 90%;
+    }
 
-.wave img {
-    top: 53%;
-    left: -2%;
-    width: 41vw;
-    height: 41vw;
-}
+    .wave .circle {
+        top: -7%;
+        left: -33%;
+        width: 55vw;
+        height: 55vw;
+    }
+
+    .wave img {
+        top: 53%;
+        left: -2%;
+        width: 41vw;
+        height: 41vw;
+    }
+
     header .hero-container {
         width: 50%;
         right: 0;

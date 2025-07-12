@@ -22,12 +22,13 @@
 
 .food-modal-container .food-modal img {
     max-height: 370px;
+    width: 100%;
     object-fit: cover;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 .food-modal .food-details {
-    padding: 2rem;
+    padding: 1.5rem 2rem;
 }
 
 .food-modal .food-details .name {
@@ -80,7 +81,17 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
+    max-height: 50px;
+    overflow-y: auto;
+}
+.food-modal .food-details .ingredients::-webkit-scrollbar {
+    width: 3px;
+    height: 100%;
+}
+.food-modal .food-details .ingredients::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 25px;
 }
 .food-details .ingredients span {
     font-size: 0.28em;
