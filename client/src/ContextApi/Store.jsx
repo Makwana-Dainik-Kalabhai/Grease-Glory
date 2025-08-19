@@ -9,21 +9,21 @@ export const ContextProvider = ({ children }) => {
     //! Toast (Alert) Messages
     const showToast = (message, type) => {
         if (type === "error")
-            return toast.error(message, { className: "toast-font-size", });
+            return toast.error(message, { className: (userData && !userData.isAdmin) ? "toast-font-size" : "" });
         if (type === "success")
-            return toast.success(message, { className: "toast-font-size", });
+            return toast.success(message, { className: (userData && !userData.isAdmin) ? "toast-font-size" : "" });
         if (type === "warn")
-            return toast.warn(message, { className: "toast-font-size", });
+            return toast.warn(message, { className: (userData && !userData.isAdmin) ? "toast-font-size" : "" });
     }
 
     //! Get Token
     const getTokenFrLs = () => {
         return (!!localStorage.getItem("token")) && JSON.parse(localStorage.getItem("token")).value;
     }
-    
+
     const [disSignup, setDisSignup] = useState(false);
     const [disLogin, setDisLogin] = useState(false);
-    
+
     const [token, setToken] = useState(() => getTokenFrLs());
     const [isLogin, setIsLogin] = useState(!!token);
     const [isLoading, setIsLoading] = useState(false);
@@ -83,8 +83,10 @@ export const ContextProvider = ({ children }) => {
         }
         catch (err) {
             showToast(err.message, "error");
+            removeTokenFrLs();
         }
     }
+
 
     useEffect(() => {
         !!token && getUserData();
@@ -95,7 +97,7 @@ export const ContextProvider = ({ children }) => {
     const storeTokenInLs = (token) => {
         setToken(token);
         setIsLogin(true);
-        localStorage.setItem("token", JSON.stringify({ value: token, expiry: (new Date()).getTime() + (10 * 24 * 60 * 60) }));
+        localStorage.setItem("token", JSON.stringify({ value: token, expiry: (((new Date()).getTime()) + (10 * 24 * 60 * 60 * 1000)) }));
     }
 
     //! Remove Token
@@ -103,6 +105,7 @@ export const ContextProvider = ({ children }) => {
         setIsLogin(false);
         localStorage.removeItem("token");
         setToken("");
+        setUserData("");
     }
 
     //! Show Loader
@@ -123,8 +126,10 @@ export const ContextProvider = ({ children }) => {
         </div>
     }
 
+    const values = { disSignup, setDisSignup, disLogin, setDisLogin, isLoading, setIsLoading, showLoader, showToast, token, isLogin, storeTokenInLs, getTokenFrLs, removeTokenFrLs, userData, getUserData, cartItems, getCartItems, cartTotSave }
+
     return (
-        <Store.Provider value={{ disSignup, setDisSignup, disLogin, setDisLogin, isLoading, setIsLoading, showLoader, showToast, token, isLogin, storeTokenInLs, getTokenFrLs, removeTokenFrLs, userData, getUserData, cartItems, getCartItems, cartTotSave }}>
+        <Store.Provider value={values}>
             {children}
         </Store.Provider>
     );

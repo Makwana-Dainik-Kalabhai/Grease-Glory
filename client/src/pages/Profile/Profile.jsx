@@ -1,7 +1,7 @@
 import "./Profile.css";
 import { useStore } from "../../ContextApi/Store";
 import { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
 
@@ -33,7 +33,7 @@ export const Profile = () => {
         e.preventDefault();
 
         try {
-            const res = await fetch("http://localhost:3001/user/update", {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}user/update`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"

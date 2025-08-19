@@ -2,7 +2,7 @@ export const OrderCard = ({ ele, showToast, togOrder, setTogOrder, filter, fetch
 
     const cancelOrder = async (_id) => {
         try {
-            const res = await fetch("http://localhost:3001/cancel-order", {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}cancel-order`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"

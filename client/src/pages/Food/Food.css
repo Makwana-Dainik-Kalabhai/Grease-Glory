@@ -63,6 +63,7 @@
 /*! Main Foods Grid */
 .food-grid {
     width: 90%;
+    padding: 0 2rem;
     display: flex;
     flex-direction: column;
     height: 75vh;
@@ -120,6 +121,10 @@
     border: 1px solid #d9d9d9;
 }
 
+.product-imgs img:hover {
+    z-index: 1;
+}
+
 .view-cart-container .details {
     width: 75%;
 }
@@ -152,4 +157,36 @@
 
 .view-cart-container .view-cart-btn:hover {
     background-color: var(--hover-purple);
+}
+
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .view-cart-container {
+        padding: 0.5rem 2rem;
+    }
+    .product-imgs img {
+        width: 30px;
+        height: 30px;
+    }
+    .view-cart-container .details {
+        width: 60%;
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 420px) {
 }

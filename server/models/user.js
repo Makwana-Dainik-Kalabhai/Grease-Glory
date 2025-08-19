@@ -3,6 +3,10 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const userSchema = Schema({
+  active: {
+    type: Boolean,
+    default: true,
+  },
   username: {
     type: String,
     required: true,
@@ -23,10 +27,14 @@ const userSchema = Schema({
     type: Object,
     required: true,
   },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 //* bcrypt Password
-userSchema.pre("save", async function (next) {
+userSchema.pre(["save", "create", "insertOne"], async function (next) {
   const user = this;
 
   if (!user.isModified("password")) {

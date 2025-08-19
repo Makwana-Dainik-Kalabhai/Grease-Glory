@@ -1,6 +1,6 @@
 import "./RecipeDetails.css";
 import { useEffect, useState } from "react";
-import { data, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useStore } from "../../../ContextApi/Store";
 
 export const RecipeDetails = () => {
@@ -32,7 +32,7 @@ export const RecipeDetails = () => {
 
     useEffect(() => {
         fetchDetails();
-    }, []);
+    });
 
     return (
         <>

@@ -1,8 +1,16 @@
 import { useState } from "react";
 import "./Login.css";
 import { useStore } from "../../ContextApi/Store";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 export const Login = () => {
+    const navigate = useNavigate();
 
     const { setDisSignup, setDisLogin, isLoading, setIsLoading, showLoader, showToast, storeTokenInLs } = useStore();
 
@@ -33,6 +41,8 @@ export const Login = () => {
             let myRes = await res.json();
 
             if (res.ok) {
+                if (myRes.isAdmin) navigate("/admin");
+
                 storeTokenInLs(myRes.token);
 
                 setUser({ email: "", password: "" });
@@ -51,6 +61,36 @@ export const Login = () => {
             setIsLoading(false);
         }
     }
+
+
+
+    //! Google Login
+    const loginWithGoogle = async (data) => {
+        try {
+            const res = await fetch(process.env.REACT_APP_BACKEND_URL + "auth/google-login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username: data.name, email: data.email })
+            });
+            const myRes = await res.json();
+
+            if (res.ok) {
+                storeTokenInLs(myRes.token);
+
+                showToast(myRes.message, "success");
+                setDisLogin(false);
+            }
+            else {
+                showToast(myRes.message, "error");
+            }
+            //
+        } catch (err) {
+            showToast(err.message, "error");
+        }
+    }
+
 
     return (
         <div className="login-modal-back">
@@ -71,6 +111,20 @@ export const Login = () => {
 
                     <button type="submit">{isLoading ? showLoader(20, 20, "white") : "Login"}</button>
                     <p>Are You Registered? <span className="signup-link" onClick={() => { setDisLogin(false); setDisSignup(true); }}>signUp</span></p>
+
+
+                    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}>
+                        <GoogleLogin
+                            clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}
+                            onSuccess={credentialResponse => {
+                                loginWithGoogle(jwtDecode(credentialResponse.credential));
+                            }}
+                            onError={(err) => {
+                                showToast(err, "error");
+                            }}
+                            useOneTap
+                        />
+                    </GoogleOAuthProvider>
                 </form>
             </div>
         </div>

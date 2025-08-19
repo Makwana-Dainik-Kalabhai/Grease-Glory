@@ -2,13 +2,14 @@ import "./Home.css";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import about from "./about.jpg";
-import { FOODS } from "./Foods";
 import { GALLERY } from "./Gallery";
 import { Hero } from "../../components/Hero/Hero";
 import { useStore } from "../../ContextApi/Store";
+import { motion } from "framer-motion";
 
 const Home = () => {
     const { showToast } = useStore();
+    const [foods, setFoods] = useState([]);
     const [categories, setCategories] = useState("");
 
     //! Fetch All Foods
@@ -17,8 +18,10 @@ const Home = () => {
             const api = await fetch(`${process.env.REACT_APP_BACKEND_URL}foods`);
             const data = await api.json();
 
-            if (!!data)
+            if (!!data) {
+                setFoods(data);
                 setCategories([...new Map(data.map(item => [item.category, item])).values()]);
+            }
             else
                 showToast(data.message, "error");
         }
@@ -29,7 +32,7 @@ const Home = () => {
 
     useEffect(() => {
         fetchCategories();
-    }, []);
+    });
 
 
 
@@ -46,7 +49,12 @@ const Home = () => {
 
                     <h1>About <span>Us</span></h1>
                     <div className="about-us">
-                        <div>
+                        <motion.div initial={{ opacity: 0.2, x: -100, y: 50 }}
+                            transition={{
+                                duration: 0.8,
+                            }
+                            }
+                            whileInView={{ opacity: 1, x: 0, y: 0 }}>
                             <h2>Grease & Glory</h2>
                             <p>
                                 <b>Grease & Glory</b> is a dynamic and bold food ordering system designed for the modern food enthusiast who craves indulgence without compromise. Specializing in comfort food with a gourmet twist, <b>Grease & Glory</b> brings together the best of both worlds: the rich, savory flavors of classic greasy spoon diners and the elevated, Instagram-worthy presentation of contemporary cuisine.
@@ -58,10 +66,15 @@ const Home = () => {
                                 With a name that celebrates the unapologetic joy of indulgent eating, <b>Grease & Glory</b> is more than just a food ordering system—it's a celebration of flavor, fun, and the glorious satisfaction of a meal done right. Perfect for late-night cravings, weekend feasts, or anytime you want to treat yourself, <b>Grease & Glory</b> is your go-to for food that’s bold, delicious, and unforgettable.
                             </p>
                             <button><NavLink to="/about" style={{ color: "white", textDecoration: "none" }}>Read More</NavLink></button>
-                        </div>
-                        <div>
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0.2, x: 100, y: 50 }}
+                            transition={{
+                                duration: 0.8,
+                            }
+                            } s
+                            whileInView={{ opacity: 1, x: 0, y: 0 }}>
                             <img src={about} alt="Img not Found" />
-                        </div>
+                        </motion.div>
                     </div>
                 </section>
 
@@ -71,7 +84,12 @@ const Home = () => {
                     <div className="decoration-box right-bottom"></div>
 
                     <h1>Choose by <span>Category</span></h1>
-                    <div className="choose-category">
+                    <motion.div className="choose-category" initial={{ opacity: 0.2, y: 200 }}
+                        transition={{
+                            duration: 0.8,
+                        }
+                        }
+                        whileInView={{ opacity: 1, y: 0 }}>
                         {
                             categories && categories.map((e, i) => {
                                 return (
@@ -82,7 +100,7 @@ const Home = () => {
                                 );
                             })
                         }
-                    </div>
+                    </motion.div>
                 </section>
 
 
@@ -93,26 +111,28 @@ const Home = () => {
                     <div className="decoration-box right-bottom"></div>
 
                     <h1>Order <span>Now</span></h1>
-                    <div className="order-now">
-                        {
-                            FOODS.map((e, i) => {
-                                return (
-                                    <a href="/" key={i}>
-                                        <img src={e.link} alt="Img not Found" />
-                                        <div className="product-details">
-                                            <span>{e.name}</span>
-                                            <span>₹{e.price}</span>
-
-                                            <div className="btns">
-                                                <button>Add to Cart</button>
-                                                <button><i className="fa-solid fa-heart"></i></button>
-                                            </div>
-                                        </div>
-                                    </a>
-                                );
-                            })
+                    <motion.div className="order-now" initial={{ opacity: 0.2, y: 200 }}
+                        transition={{
+                            duration: 0.8,
                         }
-                    </div>
+                        }
+                        whileInView={{ opacity: 1, y: 0 }}>
+                        {
+                            foods && foods.map((e, i) => (
+                                i < 15 && <a href="/" key={i}>
+                                    <img src={e.img} alt="Img not Found" />
+                                    <div className="product-details">
+                                        <span className="name">{(e.name.length < 40) ? e.name : e.name.substr(0, 40) + "..."}</span>
+                                        <span className="offer-price">₹{e.offer_price}&nbsp;
+                                            <span className="price">₹{e.price}</span>
+                                        </span>
+
+                                        <button><i className="fa-solid fa-cart-plus"></i>&ensp;Add to Cart</button>
+                                    </div>
+                                </a>
+                            ))
+                        }
+                    </motion.div>
                 </section>
 
 
@@ -128,7 +148,12 @@ const Home = () => {
                             {
                                 GALLERY.map((e, i) => {
                                     return (
-                                        (i < 3) ? <img key={i} src={e} alt="Img not Found" /> : ""
+                                        (i < 3) ? <motion.img key={i} src={e} alt="Img not Found" initial={{ opacity: 0.2, x: -100, y: 50 }}
+                                            transition={{
+                                                duration: 0.8,
+                                            }
+                                            }
+                                            whileInView={{ opacity: 1, x: 0, y: 0 }} /> : ""
                                     );
                                 })
                             }
@@ -137,7 +162,12 @@ const Home = () => {
                             {
                                 GALLERY.map((e, i) => {
                                     return (
-                                        (i >= 3) ? <img key={i} src={e} alt="Img not Found" /> : ""
+                                        (i >= 3) ? <motion.img key={i} src={e} alt="Img not Found" initial={{ opacity: 0.2, x: 100, y: 200 }}
+                                            transition={{
+                                                duration: 0.8,
+                                            }
+                                            }
+                                            whileInView={{ opacity: 1, x: 0, y: 0 }} /> : ""
                                     );
                                 })
                             }
@@ -154,10 +184,13 @@ const Home = () => {
 
                     <h1>Get In <span>Touch</span></h1>
                     <form action="" className="contact-us">
-                        <input type="text" placeholder="User Name" />
-                        <input type="email" placeholder="Email ID" />
-                        <input type="number" placeholder="Phone no." />
-                        <textarea placeholder="Enter Your Message Here..." rows="4"></textarea>
+                        <motion.input initial={{ opacity: 0.2, x: -100 }} transition={{ duration: 0.8 }} whileInView={{ opacity: 1, x: 0 }} type="text" placeholder="User Name" />
+
+                        <motion.input initial={{ opacity: 0.2, x: 100 }} transition={{ duration: 0.8 }} whileInView={{ opacity: 1, x: 0 }} type="email" placeholder="Email ID" />
+
+                        <motion.input initial={{ opacity: 0.2, x: -100 }} transition={{ duration: 0.8 }} whileInView={{ opacity: 1, x: 0 }} type="number" placeholder="Phone no." />
+
+                        <motion.textarea initial={{ opacity: 0.2, x: 100 }} transition={{ duration: 0.8 }} whileInView={{ opacity: 1, x: 0 }} placeholder="Enter Your Message Here..." rows="4"></motion.textarea>
 
                         <button>Send</button>
                     </form>

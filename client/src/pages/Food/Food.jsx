@@ -16,8 +16,6 @@ export const Food = () => {
     const [foodModal, setFoodModal] = useState("");
     const [pageSize, setPageSize] = useState(10);
 
-    const [searchedFood, setSearchedFood] = useState(params.food ? (params.food).toLowerCase() : "");
-
     let prCount = 0;
 
 
@@ -32,6 +30,31 @@ export const Food = () => {
             setIsLoading(false);
         }, 100);
     }
+
+
+
+    //! Search Food
+    const searchFood = async () => {
+        setIsLoading(true);
+        try {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}foods/search`, {
+                method: "GET",
+                headers: {
+                    "food": params.food
+                }
+            });
+            const foods = await res.json();
+
+            if (res.ok) setFoods(foods);
+            else console.log(foods.message);
+            //
+        } catch (err) {
+            console.log(err.message);
+        }
+        setIsLoading(false);
+    }
+
+
 
 
     //! Fetch All Foods
@@ -129,10 +152,8 @@ export const Food = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        fetchFoods();
+        (params.food) ? searchFood() : fetchFoods();
     }, [cartItems]);
-
-    console.log(searchedFood);
 
 
     return (
@@ -142,80 +163,59 @@ export const Food = () => {
             <div className="decoration-box right-bottom"></div>
 
 
-            {/*//! If Food is Searched */}
-            {searchedFood && !Array.isArray(searchedFood) && foods.map((ele, i) => {
-                const filteredCart = cartItems && cartItems.filter(cartEle => cartEle.productId._id === ele._id);
-                filteredCart && JSON.stringify(filteredCart);
-
-                return (ele.name).toLowerCase() === searchedFood && <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
-            })}
-            {searchedFood && Array.isArray(searchedFood) && searchedFood.map((ele, i) => {
-                const filteredCart = cartItems && cartItems.filter(cartEle => cartEle.productId._id === ele._id);
-                filteredCart && JSON.stringify(filteredCart);
-
-                return <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
-            })}
-
-
-
-
-            {/* //! If Food is not searched, then display all foods */}
-            {!searchedFood && <>
-                <div className="category-filter">
-                    <button className={(filterCategory === "all") ? "active" : ""} value="All" onClick={() => setFilter("all")}>All</button>
-                    {categories && categories.map((ele, ind) => {
-                        return (
-                            ind <= 7 && <button className={(filterCategory && filterCategory === ele.category) ? "active" : ""} key={ele.category} value={ele.category} onClick={() => setFilter(ele.category)}>{ele.category}</button>
-                        )
+            <div className="category-filter">
+                <button className={(filterCategory === "all") ? "active" : ""} value="All" onClick={() => setFilter("all")}>All</button>
+                {categories && categories.map((ele, ind) => {
+                    return (
+                        ind <= 7 && <button className={(filterCategory && filterCategory === ele.category) ? "active" : ""} key={ele.category} value={ele.category} onClick={() => setFilter(ele.category)}>{ele.category}</button>
+                    )
+                })}
+                {categories && categories.length > 7 && <select className={((categories.findIndex(item => item.category === filterCategory)) > 7) ? "active" : ""} onChange={(e) => setFilter(e.target.value)}>
+                    <option value="all">More</option>
+                    {categories.map((ele, ind) => {
+                        return ind > 7 && <option value={ele.category} key={ele.category} className={(filterCategory && filterCategory === ele.category) ? "active" : ""}>{ele.category}</option>
                     })}
-                    {/* {console.log(categories.findIndex(item => item.category===filterCategory))} */}
-                    {categories && categories.length > 7 && <select className={((categories.findIndex(item => item.category === filterCategory)) > 7) ? "active" : ""} onChange={(e) => setFilter(e.target.value)}>
-                        <option value="all">More</option>
-                        {categories.map((ele, ind) => {
-                            return ind > 7 && <option value={ele.category} key={ele.category} className={(filterCategory && filterCategory === ele.category) ? "active" : ""}>{ele.category}</option>
+                </select>}
+            </div>
+
+
+            {/*//! Foods Grid */}
+            {foods && <div className="food-grid">
+                {foods.map((ele, i) => {
+                    const filteredCart = cartItems && cartItems.filter(cartEle => cartEle.productId._id === ele._id);
+                    filteredCart && JSON.stringify(filteredCart);
+
+                    if (filterCategory !== "all" && filterCategory.toLowerCase() === ele.category.toLowerCase() && prCount < pageSize) {
+                        prCount++;
+                        return <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
+                    }
+                    else if (filterCategory === "all") {
+                        return i < pageSize &&
+                            <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
+                    }
+                    return ""
+                })}
+                {isLoading ? showLoader(70, 70, "#e88630") : ((filterCategory !== "all" && pageSize - 1 < prCount) ? <button className="btn btn-primary" onClick={loadMoreData}>Load More</button> : (filterCategory === "all" && (pageSize < foods.length) ? <button className="btn btn-primary" onClick={loadMoreData}>Load More</button> : ""))}
+
+
+
+
+
+
+                {/* //! Bottom button to view cart */}
+                {cartItems && cartItems.length !== 0 && <div className="view-cart-container">
+                    <div className="product-imgs">
+                        {!!cartItems && cartItems.map((ele, ind) => {
+                            return ind < 5 && <img src={ele.productId.img} alt={ele.productId.name} key={ind} />
                         })}
-                    </select>}
-                </div>
-
-
-                {/*//! Foods Grid */}
-                {foods && <div className="food-grid">
-                    {foods.map((ele, i) => {
-                        const filteredCart = cartItems && cartItems.filter(cartEle => cartEle.productId._id === ele._id);
-                        filteredCart && JSON.stringify(filteredCart);
-
-                        if (filterCategory !== "all" && filterCategory.toLowerCase() === ele.category.toLowerCase() && prCount < pageSize) {
-                            prCount++;
-                            return <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
-                        }
-                        else if (filterCategory === "all") {
-                            return i < pageSize &&
-                                <FoodCard ele={ele} filterCategory={filterCategory} setFoodModal={setFoodModal} cartItem={filteredCart[0]} addToCart={addToCart} updateCart={updateCart} showToast={showToast} key={ele._id} />
-                        }
-                    })}
-                    {isLoading ? showLoader(70, 70, "#e88630") : ((filterCategory !== "all" && pageSize - 1 < prCount) ? <button className="btn btn-primary" onClick={loadMoreData}>Load More</button> : (filterCategory === "all" && (pageSize < foods.length) ? <button className="btn btn-primary" onClick={loadMoreData}>Load More</button> : ""))}
-
-
-
-
-
-
-                    {/* //! Bottom button to view cart */}
-                    {cartItems && cartItems.length !== 0 && <div className="view-cart-container">
-                        <div className="product-imgs">
-                            {!!cartItems && cartItems.map((ele, ind) => {
-                                return ind < 5 && <img src={ele.productId.img} alt={ele.productId.name} key={ind} />
-                            })}
-                        </div>
-                        <div className="details">
-                            <p className="total-items">{cartItems.length} Items <i className="fa-solid fa-angle-up"></i></p>
-                            <p className="total-save">{cartTotSave > 0 && "₹" + cartTotSave + " Save"}</p>
-                        </div>
-                        <button className="view-cart-btn" onClick={() => navigate("/cart")}>View Cart</button>
-                    </div>}
-                </div>
-                }
-            </>
+                    </div>
+                    <div className="details">
+                        <p className="total-items">{cartItems.length} Items <i className="fa-solid fa-angle-up"></i></p>
+                        <p className="total-save">{cartTotSave > 0 && "₹" + cartTotSave + " Save"}</p>
+                    </div>
+                    <button className="view-cart-btn" onClick={() => navigate("/cart")}>View Cart</button>
+                </div>}
+            </div>
             }
 
             {foodModal !== null && <FoodModal productId={foodModal} foods={foods} setFoodModal={setFoodModal} />}

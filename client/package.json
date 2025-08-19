@@ -2,21 +2,45 @@
   "name": "grease-glory",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "cra-template": "1.2.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-loader-spinner": "^6.1.6",
-    "react-router-dom": "^7.6.2",
-    "react-scripts": "5.0.1",
-    "react-switch": "^7.1.0",
-    "react-toastify": "^11.0.5"
-  },
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "main": "tailwind.config.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@coreui/coreui-pro": "^5.18.0",
+    "@coreui/react-pro": "^5.20.0",
+    "@fortawesome/fontawesome-free": "^7.0.0",
+    "@popperjs/core": "^2.11.8",
+    "@react-oauth/google": "^0.12.2",
+    "@tailwindcss/forms": "^0.5.10",
+    "autoprefixer": "^10.4.21",
+    "chart.js": "^4.5.0",
+    "framer-motion": "^12.23.6",
+    "gulp": "^5.0.1",
+    "gulp-append-prepend": "^1.0.9",
+    "jwt-decode": "^4.0.0",
+    "react": "^19.0.0",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "^19.0.0",
+    "react-google-login": "^5.2.2",
+    "react-loader-spinner": "^6.1.6",
+    "react-router-dom": "^7.6.2",
+    "react-scripts": "5.0.1",
+    "react-toastify": "^11.0.5",
+    "tailwindcss": "2.0.4"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "install": "^0.13.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +59,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "module": "src/index.js"
 }

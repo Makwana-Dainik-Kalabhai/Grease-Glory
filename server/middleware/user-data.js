@@ -10,7 +10,7 @@ const getUserData = async (req, res, next) => {
       .json({ message: "Unathorized HTTP, Token not provided" });
 
   try {
-    const verifyToken = await jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const verifyToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
     if (!verifyToken)
       return res.status(400).json({ message: "Unable to fetch user-data" });

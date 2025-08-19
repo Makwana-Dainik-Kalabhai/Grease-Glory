@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "../../ContextApi/Store";
 import { OrderCard } from "./OrderCard/OrderCard";
 
-export const Orders = () => {
+
+const Orders = () => {
     const navigate = useNavigate();
     const { isLogin, isLoading, setIsLoading, showLoader, showToast, userData } = useStore();
 
@@ -28,7 +29,7 @@ export const Orders = () => {
     const fetchOrders = async (filter) => {
         setIsLoading(true);
         try {
-            const res = await fetch("http://localhost:3001/user/orders", {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}user/orders`, {
                 method: "GET",
                 headers: {
                     "Email": userData.email,
@@ -123,3 +124,5 @@ export const Orders = () => {
         </section>
     )
 }
+
+export default Orders;

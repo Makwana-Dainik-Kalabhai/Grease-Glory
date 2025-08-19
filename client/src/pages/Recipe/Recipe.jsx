@@ -45,11 +45,11 @@ export const Recipe = () => {
     useEffect(() => {
         if (fetchRecipes()) {
 
-            if (pageSize <= recipes.length || recipes.length == 0) {
+            if (pageSize <= recipes.length || recipes.length === 0) {
                 document.getElementById("recipes").addEventListener("scroll", () => loadMoreData(document.getElementById("recipes")));
             }
         }
-    }, []);
+    });
 
     return (
         <>

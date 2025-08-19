@@ -6,11 +6,12 @@ import { Signup } from "../Signup/Signup";
 import { Login } from "../Login/Login";
 import { useStore } from "../../ContextApi/Store";
 
+
 const Header = () => {
 
     const navigate = useNavigate();
 
-    const { disSignup, setDisSignup, disLogin, setDisLogin, isLogin, cartItems } = useStore();
+    const { disSignup, setDisSignup, disLogin, setDisLogin, isLogin, cartItems, removeTokenFrLs } = useStore();
     const [disMenus, setDisMenus] = useState(false);
     const [moreMenus, setMoreMenus] = useState(false);
 
@@ -22,7 +23,7 @@ const Header = () => {
         <>
             <nav className="laptop-nav">
                 <div>
-                    <img src={logo} className="logo" alt="Img not Found" onClick={()=>navigate("/")} />
+                    <img src={logo} className="logo" alt="Img not Found" onClick={() => navigate("/")} />
                 </div>
                 <div>
                     <NavLink to="/">Home</NavLink>
@@ -36,7 +37,7 @@ const Header = () => {
                             <div className="more-menus" style={{ display: moreMenus ? "flex" : "none" }}>
                                 <NavLink to="/orders">Orders</NavLink>
                                 <NavLink to="/profile">Account</NavLink>
-                                <NavLink to="/logout">Logout</NavLink>
+                                <a onClick={removeTokenFrLs}>Logout</a>
                             </div>
                         </button>}
                     {isLogin && <>
@@ -56,7 +57,7 @@ const Header = () => {
 
             <nav className="mobile-nav">
                 <div>
-                    <img src={logo} className="logo" alt="Img not Found" onClick={()=>navigate("/")} />
+                    <img src={logo} className="logo" alt="Img not Found" onClick={() => navigate("/")} />
                     {disMenus &&
                         <>
                             <i className="fa-solid fa-close mobile-menu" onClick={() => setDisMenus(prev => !prev)}></i>
@@ -73,7 +74,7 @@ const Header = () => {
                                 }
                                 {isLogin && <>
                                     <NavLink to="/orders">Orders</NavLink>
-                                    <NavLink to="/logout">Logout</NavLink>
+                                    <a onClick={removeTokenFrLs}>Logout</a>
                                     <NavLink to="cart">View Cart</NavLink>
                                 </>}
                             </div>

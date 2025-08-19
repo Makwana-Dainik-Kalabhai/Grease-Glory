@@ -33,7 +33,7 @@ export const Contact = () => {
         setIsLoading(true);
 
         try {
-            const req = await fetch("http://localhost:3001/contact", {
+            const req = await fetch(`${process.env.REACT_APP_BACKEND_URL}contact`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

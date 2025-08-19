@@ -297,7 +297,7 @@
     align-items: center;
     justify-content: space-between;
 }
-.cart-container .bottom-payment-form span {
+.cart-container .payment-switch span {
     font-size: 0.35em;
     font-weight: 600;
     color: var(--purple);
@@ -317,7 +317,6 @@
     font-weight: 600;
     background-color: var(--yellow);
     padding: 0.75rem 1rem;
-    /* margin-top: 1rem; */
     border: none;
     border-radius: 10px;
 }

@@ -12,16 +12,17 @@ export const FoodCard = ({ ele, setFoodModal, cartItem, addToCart, updateCart, s
             <div className="food-img">
                 <img src={ele.img} alt={ele.name} onClick={() => setFoodModal(ele._id)} />
                 <div className="add-cart-btn">
-                    {(ele.quantity > 0 && cartItem && cartItem.length > 0) ? <>
+                    {console.log(cartItem)}
+                    {(ele.quantity > 0 && cartItem) ? <>
                         <button className="decrement-btn" onClick={() => updateCart(cartItem._id, cartItem.quantity - 1)}><i className="fa-solid fa-minus"></i></button>
 
                         <input type="number" value={cartItem.quantity} readOnly />
 
                         <button className="increment-btn" onClick={() => {
-                            if (cartItem.quantity == 10 && ele.quantity > 10) {
+                            if (cartItem.quantity === 10 && ele.quantity > 10) {
                                 showToast("You can order maximum 10 quantities", "error");
                             }
-                            else if (cartItem.quantity == ele.quantity) {
+                            else if (cartItem.quantity === ele.quantity) {
                                 showToast(`Only ${ele.quantity} quantity is available`, "error");
                             }
                             else {
@@ -47,7 +48,7 @@ export const FoodCard = ({ ele, setFoodModal, cartItem, addToCart, updateCart, s
 
                 <div className="ingredients">
                     {ele.ingredients && ele.ingredients.map((e) => {
-                        return <span>{e[0].toUpperCase() + e.substring(1)}</span>
+                        return <span key={e}>{e[0].toUpperCase() + e.substring(1)}</span>
                     })}
                 </div>
             </div>

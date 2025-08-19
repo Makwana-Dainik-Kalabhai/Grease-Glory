@@ -4,7 +4,7 @@ import "./Address.css";
 
 export const Address = ({ oldAddress, setAddressModal }) => {
 
-    const { isLogin, isLoading, showLoader, setIsLoading, showToast, userData, getUserData } = useStore();
+    const { isLoading, showLoader, setIsLoading, showToast, userData, getUserData } = useStore();
 
     const [address, setAddress] = useState({
         houseNo: oldAddress.houseNo,
@@ -32,7 +32,7 @@ export const Address = ({ oldAddress, setAddressModal }) => {
         try {
             const myUser = { ...userData, address };
 
-            const res = await fetch("http://localhost:3001/user/update", {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}user/update`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",

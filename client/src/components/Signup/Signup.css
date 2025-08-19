@@ -21,6 +21,7 @@
 }
 
 .signup-modal h1 {
+    color: white;
     font-size: 0.55em;
     text-align: center;
     line-height: 1;
@@ -53,7 +54,7 @@
 }
 
 .signup-modal input {
-    width: 97.5%;
+    width: 100%;
     font-size: 0.9em;
     padding: 0.7rem 0 0.7rem 0.9rem;
     border-radius: 25px;

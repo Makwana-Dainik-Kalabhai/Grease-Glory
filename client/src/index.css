@@ -116,9 +116,13 @@ section:nth-of-type(even) .decoration-box {
 
 section.Toastify {
   padding: 0;
-  font-size: 0.33em !important;
   font-weight: 600 !important;
 }
+
+.toast-font-size {
+  font-size: 0.33em !important;
+}
+
 
 
 /*! Button Styling */
@@ -165,16 +169,18 @@ section.Toastify {
   color: white;
   background-color: var(--purple);
 }
+
 .close-modal {
-    font-size: 0.5em;
-    position: absolute;
-    top: 7%;
-    right: 5.5%;
-    cursor: pointer;
-    transition: all 0.2s linear;
+  font-size: 0.5em;
+  position: absolute;
+  top: 7%;
+  right: 5.5%;
+  cursor: pointer;
+  transition: all 0.2s linear;
 }
+
 .close-modal:hover {
-    rotate: 90deg;
+  rotate: 90deg;
 }
 
 
@@ -201,6 +207,7 @@ section.Toastify {
   color: var(--dark-gray);
   margin-bottom: 20px;
 }
+
 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

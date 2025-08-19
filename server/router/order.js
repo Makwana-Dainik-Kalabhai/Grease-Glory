@@ -7,13 +7,31 @@ const Cart = require("../models/cart");
 const getUserData = require("../middleware/user-data");
 const Foods = require("../models/foods");
 
+//! Admin
+const protectAdminRoute = require("../middleware/protect-admin");
+
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-//
-//! Create Order for Razorpay Payment
+//! Admin-Panel Routes
+//* Orders
+router.route("/admin/orders").get(protectAdminRoute, async (req, res) => {
+  try {
+    const orders = await Order.find().sort({ time: -1 });
+
+    if (orders) return res.status(200).json(orders);
+    else return res.status(400).json({ message: "No Data Found" });
+    //
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+});
+
+//? -----------------------------------------------------------------------------------------
+//! User-Panel Routes
+//* Create Order for Razorpay Payment
 router.route("/order/create-order").post(async (req, res) => {
   const options = {
     amount: req.body.amount,
@@ -31,7 +49,7 @@ router.route("/order/create-order").post(async (req, res) => {
 });
 
 //
-//! Verify Payment then Place Order
+//* Verify Payment then Place Order
 router.route("/order/place-order").post(getUserData, async (req, res) => {
   try {
     let date = new Date().toLocaleDateString("en-US");
@@ -109,7 +127,7 @@ router.route("/order/place-order").post(getUserData, async (req, res) => {
 });
 
 //
-//! Get All Orders of particular user
+//* Get All Orders of particular user
 router.route("/user/orders").get(async (req, res) => {
   try {
     const email = req.header("Email");
@@ -171,7 +189,7 @@ router.route("/user/orders").get(async (req, res) => {
   }
 });
 
-//! Cancel Order
+//* Cancel Order
 router.route("/cancel-order").patch(async (req, res) => {
   try {
     const { _id, items } = req.body;

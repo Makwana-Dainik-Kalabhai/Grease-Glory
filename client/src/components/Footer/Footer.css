@@ -26,6 +26,7 @@ footer {
 }
 
 .footer-1 .company-description h1 {
+    color: white;
     line-height: 1;
     margin: 0;
     margin-bottom: 0.7rem;
@@ -33,6 +34,7 @@ footer {
 }
 
 .footer-1 .company-description h2 {
+    color: var(--yellow);
     margin: 0;
     line-height: 1;
     font-size: 0.55em;

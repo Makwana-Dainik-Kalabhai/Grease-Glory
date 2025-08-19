@@ -5,6 +5,7 @@ import "./Cart.css";
 import { Address } from "./Modal/Address";
 import logo from "../../logo.png";
 import Switch from "react-switch";
+import { calculate } from "./calculate";
 
 export const Cart = () => {
     const navigate = useNavigate();
@@ -17,12 +18,11 @@ export const Cart = () => {
         offPrice: 0,
         totPrice: 0,
         totOffPrice: 0,
+        totCost: 0,
         handlingFee: 15,
         delivery: 0,
         gst: 0
     });
-
-    console.log(userData);
 
     const [paymentMode, setPaymentMode] = useState(false);
 
@@ -33,42 +33,7 @@ export const Cart = () => {
     }
 
     useEffect(() => {
-        setTotal({
-            price: 0,
-            offPrice: 0,
-            totPrice: 0,
-            totOffPrice: 0,
-            handlingFee: 15,
-            delivery: 0,
-            gst: 0
-        });
-
-        //! Calculate Total OfferPrice and Price
-        let tmpOff = 0, tmpPrice = 0;
-        cartItems.map((ele) => {
-            if (ele.productId.quantity > 0) {
-                setTotal((prev) => ({ ...prev, ["offPrice"]: (prev.offPrice + (ele.productId.offer_price * ele.quantity)) }));
-                setTotal((prev) => ({ ...prev, ["price"]: (prev.price + (ele.productId.price * ele.quantity)) }));
-
-                tmpOff += (ele.productId.offer_price * ele.quantity);
-                tmpPrice += (ele.productId.price * ele.quantity);
-            }
-            if (ele.productId.quantity <= 0) unavailable += 1;
-        });
-        setTotal((prev) => ({ ...prev, ["delivery"]: (tmpOff < 400 ? 30 : ((tmpOff > 400 && tmpOff < 700) ? 15 : 0)) }));
-        setTotal((prev) => ({ ...prev, ["gst"]: ((tmpOff * 1) / 100) }));
-
-        tmpOff = Math.ceil(tmpOff + 15 + ((tmpOff < 400 ? 30 : ((tmpOff > 400 && tmpOff < 700) ? 15 : 0)) + ((tmpOff * 1) / 100)));
-        setTotal((prev) => ({ ...prev, ["totOffPrice"]: tmpOff }));
-
-        tmpPrice = Math.ceil(tmpPrice + 15 + ((tmpPrice < 400 ? 30 : ((tmpPrice > 400 && tmpPrice < 700) ? 15 : 0)) + ((tmpPrice * 1) / 100)));
-
-        setTotal((prev) => ({ ...prev, ["totPrice"]: tmpPrice }));
-
-
-        //! Set Address for User Details Section
-        !!userData && setAddress(userData.address.houseNo + ", " + userData.address.apartment + " " + (!!userData.address.suite && "near " + userData.address.suite) + ", " + userData.address.city + " - " + userData.address.pincode);
-
+        calculate(setTotal, userData.address, setAddress, unavailable, userData, cartItems);
         //
     }, [cartItems, userData]);
 
@@ -361,8 +326,10 @@ export const Cart = () => {
                         <span>Payment Mode:</span>
                         <span><Switch onChange={(next) => setPaymentMode(next)} checked={paymentMode} className="react-switch" />&ensp;Cash On Delivery</span>
                     </div>
-                    <button onClick={() => { (!address) ? setAddressModal(true) : (paymentMode ? (
-                        (window.confirm("Are you sure to place order?") && verifyPayment("", false))) : payNow()) }}>{(!!address) ? "Place Order Now" : "Proceed with address"}</button>
+                    <button onClick={() => {
+                        (!address) ? setAddressModal(true) : (paymentMode ? (
+                            (window.confirm("Are you sure to place order?") && verifyPayment("", false))) : payNow())
+                    }}>{(!!address) ? "Place Order Now" : "Proceed with address"}</button>
                 </div>
             </div>}
 
